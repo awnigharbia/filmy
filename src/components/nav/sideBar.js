@@ -10,10 +10,10 @@ import { home } from "react-icons-kit/entypo/home";
 export default props => (
   <Sidebar pose={props.isSidebarOpen ? "open" : "closed"}>
     <Sidebar.top>
-      <Sidebar.top.icon onClick={props.onClick}>
+      <Sidebar.top.icon onClick={props.toggleSidebar}>
         <Icon size={25} icon={menu} />
       </Sidebar.top.icon>
-      <Sidebar.top.title>Filmy</Sidebar.top.title>
+      <Sidebar.top.title>filmy</Sidebar.top.title>
     </Sidebar.top>
     <Sidebar.center>
       <SidebarItem icon={home} exact={true} to="/" size={20} label="Home" />
@@ -24,7 +24,7 @@ export default props => (
         label="Latest movies"
       />
       <SidebarItemGroup
-        to="/categories"
+        {...props}
         icon={list}
         size={20}
         label="Categories"

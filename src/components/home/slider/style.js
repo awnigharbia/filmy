@@ -55,7 +55,6 @@ const ActiveImg = styled(img)`
     props.active ? "0px 100px 0px 100px" : "0px 15px 0px 0px"};
   opacity: 0.5;
   z-index: 4;
-  
 `;
 
 const activeModal = styled.div`
@@ -81,7 +80,7 @@ const modalInfo = styled.div`
   height: 90%;
   flex-shrink: 0;
   background-color: white;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.11), 0 10px 40px rgba(0, 0, 0, 0.19);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
@@ -98,7 +97,8 @@ const arrow = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.7);
   z-index: 4;
   cursor: pointer;
   user-select: none;
@@ -107,6 +107,7 @@ const arrow = styled.div`
 
   &:hover {
     transform: scale(1.1);
+    background-color: white;
   }
 `;
 
@@ -115,11 +116,6 @@ const leftArrow = styled(arrow)`
 `;
 const rightArrow = styled(arrow)`
   right: 20px;
-`;
-
-const arrowImg = styled.img`
-  width: 35px;
-  height: 25px;
 `;
 
 const modalImg = styled(img)`
@@ -237,7 +233,6 @@ SliderParent.img = ActiveImg;
 SliderParent.title = welcome;
 SliderParent.leftArrow = leftArrow;
 SliderParent.rightArrow = rightArrow;
-SliderParent.arrowImg = arrowImg;
 
 // Modal
 SliderParent.modal = activeModal;

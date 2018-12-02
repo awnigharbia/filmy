@@ -1,1 +1,1 @@
-export { default as SidebarItem } from "./nav/sidebarItem";
+export {default as SidebarItem} from 'nav/sidebarItem'

@@ -1,29 +1,29 @@
-import React, { Component } from "react";
-import { imgs } from "./constants";
-import SliderChildren from "./slider";
+import React, {Component} from 'react'
+import SliderChildren from './slider'
 
 export default class Slider extends Component {
   state = {
-    imgs: imgs,
     activeIndex: 2,
-    translateValue: 0
-  };
+    translateValue: 0,
+  }
 
   nextImg = () => {
+    const {movies} = this.props
+
     this.setState(
       prevState =>
-        prevState.activeIndex === imgs.length - 1
+        prevState.activeIndex === movies.length - 1
           ? {
               activeIndex: 2,
-              translateValue: 0
+              translateValue: 0,
             }
           : {
               activeIndex: prevState.activeIndex + 1,
-              translateValue: prevState.translateValue - 250
+              translateValue: prevState.translateValue - 250,
             },
-      () => this.changeActive(this.state.activeIndex)
-    );
-  };
+      () => this.changeActive(this.state.activeIndex),
+    )
+  }
 
   backImg = () =>
     this.setState(
@@ -32,35 +32,33 @@ export default class Slider extends Component {
           ? null
           : {
               activeIndex: prevState.activeIndex - 1,
-              translateValue: prevState.translateValue + 250
+              translateValue: prevState.translateValue + 250,
             },
 
-      () => this.changeActive(this.state.activeIndex)
-    );
+      () => this.changeActive(this.state.activeIndex),
+    )
 
-  changeActive = id => {
-    imgs[id].active = true;
-    imgs.filter((x, key) => key !== id).map(x => (x.active = false));
-    this.setState({ imgs: imgs, activeIndex: id });
-  };
+  changeActive = id => this.setState({activeIndex: id})
 
   handleArrow = e => {
     return e.keyCode === 39
       ? this.nextImg()
       : e.keyCode === 37
-        ? this.backImg()
-        : null;
-  };
+      ? this.backImg()
+      : null
+  }
 
   componentDidMount() {
-    document.addEventListener("keydown", this.handleArrow, false);
+    document.addEventListener('keydown', this.handleArrow, false)
   }
 
   componentWillUnmount() {
-    document.removeEventListener("keydown", this.handleArrow, false);
+    document.removeEventListener('keydown', this.handleArrow, false)
   }
 
   render() {
-    return <SliderChildren {...this} {...this.state} />;
+    return this.props.loading ? null : (
+      <SliderChildren {...this} {...this.state} {...this.props} />
+    )
   }
 }

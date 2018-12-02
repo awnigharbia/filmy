@@ -1,8 +1,19 @@
-import React, { Component } from "react";
-import { Center as Center1} from "./style";
+import React, {Component} from 'react'
+import {Wrapper} from './style'
+import TopHeader from './topHeader'
+import MoviesPanel from 'generic/movies/movies'
 
 export default class Center extends Component {
   render() {
-    return <Center1>Hello</Center1>;
+    return (
+      <Wrapper>
+        <TopHeader {...this.state} {...this} />
+        <MoviesPanel
+          loading={this.props.loading}
+          movies={this.props.movies}
+          loader={false}
+        />
+      </Wrapper>
+    )
   }
 }

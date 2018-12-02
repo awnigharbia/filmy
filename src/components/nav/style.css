@@ -1,0 +1,134 @@
+.search {
+  position: relative;
+  display: flex;
+  flex: 0.5;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  z-index: 30;
+}
+
+.search-result {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0px;
+  width: 100%;
+  border-radius: 20px;
+  z-index: 0;
+  overflow: hidden;
+  padding-top: 55px;
+  background-color: white;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.08), 0 1px 5px 0 rgba(0, 0, 0, 0.3),
+    0 1px 5px -2px rgba(0, 0, 0, 0.31);
+}
+
+.search-results {
+  width: 100%;
+  overflow: auto;
+}
+
+.search-result-item {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0px 20px;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  border-bottom-width: 1.5px;
+  border-bottom-style: solid;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: rgba(153, 153, 153, 0.15);
+  transition: 0.2s ease;
+}
+
+.search-result-item-img {
+  display: flex;
+  padding: 5px;
+  width: 40px;
+  height: 60px;
+}
+
+.search-result-item-img img {
+  border-radius: 2px;
+  width: 100%;
+}
+
+.search-result-item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 0.7;
+  justify-content: center;
+}
+
+.search-result-item-info h1 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0px;
+  margin-right: auto;
+  padding: 0px;
+  font-weight: 500;
+}
+
+.search-result-item-info p {
+  margin: 0px 0px 0px 5px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.search-result-item-arrow {
+  display: flex;
+  flex: 0.1;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  display: flex;
+  width: 90%;
+  padding: 10px 13px 10px 0px;
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.search-input:focus .search-input-wrapper {
+  background-color: white !important;
+  transition: 0.2s ease-in;
+}
+
+.search-input-wrapper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  background-color: #eae7e7;
+  border-radius: 25px;
+  border: 1.5px solid #eae7e7;
+}
+
+.search-input-img-wrapper {
+  display: flex;
+  width: 10%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+
+.search-input-img-wrapper img {
+  height: 28px;
+  height: 28px;
+  border: 0px;
+}
+
+.active-search {
+  background-color: white !important;
+  border: 1.5px solid #1e88e5;
+  transition: 0.2s ease background-color;
+}
