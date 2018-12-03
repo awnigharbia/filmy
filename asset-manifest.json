@@ -1,7 +1,7 @@
 {
   "main.css": "/filmy/static/css/main.a73c7b4e.chunk.css",
-  "main.js": "/filmy/static/js/main.4341c1b5.chunk.js",
-  "main.js.map": "/filmy/static/js/main.4341c1b5.chunk.js.map",
+  "main.js": "/filmy/static/js/main.f2e0d29b.chunk.js",
+  "main.js.map": "/filmy/static/js/main.f2e0d29b.chunk.js.map",
   "static/css/1.de4692de.chunk.css": "/filmy/static/css/1.de4692de.chunk.css",
   "static/js/1.08794e27.chunk.js": "/filmy/static/js/1.08794e27.chunk.js",
   "static/js/1.08794e27.chunk.js.map": "/filmy/static/js/1.08794e27.chunk.js.map",
@@ -13,6 +13,6 @@
   "static/media/poster_video.mp4": "/filmy/static/media/poster_video.7999bcea.mp4",
   "static/css/1.de4692de.chunk.css.map": "/filmy/static/css/1.de4692de.chunk.css.map",
   "index.html": "/filmy/index.html",
-  "precache-manifest.5f5b17a00b12ff6bec73928a511c279b.js": "/filmy/precache-manifest.5f5b17a00b12ff6bec73928a511c279b.js",
+  "precache-manifest.7d93e19a2c0249f56718461f33d05721.js": "/filmy/precache-manifest.7d93e19a2c0249f56718461f33d05721.js",
   "service-worker.js": "/filmy/service-worker.js"
 }
