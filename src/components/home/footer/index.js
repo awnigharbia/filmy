@@ -1,6 +1,6 @@
 import React from 'react'
 import {Footer} from './style'
-import Popcorn from 'imgs/popcorn.svg'
+import Popcorn from '../../../imgs/popcorn.svg'
 
 export default () => (
   <Footer>

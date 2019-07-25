@@ -1,6 +1,6 @@
 import React from 'react'
 import {WlcSection} from './style'
-import Video from 'imgs/poster_video.mp4'
+import Video from '../../../imgs/poster_video.mp4'
 
 export default () => (
   <WlcSection>

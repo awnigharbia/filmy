@@ -2,8 +2,8 @@ import React, {useRef, useState} from 'react'
 import './style.css'
 import {Icon} from 'react-icons-kit'
 import {search} from 'react-icons-kit/feather'
-import API from 'movie'
-import useOnClickOutside from 'hooks/outSideHook.js'
+import API from '../../api/movie'
+import useOnClickOutside from '../hooks/outSideHook.js'
 
 // Componets
 import FilmSearchResult from './filmSearchResult'

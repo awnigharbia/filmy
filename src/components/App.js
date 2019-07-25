@@ -1,10 +1,10 @@
 import React, {Component, createContext} from 'react'
-import Navbar from 'nav/'
+import Navbar from './nav/'
 import {Route, Switch} from 'react-router-dom'
-import Home from 'home'
-import MoviesList from 'movies/'
-import MovieModal from 'generic/movieModal/'
-import API from 'api/movie'
+import Home from './home'
+import MoviesList from './movies/'
+import MovieModal from './generic/movieModal/'
+import API from '../api/movie'
 
 // constant
 const url = 'https://api.apiumando.info/'

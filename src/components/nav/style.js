@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import posed from 'react-pose'
 
 //imgs
-import Logo from 'imgs/logo.svg'
+import Logo from '../../imgs/logo.svg'
 
 // configure animation `react-pose`
 const sidebarState = posed.div({

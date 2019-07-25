@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Wrapper} from './style'
-import MoviesPanel from 'generic/movies/movies'
+import MoviesPanel from '../generic/movies/movies'
 
 class MoviesList extends Component {
   state = {

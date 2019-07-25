@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
-import Link from 'Link'
+import Link from '../Link'
 
 export const SidebarLink = ({to, activeOnlyWhenExact, children}) => (
   <Route

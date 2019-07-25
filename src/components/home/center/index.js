@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Wrapper} from './style'
 import TopHeader from './topHeader'
-import MoviesPanel from 'generic/movies/movies'
+import MoviesPanel from '../../generic/movies/movies'
 
 export default class Center extends Component {
   render() {

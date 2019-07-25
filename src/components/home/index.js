@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Slider from './slider'
-import Center from './center'
+import Slider from './slider/'
+import Center from './center/'
 import WelcomeSection from './wlcSection/'
 import Footer from './footer/'
 

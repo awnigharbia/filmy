@@ -4,7 +4,7 @@ import MovieCard from './movieCard'
 import ReactPlaceholder from 'react-placeholder'
 import 'react-placeholder/lib/reactPlaceholder.css'
 import {ModalProvider} from '../../App'
-import useBottom from 'hooks/useBottom'
+import useBottom from '../../hooks/useBottom'
 import {css} from 'emotion'
 import BounceLoader from 'react-spinners/BounceLoader'
 
@@ -27,12 +27,9 @@ function MoviesPanel(props) {
     const panelRef = useRef()
     const {isBottom} = (props.loader && useBottom(panelRef)) || false
 
-    useEffect(
-      () => {
-        if (isBottom) props.fetchMore()
-      },
-      [isBottom],
-    )
+    useEffect(() => {
+      if (isBottom) props.fetchMore()
+    }, [isBottom])
 
     return (
       <>
