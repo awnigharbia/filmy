@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Icon} from 'react-icons-kit'
-import {arrowDown} from 'react-icons-kit/feather'
+import {ic_subtitles} from 'react-icons-kit/md/ic_subtitles'
+import {downloadCloud} from 'react-icons-kit/feather/downloadCloud'
 
 // components
 import {Modal} from './style'
@@ -13,13 +14,15 @@ export default class SelectQuality extends Component {
   toggleLink = e => this.setState({activeItem: e.target.value})
 
   render() {
-    const {links, ytsTorrents} = this.props
+    const {links} = this.props
     const {activeItem} = this.state
     const href =
-      typeof links[activeItem] === 'undefined'
-        ? ytsTorrents[activeItem - 20].url
-        : links[activeItem].torrent_magnet
-
+      (typeof links[activeItem] !== 'undefined' &&
+        links[activeItem].torrent_magnet) ||
+      ''
+    const subtitleLink = `https://www.yifysubtitles.com/movie-imdb/${
+      this.props.imdb
+    }`
     return (
       <>
         <Modal.right.qualities>
@@ -29,26 +32,35 @@ export default class SelectQuality extends Component {
                 {item.file}
               </option>
             ))}
-            {ytsTorrents.map((item, key) => (
-              <option key={item.hash} value={key + 20}>
-                {`YTS.AM ${item.quality}`}
-              </option>
-            ))}
           </Modal.right.select>
         </Modal.right.qualities>
-        <Modal.right.download href={href} target="_blank">
+        <Modal.right.download
+          href={subtitleLink}
+          target="_blank"
+          color="#1976d2"
+        >
           <Modal.right.download.icon>
-            <Icon icon={arrowDown} size={30} />
+            <Icon icon={ic_subtitles} size={30} />
+          </Modal.right.download.icon>
+          <Modal.right.download.btn>Subtitles</Modal.right.download.btn>
+        </Modal.right.download>
+        <Modal.right.download
+          href={href}
+          target="_blank"
+          color="#3ac569"
+          animate
+        >
+          <Modal.right.download.icon>
+            <Icon icon={downloadCloud} size={30} />
           </Modal.right.download.icon>
           <Modal.right.download.btn>
             Download{' '}
             <span>
               (
-              {typeof links[activeItem] === 'undefined'
-                ? ytsTorrents[activeItem - 20].size
-                : `${(links[activeItem].size_bytes / 1000000 / 1000).toFixed(
-                    2,
-                  )}GB`}
+              {typeof links[activeItem] !== 'undefined' &&
+                `${(links[activeItem].size_bytes / 1000000 / 1000).toFixed(
+                  2,
+                )}GB`}
               )
             </span>
           </Modal.right.download.btn>

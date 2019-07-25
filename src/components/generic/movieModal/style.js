@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components'
+import styled, {keyframes, css} from 'styled-components'
 import posed from 'react-pose'
 
 // configure animation `react-pose`
@@ -203,11 +203,15 @@ const download = styled.a`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #3ac569;
+  background-color: ${props => props.color};
   border-radius: 3px;
   overflow: hidden;
   opacity: 1;
-  animation: ${pulse} 3s linear infinite;
+  animation: ${props =>
+    props.animate &&
+    css`
+      ${pulse} 3s linear infinite
+    `};
   transition: 0.2s ease-in-out;
   margin-top: 10px;
   text-decoration: none;
@@ -239,7 +243,7 @@ const icon = styled.div`
   color: white;
   margin-right: auto;
   padding: 6px 10px;
-  background-color: #23af52;
+  background-color: ${props => props.color || 'inherit'};
 `
 
 Modal.content = ModalContent

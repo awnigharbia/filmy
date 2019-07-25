@@ -8,7 +8,6 @@ import API from 'api/movie'
 
 // constant
 const url = 'https://api.apiumando.info/'
-const yts = 'https://yts.am/api/v2/'
 
 const ModalProvider = createContext('modal')
 
@@ -19,7 +18,6 @@ class App extends Component {
     movies: [],
     page: 1,
     data: {},
-    ytsTorrents: [],
   }
 
   handleOpen = imdb => {
@@ -30,16 +28,10 @@ class App extends Component {
       API.movies(url)
         .getDetails(imdb)
         .then(data => {
-          API.movies(yts)
-            .getYtsDownload(imdb)
-            .then(yts => {
-              this.setState({
-                open: !this.state.open,
-                data: data.data,
-                ytsTorrents:
-                  yts.movie_count !== 0 && yts.data.data.movies[0].torrents,
-              })
-            })
+          this.setState({
+            open: !this.state.open,
+            data: data.data,
+          })
         })
     }
   }
@@ -70,7 +62,6 @@ class App extends Component {
             open={this.state.open}
             handleOpen={this.handleOpen}
             data={this.state.data}
-            ytsTorrents={this.state.ytsTorrents}
           />
           <Switch>
             <Route exact path="/" render={() => <Home {...this.state} />} />

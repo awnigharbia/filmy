@@ -12,8 +12,17 @@ import {Modal} from './style'
 export default ({
   open,
   handleOpen,
-  data: {title, poster_big, rating, description, year, genres, trailer, items},
-  ytsTorrents,
+  data: {
+    title,
+    poster_big,
+    rating,
+    description,
+    year,
+    genres,
+    trailer,
+    items,
+    imdb,
+  },
 }) => (
   <PoseGroup>
     {open && [
@@ -101,7 +110,7 @@ export default ({
                 />
               }
             />
-            <SelectQuality links={items} ytsTorrents={ytsTorrents}/>
+            <SelectQuality links={items} imdb={imdb} />
           </Modal.right>
         </Modal.content>
       </Modal>,

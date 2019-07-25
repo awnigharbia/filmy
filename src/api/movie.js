@@ -2,9 +2,7 @@ import axios from 'axios'
 
 const url2 = 'https://tinfo.apiumando.info/3/movie/'
 const API_KEY = '49101d62654e71a2931722642ac07e5e'
-const imgDomain = 'https://image.tmdb.org/t/p/w780/'
 const yts = 'https://yts.am/api/v2/'
-// https://yts.am/api/v2/list_movies.json?query_term=tt3829266&limit=1
 
 export default {
   movies(url) {
