@@ -1,12 +1,9 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import ModalContent from './modalContent'
+import useLockBodyScroll from '../../hooks/useLockBodyScroll'
 
-export default class MovieModal extends Component {
-  state = {
-    loading: true,
-  }
+export default function MovieModal(props) {
+  const [loading, setLoading] = useState(false)
 
-  render() {
-    return <ModalContent {...this} {...this.state.data} {...this.props} />
-  }
+  return <ModalContent loading={loading} {...props} />
 }
