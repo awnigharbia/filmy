@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "998b83bf2649e446728b",
-    "url": "/filmy/static/css/main.d5a026d3.chunk.css"
+    "revision": "f30d32b6ab039fe8ebfd",
+    "url": "/filmy/static/css/main.20e7a829.chunk.css"
   },
   {
-    "revision": "998b83bf2649e446728b",
-    "url": "/filmy/static/js/main.998b83bf.chunk.js"
+    "revision": "f30d32b6ab039fe8ebfd",
+    "url": "/filmy/static/js/main.f30d32b6.chunk.js"
   },
   {
-    "revision": "92515da6cd38b7020017",
+    "revision": "60e96c9151fc077dd3ee",
     "url": "/filmy/static/css/1.ee2dfe73.chunk.css"
   },
   {
-    "revision": "92515da6cd38b7020017",
-    "url": "/filmy/static/js/1.92515da6.chunk.js"
+    "revision": "60e96c9151fc077dd3ee",
+    "url": "/filmy/static/js/1.60e96c91.chunk.js"
   },
   {
     "revision": "c78d9b6a0433c88c3a67",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/filmy/static/media/popcorn.e8b82566.svg"
   },
   {
-    "revision": "219e4511adf34b60b4cde8c8ceb8e9de",
+    "revision": "18ac6dfb30b00ffee961024e8e369ff0",
     "url": "/filmy/index.html"
   }
 ];
