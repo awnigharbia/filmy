@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "f30d32b6ab039fe8ebfd",
-    "url": "/filmy/static/css/main.20e7a829.chunk.css"
+    "revision": "3186538353f10e66a3c1",
+    "url": "/filmy/static/css/main.073c3bec.chunk.css"
   },
   {
-    "revision": "f30d32b6ab039fe8ebfd",
-    "url": "/filmy/static/js/main.f30d32b6.chunk.js"
+    "revision": "3186538353f10e66a3c1",
+    "url": "/filmy/static/js/main.31865383.chunk.js"
   },
   {
     "revision": "60e96c9151fc077dd3ee",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/filmy/static/media/popcorn.e8b82566.svg"
   },
   {
-    "revision": "18ac6dfb30b00ffee961024e8e369ff0",
+    "revision": "b575c97e03d6afea098bb07d8aae7f56",
     "url": "/filmy/index.html"
   }
 ];

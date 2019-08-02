@@ -1,7 +1,7 @@
 {
-  "main.css": "/filmy/static/css/main.20e7a829.chunk.css",
-  "main.js": "/filmy/static/js/main.f30d32b6.chunk.js",
-  "main.js.map": "/filmy/static/js/main.f30d32b6.chunk.js.map",
+  "main.css": "/filmy/static/css/main.073c3bec.chunk.css",
+  "main.js": "/filmy/static/js/main.31865383.chunk.js",
+  "main.js.map": "/filmy/static/js/main.31865383.chunk.js.map",
   "static/css/1.ee2dfe73.chunk.css": "/filmy/static/css/1.ee2dfe73.chunk.css",
   "static/js/1.60e96c91.chunk.js": "/filmy/static/js/1.60e96c91.chunk.js",
   "static/js/1.60e96c91.chunk.js.map": "/filmy/static/js/1.60e96c91.chunk.js.map",
@@ -10,9 +10,9 @@
   "static/media/logo.svg": "/filmy/static/media/logo.1239a23a.svg",
   "static/media/poster_video.mp4": "/filmy/static/media/poster_video.7999bcea.mp4",
   "static/media/popcorn.svg": "/filmy/static/media/popcorn.e8b82566.svg",
-  "static/css/main.20e7a829.chunk.css.map": "/filmy/static/css/main.20e7a829.chunk.css.map",
+  "static/css/main.073c3bec.chunk.css.map": "/filmy/static/css/main.073c3bec.chunk.css.map",
   "static/css/1.ee2dfe73.chunk.css.map": "/filmy/static/css/1.ee2dfe73.chunk.css.map",
   "index.html": "/filmy/index.html",
-  "precache-manifest.17dd2a1f9ebac8e9226dab4577c79268.js": "/filmy/precache-manifest.17dd2a1f9ebac8e9226dab4577c79268.js",
+  "precache-manifest.aad7e6bf815dba44c7ae0380bb8c799b.js": "/filmy/precache-manifest.aad7e6bf815dba44c7ae0380bb8c799b.js",
   "service-worker.js": "/filmy/service-worker.js"
 }
