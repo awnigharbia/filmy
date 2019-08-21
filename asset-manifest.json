@@ -1,10 +1,10 @@
 {
   "main.css": "/filmy/static/css/main.073c3bec.chunk.css",
-  "main.js": "/filmy/static/js/main.31865383.chunk.js",
-  "main.js.map": "/filmy/static/js/main.31865383.chunk.js.map",
+  "main.js": "/filmy/static/js/main.b6a1ff3f.chunk.js",
+  "main.js.map": "/filmy/static/js/main.b6a1ff3f.chunk.js.map",
   "static/css/1.ee2dfe73.chunk.css": "/filmy/static/css/1.ee2dfe73.chunk.css",
-  "static/js/1.60e96c91.chunk.js": "/filmy/static/js/1.60e96c91.chunk.js",
-  "static/js/1.60e96c91.chunk.js.map": "/filmy/static/js/1.60e96c91.chunk.js.map",
+  "static/js/1.3a282146.chunk.js": "/filmy/static/js/1.3a282146.chunk.js",
+  "static/js/1.3a282146.chunk.js.map": "/filmy/static/js/1.3a282146.chunk.js.map",
   "runtime~main.js": "/filmy/static/js/runtime~main.c78d9b6a.js",
   "runtime~main.js.map": "/filmy/static/js/runtime~main.c78d9b6a.js.map",
   "static/media/logo.svg": "/filmy/static/media/logo.1239a23a.svg",
@@ -13,6 +13,6 @@
   "static/css/main.073c3bec.chunk.css.map": "/filmy/static/css/main.073c3bec.chunk.css.map",
   "static/css/1.ee2dfe73.chunk.css.map": "/filmy/static/css/1.ee2dfe73.chunk.css.map",
   "index.html": "/filmy/index.html",
-  "precache-manifest.aad7e6bf815dba44c7ae0380bb8c799b.js": "/filmy/precache-manifest.aad7e6bf815dba44c7ae0380bb8c799b.js",
+  "precache-manifest.ce120887e443fb4a03c231aa07284a7e.js": "/filmy/precache-manifest.ce120887e443fb4a03c231aa07284a7e.js",
   "service-worker.js": "/filmy/service-worker.js"
 }
