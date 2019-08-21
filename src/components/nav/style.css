@@ -110,14 +110,13 @@
   background-color: #eae7e7;
   border-radius: 25px;
   border: 1.5px solid #eae7e7;
+  align-items: center;
 }
 
 .search-input-img-wrapper {
   display: flex;
   width: 10%;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
   color: gray;
 }
 

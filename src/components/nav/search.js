@@ -83,7 +83,15 @@ function Search(props) {
         style={{border: focused === 2 ? 'none' : ''}}
       >
         <div className="search-input-img-wrapper">
-          <Icon size={20} icon={search} />
+          <Icon
+            size={20}
+            icon={search}
+            style={{
+              height: '20px',
+              display: 'inline-block',
+              marginTop: '-6px',
+            }}
+          />
         </div>
         <input
           type="text"

@@ -130,7 +130,7 @@ const modalImg = styled(img)`
 
 const modalTitle = styled.h3`
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 500;
   margin: 15px 0px;
   color: #475069;
 `;
