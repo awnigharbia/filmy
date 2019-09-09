@@ -1,8 +1,8 @@
-import styled, {keyframes, css} from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 import posed from 'react-pose'
 
 // configure animation `react-pose`
-export const content = posed.div({
+export const Content = posed.div({
   enter: {
     y: '0%',
     staggerChildren: 50,
@@ -16,7 +16,7 @@ export const content = posed.div({
   },
 })
 
-export const modal = posed.div({
+export const ModalKeyframes = posed.div({
   enter: {
     opacity: 1,
   },
@@ -40,7 +40,7 @@ export const pulse = keyframes`
   }
 `
 
-export const Modal = styled(modal)`
+export const Modal = styled(ModalKeyframes)`
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -54,7 +54,7 @@ export const Modal = styled(modal)`
   transition: 0.2s ease;
 `
 
-export const ModalContent = styled(content)`
+export const ModalContent = styled(Content)`
   position: relative;
   z-index: 10;
   display: flex;
@@ -71,7 +71,7 @@ export const ModalContent = styled(content)`
   border-top-right-radius: 25px;
 `
 
-export const close = styled.div`
+export const Close = styled.div`
   display: flex;
   padding: 5px;
   border-radius: 50%;
@@ -85,7 +85,7 @@ export const close = styled.div`
   }
 `
 
-export const leftSection = styled.div`
+export const LeftSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -95,7 +95,7 @@ export const leftSection = styled.div`
   flex: 0.8;
 `
 
-export const img = styled.img`
+export const Img = styled.img`
   margin-top: -50%;
   width: 100%;
   max-width: 300px;
@@ -110,14 +110,14 @@ export const img = styled.img`
   }
 `
 
-export const name = styled.h2`
+export const Name = styled.h2`
   font-weight: 500;
   font-size: 22px;
   margin: 0;
   color: rgba(0, 0, 0, 0.85);
 `
 
-export const socialShare = styled.div`
+export const SocialShare = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -129,7 +129,7 @@ export const socialShare = styled.div`
   }
 `
 
-export const center = styled.div`
+export const Center = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -137,14 +137,14 @@ export const center = styled.div`
   flex-grow: 1;
 `
 
-export const category = styled.div`
+export const Category = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 20px;
 `
 
-export const catTitle = styled.p`
+export const CatTitle = styled.p`
   font-size: 16px;
   font-weight: 500;
   margin: 0;
@@ -152,14 +152,14 @@ export const catTitle = styled.p`
   color: rgba(0, 0, 0, 0.9);
 `
 
-export const catBody = styled.p`
+export const CatBody = styled.p`
   font-size: 13px;
   margin: 0;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.7);
 `
 
-export const catGenres = styled.ul`
+export const CatGenres = styled.ul`
   margin: 0;
   line-height: 1.5;
   font-size: 14px;
@@ -173,7 +173,7 @@ export const bio = styled.div`
   font-weight: 500;
 `
 
-export const right = styled.div`
+export const Right = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -182,13 +182,13 @@ export const right = styled.div`
   padding: 20px 0px 0px 40px;
 `
 
-export const qualities = styled.div`
+export const Qualities = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 `
 
-export const selectQuality = styled.select`
+export const SelectQuality = styled.select`
   width: 100%;
   flex-shrink: 0;
   border-radius: 5px;
@@ -198,7 +198,7 @@ export const selectQuality = styled.select`
   box-shadow: 0 1px 10px rgba(146, 109, 222, 0.5);
 `
 
-export const download = styled.a<{color:string,animate:boolean}>`
+export const Download = styled.a<{ color: string, animate: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -221,7 +221,7 @@ export const download = styled.a<{color:string,animate:boolean}>`
   }
 `
 
-export const downloadBtn = styled.div`
+export const DownloadBtn = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -234,7 +234,7 @@ export const downloadBtn = styled.div`
   background-color: transparent;
 `
 
-export const icon = styled.div`
+export const Icon = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -1,9 +1,9 @@
-import React, {useRef, useState, ChangeEvent, FC} from 'react'
+import React, { useRef, useState, ChangeEvent, FC } from 'react'
 import './style.css'
-import {Icon} from 'react-icons-kit'
-import {search} from 'react-icons-kit/feather'
+import { Icon } from 'react-icons-kit'
+import { search } from 'react-icons-kit/feather'
 import API from '../../api/movie'
-import useOnClickOutside from '../hooks/outSideHook.js'
+import useOnClickOutside from '../hooks/outSideHook'
 
 // Componets
 import FilmSearchResult from './filmSearchResult'
@@ -17,10 +17,10 @@ function useSearch() {
   const [text, setText] = useState("")
   const [results, setResults] = useState([])
   const searchResultRef = useRef<HTMLDivElement>(null)
- 
+
   const params = {
-    ref:searchResultRef,
-    handler:() => setFocused(0)
+    ref: searchResultRef,
+    handler: () => setFocused(0)
   }
 
   useOnClickOutside(params)
@@ -33,7 +33,7 @@ function useSearch() {
     setFocused(2)
   }
 
-  function handleChange(e:ChangeEvent<HTMLInputElement>) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setText(e.target.value)
     setFocused(2)
     if (text.trim() === '') {
@@ -42,7 +42,7 @@ function useSearch() {
     fetchMovies(text)
   }
 
-  function fetchMovies(name:string) {
+  function fetchMovies(name: string) {
     if (name !== '')
       API.movies(url)
         .getByName(name)
@@ -59,7 +59,7 @@ function useSearch() {
   }
 }
 
-const  Search:FC<{openModal(imdb:string):void}> = ({openModal}) => {
+const Search: FC<{ openModal(imdb: string): void }> = ({ openModal }) => {
   const {
     text,
     results,
@@ -85,7 +85,7 @@ const  Search:FC<{openModal(imdb:string):void}> = ({openModal}) => {
             ? 'search-input-wrapper'
             : 'search-input-wrapper active-search'
         }
-        style={{border: focused === 2 ? 'none' : ''}}
+        style={{ border: focused === 2 ? 'none' : '' }}
       >
         <div className="search-input-img-wrapper">
           <Icon

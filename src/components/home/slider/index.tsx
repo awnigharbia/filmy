@@ -42,7 +42,6 @@ const Slider: FC<Props> = ({ movies, loading }) => {
 
 
   const handleArrow = (e: KeyboardEvent) => {
-    console.log(true)
     return e.keyCode === 39
       ? nextImg()
       : e.keyCode === 37
@@ -51,10 +50,8 @@ const Slider: FC<Props> = ({ movies, loading }) => {
   }
 
   useEffect(() => {
-    // ComponentDidmount
     document.addEventListener('keydown', handleArrow, false)
 
-    // ComponentWillUnMount
     return () => document.removeEventListener('keydown', handleArrow, false)
   })
 

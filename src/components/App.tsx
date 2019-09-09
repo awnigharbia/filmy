@@ -7,9 +7,7 @@ import Home from './home'
 import MoviesList from './movies'
 import MovieModal from './generic/movieModal'
 import API from '../api/movie'
-
-// constant
-const url = 'https://api.apiumando.info/'
+import {url} from '../constants'
 
 type Modal = {
   handleOpen(imdb: string): void

@@ -9,12 +9,12 @@ import SelectQuality from './selectQuality'
 import useLockBodyScroll from '../../hooks/useLockBodyScroll'
 import { Props } from './index'
 
-// components
+
 import * as Modal from './style'
 
 const ModalContent: FC<Props> = ({
   open,
-  
+
   handleClose,
   data: {
     title,
@@ -28,6 +28,7 @@ const ModalContent: FC<Props> = ({
     imdb,
   },
 }) => {
+  //Fix me:lockscroll 
   // {
   //   open ? useLockBodyScroll('lock') : useLockBodyScroll('unlock')
   // }
@@ -35,15 +36,15 @@ const ModalContent: FC<Props> = ({
     <PoseGroup>
       {open && [
         <Modal.Modal key="modal" pose={open}>
-          <Modal.close onClick={handleClose}>
+          <Modal.Close onClick={handleClose}>
             <Icon icon={x} size={30} />
-          </Modal.close>
+          </Modal.Close>
 
           <Modal.ModalContent key="content" >
-            <Modal.leftSection>
-              <Modal.img src={poster_big} alt={poster_big} />
+            <Modal.LeftSection>
+              <Modal.Img src={poster_big} alt={poster_big} />
 
-              <Modal.name>{title}</Modal.name>
+              <Modal.Name>{title}</Modal.Name>
               <Modal.bio>
                 <span role="img" aria-label="globe">
                   🌐
@@ -54,72 +55,67 @@ const ModalContent: FC<Props> = ({
                 </span>
                 {rating}/10
               </Modal.bio>
-              <Modal.socialShare>
+              <Modal.SocialShare>
                 <Icon icon={facebook} size={30} style={{ color: '#4267B2' }} />
                 <Icon
                   icon={twitter}
                   size={25}
                   style={{ color: '#1da1f2', marginLeft: '10px' }}
                 />
-              </Modal.socialShare>
-            </Modal.leftSection>
+              </Modal.SocialShare>
+            </Modal.LeftSection>
 
-            <Modal.center>
+            <Modal.Center>
               <Category
                 title="Year"
-                render={
-                  <Modal.catBody>
-                    {year}
-                  </Modal.catBody>
-                }
-              />
+              >
+                <Modal.CatBody>
+                  {year}
+                </Modal.CatBody>
+              </Category>
               <Category
                 title="Description"
-                render={
-                  <Modal.catBody>
-                    {description}
-                  </Modal.catBody>
-                }
-              />
+              >
+                <Modal.CatBody>
+                  {description}
+                </Modal.CatBody>
+              </Category>
               <Category
                 title="Genres"
-                render={
-                  <Modal.catGenres>
-                    {genres.map((item, key) => (
-                      <li key={key}>{item}</li>
-                    ))}
-                  </Modal.catGenres>
-                }
-              />
+              >
+                <Modal.CatGenres>
+                  {genres.map((item, key) => (
+                    <li key={key}>{item}</li>
+                  ))}
+                </Modal.CatGenres>
+              </Category>
               <Category
                 title="Actors"
-                render={
-                  <Modal.catGenres>
-                    <li>Kate McKinnon</li>
-                    <li>Mila Kunis</li>
-                    <li>Sam Heughan</li>
-                  </Modal.catGenres>
-                }
-              />
-            </Modal.center>
-            <Modal.right>
+              >
+                <Modal.CatGenres>
+                  <li>Kate McKinnon</li>
+                  <li>Mila Kunis</li>
+                  <li>Sam Heughan</li>
+                </Modal.CatGenres>
+              </Category>
+            </Modal.Center>
+            <Modal.Right>
               <Category
                 title="Trailer"
-                render={
-                  <iframe
-                    title="trailer"
-                    width="100%"
-                    height="250"
-                    src={`https://www.youtube.com/embed/${trailer}`}
-                    frameBorder="0"
-                    allowFullScreen
-                    
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  />
-                }
-              />
+              >
+                <iframe
+                  title="trailer"
+                  width="100%"
+                  height="250"
+                  src={`https://www.youtube.com/embed/${trailer}`}
+                  frameBorder="0"
+                  allowFullScreen
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                />
+
+              </Category>
               <SelectQuality links={items} imdb={imdb} />
-            </Modal.right>
+            </Modal.Right>
           </Modal.ModalContent>
         </Modal.Modal>,
       ]}
@@ -129,9 +125,9 @@ const ModalContent: FC<Props> = ({
 
 export default ModalContent
 
-const Category: FC<{ title: string, render: React.ReactChild }> = ({ title, render }) => (
-  <Modal.category>
-    <Modal.catTitle>{title}</Modal.catTitle>
-    {render}
-  </Modal.category>
+const Category: FC<{ title: string, children: React.ReactChild }> = ({ title, children }) => (
+  <Modal.Category>
+    <Modal.CatTitle>{title}</Modal.CatTitle>
+    {children}
+  </Modal.Category>
 )

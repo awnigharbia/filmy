@@ -1,22 +1,20 @@
 import * as React from "react";
-import {FC} from 'react'
-import * as Sidebar  from "./style";
+import { FC } from 'react'
+import * as Sidebar from "./style";
 import { Icon } from "react-icons-kit";
 import { SidebarItem, SidebarItemGroup } from "./sidebarItem";
-
-// icons
 import { menu, list, info, zap } from "react-icons-kit/feather/";
 import { home } from "react-icons-kit/entypo/home";
 
 interface Props {
-  isSidebarOpen:boolean;
-  toggleSidebar():void;
-  toggleCategories():void;
-  handleCategories(state:string):void;
-  categoryState:string;
+  isSidebarOpen: boolean;
+  toggleSidebar(): void;
+  toggleCategories(): void;
+  handleCategories(state: string): void;
+  categoryState: string;
 }
- 
-const SideBar:FC<Props> = ({categoryState, isSidebarOpen, toggleSidebar, handleCategories, toggleCategories}) => (
+
+const SideBar: FC<Props> = ({ categoryState, isSidebarOpen, toggleSidebar, handleCategories, toggleCategories }) => (
   <Sidebar.Sidebar pose={isSidebarOpen ? "open" : "closed"}>
     <Sidebar.SidebarTop>
       <Sidebar.SidebarIcon onClick={toggleSidebar}>

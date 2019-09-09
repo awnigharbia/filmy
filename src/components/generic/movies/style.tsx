@@ -11,7 +11,7 @@ export const Movies = styled.div`
   justify-content: space-evenly;
 `
 
-export const img = styled.div<{src:string}>`
+export const ImageStyle = styled.div<{ src: string }>`
   position: relative;
   transition: 0.4s ease;
   background-image: url(${props => props.src});
@@ -23,7 +23,7 @@ export const img = styled.div<{src:string}>`
   flex-shrink: 0;
 `
 
-export const movieWrapper = styled.div`
+export const MovieWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 5px;
@@ -33,12 +33,12 @@ export const movieWrapper = styled.div`
   cursor: pointer;
 `
 
-export const movie = styled(img)`
+export const Movie = styled(ImageStyle)`
   height: 280px;
   width: 95%;
 `
 
-export const movieDetailsWrapper = styled.div`
+export const MovieDetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -59,19 +59,19 @@ export const movieDetailsWrapper = styled.div`
   opacity: 0;
   transition: 0.2s ease-in-out;
 
-  ${movieWrapper}:hover & {
+  ${MovieWrapper}:hover & {
     opacity: 1;
   }
 `
 
-export const bottom = styled.div`
+export const Bottom = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 `
 
-export const bottomDetails = styled.div`
+export const BottomDetails = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -83,12 +83,12 @@ export const bottomDetails = styled.div`
   border-radius: 25px;
   transition: 0.2s ease-in-out;
 
-  ${movieWrapper}:hover & {
+  ${MovieWrapper}:hover & {
     transform: translateY(-15px);
   }
 `
 
-export const details = styled.div`
+export const Details = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -97,7 +97,7 @@ export const details = styled.div`
   align-items: flex-start;
 `
 
-export const name = styled.p`
+export const Name = styled.p`
   font-size: 13.5px;
   margin: 0px 0px 10px 0px;
   background-color: gray;
@@ -107,19 +107,19 @@ export const name = styled.p`
   padding: 3px 10px;
   transition: 0.2s ease-in-out;
 
-  ${movieWrapper}:hover & {
+  ${MovieWrapper}:hover & {
     background-color: rgba(0, 0, 0, 0.7);
   }
 `
 
-export const genreYear = styled.p`
+export const GenreYear = styled.p`
   color: gray;
   font-size: 13px;
   font-weight: 400;
   margin: 10px 0px 5px 0px;
 `
 
-export const filter = styled.div`
+export const Filter = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -127,13 +127,13 @@ export const filter = styled.div`
   background-color: #f7f7f7;
 `
 
-export const filterSpan = styled.span`
+export const FilterSpan = styled.span`
   font-size: 12px;
   letter-spacing: 1.7px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
 `
-export const loader = styled.div`
+export const Loader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
