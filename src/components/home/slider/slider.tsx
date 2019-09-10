@@ -1,26 +1,32 @@
 import * as React from 'react'
-import { FC } from 'react'
+import {FC} from 'react'
 import SliderModal from './sliderModal'
-import { Icon } from 'react-icons-kit'
-import { chevronLeft, chevronRight } from 'react-icons-kit/feather'
-import { Movie } from './sliderModal'
+import {Icon} from 'react-icons-kit'
+import {chevronLeft, chevronRight} from 'react-icons-kit/feather'
+import {Movie} from './sliderModal'
 
 import * as SliderParent from './style'
 
 interface Props {
-  translateValue: number;
-  backImg(): void;
-  movies: Movie[];
-  activeIndex: number;
-  nextImg(): void;
+  translateValue: number
+  backImg(): void
+  movies: Movie[]
+  activeIndex: number
+  nextImg(): void
 }
 
-const SliderChildren: FC<Props> = ({ translateValue, backImg, movies, activeIndex, nextImg }) => {
+const SliderChildren: FC<Props> = ({
+  translateValue,
+  backImg,
+  movies,
+  activeIndex,
+  nextImg,
+}) => {
   return (
     <SliderParent.SliderParent>
       <SliderParent.Welcome>
         Your weekend buddy for this week
-        </SliderParent.Welcome>
+      </SliderParent.Welcome>
       <SliderParent.SliderTop>
         <SliderParent.SliderWrapper transform={translateValue}>
           {movies.map((item, key) => (
@@ -44,5 +50,4 @@ const SliderChildren: FC<Props> = ({ translateValue, backImg, movies, activeInde
   )
 }
 
-
-export default SliderChildren 
+export default SliderChildren

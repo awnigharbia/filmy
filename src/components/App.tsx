@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { useEffect, createContext } from 'react'
-import { useSetState } from './hooks/useSetState'
+import {useEffect, createContext} from 'react'
+import {useSetState} from './hooks/useSetState'
 import Navbar from './nav'
-import { Route, Switch } from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import Home from './home'
 import MoviesList from './movies'
 import MovieModal from './generic/movieModal'
@@ -14,9 +14,8 @@ type Modal = {
 }
 
 const ModalProvider = createContext<Modal>({
-  handleOpen: () => undefined
+  handleOpen: () => undefined,
 })
-
 
 const App = () => {
   const [state, setState] = useSetState({
@@ -25,25 +24,22 @@ const App = () => {
     movies: [],
     page: 1,
     data: {},
-    imdb: ''
+    imdb: '',
   })
 
-  const handleClose = () => setState({ open: !state.open, imdb:"" })
+  const handleClose = () => setState({open: !state.open, imdb: ''})
 
-  
   const handleOpen = (imdb: string) => {
     if (typeof imdb === 'string') {
-      setState({ imdb: imdb })
+      setState({imdb: imdb})
     }
   }
 
   const fetchMovies = (sort: string, page: number) =>
     API.movies(url).getByPage(sort, page)
 
-
   const fetchMoviesByGenre = (genre: [], page: number, sort: string) =>
     API.movies(url).getByGenre(genre, page, sort)
-
 
   useEffect(() => {
     if (state.imdb !== '')
@@ -55,7 +51,6 @@ const App = () => {
             data: data.data,
           })
         })
-
 
     if (state.movies.length === 0)
       fetchMovies('seeds', 1).then(data =>
@@ -69,7 +64,7 @@ const App = () => {
   return (
     <>
       <Navbar openModal={handleOpen} />
-      <ModalProvider.Provider value={{ handleOpen }}>
+      <ModalProvider.Provider value={{handleOpen}}>
         <MovieModal
           open={state.open}
           handleOpen={handleOpen}
@@ -91,7 +86,7 @@ const App = () => {
           />
           <Route
             path="/categories/:cat"
-            render={({ match }) => (
+            render={({match}) => (
               <MoviesList
                 genre={match.params.cat}
                 fetchMoviesByGenre={fetchMoviesByGenre}
@@ -104,8 +99,6 @@ const App = () => {
       </ModalProvider.Provider>
     </>
   )
-
 }
 
-
-export { ModalProvider, App }
+export {ModalProvider, App}

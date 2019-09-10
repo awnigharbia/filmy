@@ -6,7 +6,7 @@ import {HashRouter} from 'react-router-dom'
 
 ReactDOM.render(
   <HashRouter basename="/">
-    <App /> 
+    <App />
   </HashRouter>,
   document.getElementById('root'),
 )

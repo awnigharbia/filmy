@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const WlcSection = styled.div`
   position: relative;
@@ -8,12 +8,12 @@ export const WlcSection = styled.div`
   width: 100%;
   z-index: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0px 0px rgba(0, 0, 0, 0);
-`;
+`
 
 export const LeftVideo = styled.video`
   width: 50%;
   height: 100%;
-`;
+`
 
 export const RightSide = styled.div`
   display: flex;
@@ -21,16 +21,10 @@ export const RightSide = styled.div`
   width: 50%;
   align-items: center;
   justify-content: center;
-`;
+`
 
 export const RightText = styled.p`
   font-size: 1.8em;
   font-weight: 500;
   width: 70%;
-`;
-
-// WlcSection.video = leftVideo;
-// WlcSection.right = rightSide;
-// WlcSection.right.text = rightText;
-
-// export { WlcSection };
+`

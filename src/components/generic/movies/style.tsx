@@ -11,7 +11,7 @@ export const Movies = styled.div`
   justify-content: space-evenly;
 `
 
-export const ImageStyle = styled.div<{ src: string }>`
+export const ImageStyle = styled.div<{src: string}>`
   position: relative;
   transition: 0.4s ease;
   background-image: url(${props => props.src});
@@ -141,4 +141,3 @@ export const Loader = styled.div`
   width: 100%;
   height: 100px;
 `
-

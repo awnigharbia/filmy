@@ -4,30 +4,29 @@ import {FC} from 'react'
 import ModalContent from './modalContent'
 
 interface Data {
-  actors: string;
-  description: string;
-  directors: string;
-  genres: string[];
-  id: string;
-  imdb: string;
-  poster_big: string;
-  rating: number;
-  title: string;
-  trailer: string;
-  year: number;
-  items:[]
+  actors: string
+  description: string
+  directors: string
+  genres: string[]
+  id: string
+  imdb: string
+  poster_big: string
+  rating: number
+  title: string
+  trailer: string
+  year: number
+  items: []
 }
 
 export interface Props {
-  open:boolean;
-  handleOpen(imdb:string):void;
-  handleClose():void;
-  data:Data;
+  open: boolean
+  handleOpen(imdb: string): void
+  handleClose(): void
+  data: Data
 }
 
- const MovieModal:FC<Props> = (props) => {
-  
-  return <ModalContent  {...props} />
+const MovieModal: FC<Props> = props => {
+  return <ModalContent {...props} />
 }
 
 export default MovieModal

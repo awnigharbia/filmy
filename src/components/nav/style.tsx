@@ -93,7 +93,7 @@ export const Sidebar = styled(SidebarState)`
   box-shadow: 3px 0 5px -5px #6f6e6e;
 `
 
-export const SidebarItem = styled.div<{active:boolean}>`
+export const SidebarItem = styled.div<{active: boolean}>`
   display: flex;
   flex-direction: row;
   align-items: center;

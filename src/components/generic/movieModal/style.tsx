@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components'
+import styled, {keyframes, css} from 'styled-components'
 import posed from 'react-pose'
 
 // configure animation `react-pose`
@@ -198,7 +198,7 @@ export const SelectQuality = styled.select`
   box-shadow: 0 1px 10px rgba(146, 109, 222, 0.5);
 `
 
-export const Download = styled.a<{ color: string, animate: boolean }>`
+export const Download = styled.a<{color: string; animate: boolean}>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -245,4 +245,3 @@ export const Icon = styled.div`
   padding: 6px 10px;
   background-color: ${props => props.color || 'inherit'};
 `
-

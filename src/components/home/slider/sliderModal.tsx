@@ -1,32 +1,32 @@
 import * as React from 'react'
-import { FC } from 'react'
+import {FC} from 'react'
 import * as SliderParent from './style'
-import { Icon } from 'react-icons-kit'
-import { ModalProvider } from '../../App'
-import { star } from 'react-icons-kit/fa/'
-import { search } from 'react-icons-kit/feather/search'
-import { globe, video } from 'react-icons-kit/feather'
+import {Icon} from 'react-icons-kit'
+import {ModalProvider} from '../../App'
+import {star} from 'react-icons-kit/fa/'
+import {search} from 'react-icons-kit/feather/search'
+import {globe, video} from 'react-icons-kit/feather'
 
 export interface Movie {
-  title: string;
-  poster_big: string;
-  poster_med: string;
-  year: number;
-  genres: [];
-  description: string;
-  rating: number;
-  imdb: string;
+  title: string
+  poster_big: string
+  poster_med: string
+  year: number
+  genres: []
+  description: string
+  rating: number
+  imdb: string
 }
 
 interface Props {
-  movies: Movie[];
+  movies: Movie[]
   activeIndex: number
 }
 
-const SliderModal: FC<Props> = ({ movies, activeIndex }) => {
+const SliderModal: FC<Props> = ({movies, activeIndex}) => {
   return (
     <ModalProvider.Consumer>
-      {({ handleOpen }) => {
+      {({handleOpen}) => {
         return (
           <SliderParent.ActiveModal>
             <SliderParent.ModalImg src={movies[activeIndex].poster_big} />
@@ -35,7 +35,10 @@ const SliderModal: FC<Props> = ({ movies, activeIndex }) => {
                 {movies[activeIndex].title}
               </SliderParent.ModalTitle>
               <SliderParent.ModalLine />
-              <Info title="Release Date" content={`${movies[activeIndex].year}`} />
+              <Info
+                title="Release Date"
+                content={`${movies[activeIndex].year}`}
+              />
               <Info
                 title="Genre"
                 content={movies[activeIndex].genres.join('|')}
@@ -81,11 +84,11 @@ const SliderModal: FC<Props> = ({ movies, activeIndex }) => {
 }
 
 interface InfoProps {
-  title: string;
+  title: string
   content: string
 }
 
-const Info: FC<InfoProps> = ({ title, content }) => (
+const Info: FC<InfoProps> = ({title, content}) => (
   <SliderParent.InfoWrapper>
     <SliderParent.InfoTitle>{title}</SliderParent.InfoTitle>
     <SliderParent.InfoContent>{content}</SliderParent.InfoContent>

@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components'
 
 export const SliderParent = styled.div`
   position: relative;
@@ -8,7 +7,7 @@ export const SliderParent = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-`;
+`
 
 export const SliderTop = styled.div`
   display: flex;
@@ -16,23 +15,23 @@ export const SliderTop = styled.div`
   width: 100%;
   height: 100%;
   justify-content: center;
-`;
+`
 
-export const SliderWrapper = styled.div<{transform:number}>`
+export const SliderWrapper = styled.div<{transform: number}>`
   position: relative;
   display: flex;
   transform: ${props => `translateX(${props.transform}px)`};
   transition: transform 0.2s ease-in-out;
-`;
+`
 
 export const Welcome = styled.h3`
   text-align: center;
   font-size: 22px;
   margin-top: 50px;
   font-weight: 500;
-`;
+`
 
-export const Img = styled.div<{src:string}>`
+export const Img = styled.div<{src: string}>`
   position: relative;
   transition: 0.4s ease;
   background-image: url(${props => props.src});
@@ -42,9 +41,13 @@ export const Img = styled.div<{src:string}>`
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
   border-radius: 7px;
   flex-shrink: 0;
-`;
+`
 
-export const ActiveImg = styled(Img)<{active:boolean, child:number, key:number}>`
+export const ActiveImg = styled(Img)<{
+  active: boolean
+  child: number
+  key: number
+}>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -53,10 +56,10 @@ export const ActiveImg = styled(Img)<{active:boolean, child:number, key:number}>
   width: 230px;
   height: 345px;
   margin: ${props =>
-    props.active ? "0px 100px 0px 100px" : "0px 15px 0px 0px"};
+    props.active ? '0px 100px 0px 100px' : '0px 15px 0px 0px'};
   opacity: 0.5;
   z-index: 4;
-`;
+`
 
 export const ActiveModal = styled.div`
   position: absolute;
@@ -71,7 +74,7 @@ export const ActiveModal = styled.div`
   height: 80%;
   margin: auto;
   z-index: 3;
-`;
+`
 
 export const ModalInfo = styled.div`
   position: relative;
@@ -84,7 +87,7 @@ export const ModalInfo = styled.div`
   box-shadow: 0 0px 12px rgba(0, 0, 0, 0.11), 0 10px 40px rgba(0, 0, 0, 0.19);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-`;
+`
 
 export const Arrow = styled.div`
   position: absolute;
@@ -110,14 +113,14 @@ export const Arrow = styled.div`
     transform: scale(1.1);
     background-color: white;
   }
-`;
+`
 
 export const LeftArrow = styled(Arrow)`
   left: 20px;
-`;
+`
 export const RightArrow = styled(Arrow)`
   right: 20px;
-`;
+`
 
 export const ModalImg = styled(Img)`
   display: flex;
@@ -127,47 +130,47 @@ export const ModalImg = styled(Img)`
   width: 300px;
   height: 95%;
   z-index: 1;
-`;
+`
 
 export const ModalTitle = styled.h3`
   font-size: 22px;
   font-weight: 500;
   margin: 15px 0px;
   color: #475069;
-`;
+`
 
 export const ModalLine = styled.div`
   width: 100%;
   height: 1.5px;
   background-color: lightgray;
-`;
+`
 
 export const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 400px;
   margin-top: 10px;
-`;
+`
 
 export const P = styled.p`
   margin: 0px 5px;
-`;
+`
 
 export const InfoTitle = styled(P)`
   font-size: 15px;
   font-weight: 400;
   color: gray;
-`;
+`
 export const InfoContent = styled(P)`
   font-size: 15px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.9);
-`;
+`
 
 export const ModalCenter = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
 export const ModalBottom = styled.div`
   display: flex;
@@ -176,7 +179,7 @@ export const ModalBottom = styled.div`
   margin-top: auto;
   margin-bottom: 20px;
   width: 100%;
-`;
+`
 
 export const ModalBottomItem = styled.div`
   display: flex;
@@ -184,14 +187,14 @@ export const ModalBottomItem = styled.div`
   align-items: center;
   justify-content: center;
   color: ${props => props.color};
-`;
+`
 
 export const ModalBottomContent = styled.span`
   font-weight: 500;
   margin-top: 10px;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.9);
-`;
+`
 
 export const TopOf = styled.div`
   display: flex;
@@ -209,13 +212,13 @@ export const TopOf = styled.div`
   &:hover {
     transform: scale(1.05);
   }
-`;
+`
 
 export const ModalTrailer = styled(TopOf)`
   width: 90px;
   height: 90px;
   background-color: #ef606f;
-`;
+`
 
 export const ModalDownload = styled(TopOf)`
   position: absolute;
@@ -225,6 +228,4 @@ export const ModalDownload = styled(TopOf)`
   bottom: 30px;
   background-color: #3db15a;
   z-index: 3;
-`;
-
-
+`

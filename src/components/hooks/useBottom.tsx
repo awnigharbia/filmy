@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react'
 
-function useBottom(ref:React.RefObject<HTMLDivElement>) {
+function useBottom(ref: React.RefObject<HTMLDivElement>) {
   const [isBottom, setBottom] = useState(false)
 
   let numSteps = 20.0
-  let boxElement: Element 
-  
+  let boxElement: Element
 
   function createObserver() {
     let observer: IntersectionObserver
@@ -33,7 +32,10 @@ function useBottom(ref:React.RefObject<HTMLDivElement>) {
     return thresholds
   }
 
-  function handleIntersect(entries:IntersectionObserverEntry[], observer:IntersectionObserver) {
+  function handleIntersect(
+    entries: IntersectionObserverEntry[],
+    observer: IntersectionObserver,
+  ) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         setBottom(true)
@@ -47,7 +49,7 @@ function useBottom(ref:React.RefObject<HTMLDivElement>) {
     window.addEventListener(
       'load',
       function() {
-        if(ref.current) {
+        if (ref.current) {
           boxElement = ref.current
         }
 

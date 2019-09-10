@@ -1,14 +1,13 @@
 import * as React from 'react'
-import { FC } from 'react'
-import { Icon } from 'react-icons-kit'
-import { x } from 'react-icons-kit/feather'
-import { twitter } from 'react-icons-kit/icomoon/twitter'
-import { facebook } from 'react-icons-kit/fa'
-import { PoseGroup } from 'react-pose'
+import {FC} from 'react'
+import {Icon} from 'react-icons-kit'
+import {x} from 'react-icons-kit/feather'
+import {twitter} from 'react-icons-kit/icomoon/twitter'
+import {facebook} from 'react-icons-kit/fa'
+import {PoseGroup} from 'react-pose'
 import SelectQuality from './selectQuality'
 import useLockBodyScroll from '../../hooks/useLockBodyScroll'
-import { Props } from './index'
-
+import {Props} from './index'
 
 import * as Modal from './style'
 
@@ -28,7 +27,7 @@ const ModalContent: FC<Props> = ({
     imdb,
   },
 }) => {
-  //Fix me:lockscroll 
+  //Fix me:lockscroll
   // {
   //   open ? useLockBodyScroll('lock') : useLockBodyScroll('unlock')
   // }
@@ -40,7 +39,7 @@ const ModalContent: FC<Props> = ({
             <Icon icon={x} size={30} />
           </Modal.Close>
 
-          <Modal.ModalContent key="content" >
+          <Modal.ModalContent key="content">
             <Modal.LeftSection>
               <Modal.Img src={poster_big} alt={poster_big} />
 
@@ -56,42 +55,30 @@ const ModalContent: FC<Props> = ({
                 {rating}/10
               </Modal.bio>
               <Modal.SocialShare>
-                <Icon icon={facebook} size={30} style={{ color: '#4267B2' }} />
+                <Icon icon={facebook} size={30} style={{color: '#4267B2'}} />
                 <Icon
                   icon={twitter}
                   size={25}
-                  style={{ color: '#1da1f2', marginLeft: '10px' }}
+                  style={{color: '#1da1f2', marginLeft: '10px'}}
                 />
               </Modal.SocialShare>
             </Modal.LeftSection>
 
             <Modal.Center>
-              <Category
-                title="Year"
-              >
-                <Modal.CatBody>
-                  {year}
-                </Modal.CatBody>
+              <Category title="Year">
+                <Modal.CatBody>{year}</Modal.CatBody>
               </Category>
-              <Category
-                title="Description"
-              >
-                <Modal.CatBody>
-                  {description}
-                </Modal.CatBody>
+              <Category title="Description">
+                <Modal.CatBody>{description}</Modal.CatBody>
               </Category>
-              <Category
-                title="Genres"
-              >
+              <Category title="Genres">
                 <Modal.CatGenres>
                   {genres.map((item, key) => (
                     <li key={key}>{item}</li>
                   ))}
                 </Modal.CatGenres>
               </Category>
-              <Category
-                title="Actors"
-              >
+              <Category title="Actors">
                 <Modal.CatGenres>
                   <li>Kate McKinnon</li>
                   <li>Mila Kunis</li>
@@ -100,9 +87,7 @@ const ModalContent: FC<Props> = ({
               </Category>
             </Modal.Center>
             <Modal.Right>
-              <Category
-                title="Trailer"
-              >
+              <Category title="Trailer">
                 <iframe
                   title="trailer"
                   width="100%"
@@ -112,7 +97,6 @@ const ModalContent: FC<Props> = ({
                   allowFullScreen
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 />
-
               </Category>
               <SelectQuality links={items} imdb={imdb} />
             </Modal.Right>
@@ -125,7 +109,10 @@ const ModalContent: FC<Props> = ({
 
 export default ModalContent
 
-const Category: FC<{ title: string, children: React.ReactChild }> = ({ title, children }) => (
+const Category: FC<{title: string; children: React.ReactChild}> = ({
+  title,
+  children,
+}) => (
   <Modal.Category>
     <Modal.CatTitle>{title}</Modal.CatTitle>
     {children}

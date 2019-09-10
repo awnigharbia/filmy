@@ -1,21 +1,27 @@
-import * as React from "react";
-import { FC } from 'react'
-import * as Sidebar from "./style";
-import { Icon } from "react-icons-kit";
-import { SidebarItem, SidebarItemGroup } from "./sidebarItem";
-import { menu, list, info, zap } from "react-icons-kit/feather/";
-import { home } from "react-icons-kit/entypo/home";
+import * as React from 'react'
+import {FC} from 'react'
+import * as Sidebar from './style'
+import {Icon} from 'react-icons-kit'
+import {SidebarItem, SidebarItemGroup} from './sidebarItem'
+import {menu, list, info, zap} from 'react-icons-kit/feather/'
+import {home} from 'react-icons-kit/entypo/home'
 
 interface Props {
-  isSidebarOpen: boolean;
-  toggleSidebar(): void;
-  toggleCategories(): void;
-  handleCategories(state: string): void;
-  categoryState: string;
+  isSidebarOpen: boolean
+  toggleSidebar(): void
+  toggleCategories(): void
+  handleCategories(state: string): void
+  categoryState: 'opened' | 'closed' | 'none'
 }
 
-const SideBar: FC<Props> = ({ categoryState, isSidebarOpen, toggleSidebar, handleCategories, toggleCategories }) => (
-  <Sidebar.Sidebar pose={isSidebarOpen ? "open" : "closed"}>
+const SideBar: FC<Props> = ({
+  categoryState,
+  isSidebarOpen,
+  toggleSidebar,
+  handleCategories,
+  toggleCategories,
+}) => (
+  <Sidebar.Sidebar pose={isSidebarOpen ? 'open' : 'closed'}>
     <Sidebar.SidebarTop>
       <Sidebar.SidebarIcon onClick={toggleSidebar}>
         <Icon size={25} icon={menu} />
@@ -39,10 +45,15 @@ const SideBar: FC<Props> = ({ categoryState, isSidebarOpen, toggleSidebar, handl
         size={20}
         label="Categories"
       />
-      <SidebarItem exact={false} to="/about" icon={info} size={20} label="Info" />
+      <SidebarItem
+        exact={false}
+        to="/about"
+        icon={info}
+        size={20}
+        label="Info"
+      />
     </Sidebar.SidebarCenter>
   </Sidebar.Sidebar>
-);
-
+)
 
 export default SideBar

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FC } from 'react'
+import {FC} from 'react'
 import * as Movies from './style'
 
 const FilterMovies: FC = () => (

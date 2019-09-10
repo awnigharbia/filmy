@@ -1,15 +1,15 @@
 import * as React from 'react'
-import { FC } from 'react'
+import {FC} from 'react'
 
 // components
 import TopNav from './topNav'
 import Sidebar from './sideBar'
-import { useSetState } from '../hooks/useSetState';
+import {useSetState} from '../hooks/useSetState'
 
-const Navbar: FC<{ openModal(imdb:string):void }> = ({ openModal }) => {
+const Navbar: FC<{openModal(imdb: string): void}> = ({openModal}) => {
   const [state, setState] = useSetState({
     isSidebarOpen: false,
-    categoryState: 'none'
+    categoryState: 'none',
   })
 
   const toggleSidebar = () =>
@@ -18,8 +18,7 @@ const Navbar: FC<{ openModal(imdb:string):void }> = ({ openModal }) => {
       categoryState: !state.isSidebarOpen && 'none',
     })
 
-
-  const handleCategories = (state: string) => setState({ categoryState: state })
+  const handleCategories = (state: string) => setState({categoryState: state})
 
   const toggleCategories = () =>
     setState({
@@ -32,10 +31,14 @@ const Navbar: FC<{ openModal(imdb:string):void }> = ({ openModal }) => {
   return (
     <>
       <TopNav onClick={toggleSidebar} openModal={openModal} />
-      <Sidebar toggleCategories={toggleCategories} handleCategories={handleCategories} toggleSidebar={toggleSidebar}  {...state} />
+      <Sidebar
+        toggleCategories={toggleCategories}
+        handleCategories={handleCategories}
+        toggleSidebar={toggleSidebar}
+        {...state}
+      />
     </>
   )
 }
-
 
 export default Navbar
