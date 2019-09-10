@@ -11,6 +11,16 @@ import {Props} from './index'
 
 import * as Modal from './style'
 
+const Category: FC<{title: string; children: React.ReactChild}> = ({
+  title,
+  children,
+}) => (
+  <Modal.Category>
+    <Modal.CatTitle>{title}</Modal.CatTitle>
+    {children}
+  </Modal.Category>
+)
+
 const ModalContent: FC<Props> = ({
   open,
 
@@ -108,13 +118,3 @@ const ModalContent: FC<Props> = ({
 }
 
 export default ModalContent
-
-const Category: FC<{title: string; children: React.ReactChild}> = ({
-  title,
-  children,
-}) => (
-  <Modal.Category>
-    <Modal.CatTitle>{title}</Modal.CatTitle>
-    {children}
-  </Modal.Category>
-)
