@@ -22,8 +22,7 @@
     "react-spinners": "^0.6.1",
     "styled-components": "^4.3.2",
     "typescript": "3.6.2",
-    "vite": "^2.5.1",
-    "vite-plugin-svgr": "^0.3.0"
+    "vite": "^2.5.1"
   },
   "scripts": {
     "start": "vite",
