@@ -1,11 +1,11 @@
 import * as React from 'react'
 import {useEffect, createContext} from 'react'
 import {useSetState} from './hooks/useSetState'
-import Navbar from './nav'
+import Navbar from './nav/navbar'
 import {Route, Switch} from 'react-router-dom'
 import Home from './home'
-import MoviesList from './movies'
-import MovieModal from './generic/movieModal'
+import MoviesList from './movies/movies'
+import MovieModal from './generic/movieModal/movieModal'
 import API from '../api/movie'
 import {url} from '../constants'
 
@@ -55,7 +55,7 @@ const App = () => {
     if (state.movies.length === 0)
       fetchMovies('seeds', 1).then(data =>
         setState({
-          movies: data.data.MovieList,
+          movies: data,
           loading: !state.loading,
         }),
       )

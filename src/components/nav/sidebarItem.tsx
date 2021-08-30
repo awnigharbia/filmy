@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {FC} from 'react'
 import * as Sidebar from './style'
-import {SidebarLink} from './sidebarLink'
+import {SidebarLink} from './sidearLink'
 import {Icon} from 'react-icons-kit'
 import {genres} from '../../constants'
 

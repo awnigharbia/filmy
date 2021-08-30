@@ -43,23 +43,28 @@ const RenderMovies = (movies: Movie[], loader: boolean) => {
   return (
     <>
       {movies !== undefined &&
-        movies.map(({poster_med, rating, year, genres, title, imdb}, key) => (
-          <ModalProvider.Consumer key={key}>
-            {({handleOpen}) => {
-              return (
-                <MovieCard
-                  title={title}
-                  imdb={imdb}
-                  genres={genres}
-                  posterMed={poster_med}
-                  rating={rating}
-                  year={year}
-                  handleOpen={handleOpen}
-                />
-              )
-            }}
-          </ModalProvider.Consumer>
-        ))}
+        movies.map(
+          (
+            {poster_path, vote_average, release_date, genres, title, imdb},
+            key,
+          ) => (
+            <ModalProvider.Consumer key={key}>
+              {({handleOpen}) => {
+                return (
+                  <MovieCard
+                    title={title}
+                    imdb={imdb}
+                    genres={genres}
+                    posterURL={poster_path}
+                    rating={vote_average}
+                    year={release_date}
+                    handleOpen={handleOpen}
+                  />
+                )
+              }}
+            </ModalProvider.Consumer>
+          ),
+        )}
       {loader && (
         <Movies.Loader ref={panelRef} style={{width: '100%', height: '100px'}}>
           <BounceLoader color="#602f75" />

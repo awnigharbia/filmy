@@ -7,7 +7,7 @@ import {facebook} from 'react-icons-kit/fa'
 import {PoseGroup} from 'react-pose'
 import SelectQuality from './selectQuality'
 import useLockBodyScroll from '../../hooks/useLockBodyScroll'
-import {Props} from './index'
+import {Props} from './movieModal'
 
 import * as Modal from './style'
 

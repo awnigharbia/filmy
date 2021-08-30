@@ -1,16 +1,29 @@
 import axios from 'axios'
 
-const url2 = 'https://tinfo.apiumando.info/3/movie/'
-const API_KEY = '49101d62654e71a2931722642ac07e5e'
-const yts = 'https://yts.am/api/v2/'
+const API_URL = 'https://api.themoviedb.org/3/'
+const API_KEY = '3c817edb2c2a10ea7095bc697864900d'
+const TORRENT_API_URL = 'https://yts.lt/api/v2/'
+
+function fetch(url: string, params?: any) {
+  return axios.get(`${API_URL}${url}`, {
+    params: {
+      api_key: API_KEY,
+      language: 'en-US',
+      ...params,
+    },
+  })
+}
 
 export default {
   movies(url: string) {
     return {
-      getByPage: (sort = 'seeds', index: number) =>
-        axios.get(
-          `${url}list?sort=${sort}&short=1&cb=&quality=720p,1080p,3d&page=${index}`,
-        ),
+      getByPage: (sort = 'seeds', index: number) => {
+        return fetch('movie/popular', {
+          page: index,
+        }).then(res => {
+          return res.data.results
+        })
+      },
       getByName: (name: string, sort = 'seeds') =>
         axios.get(
           `${url}list?sort=${sort}&short=1&cb=&quality=720p,1080p,3d&page=1&keywords=${name}`,
@@ -20,13 +33,16 @@ export default {
           `${url}movie?cb=&quality=720p,1080p,3d&page=1&imdb=${imdbId}`,
         ),
       getYtsDownload: (imdbID: string) =>
-        axios.get(`${yts}list_movies.json?query_term=${imdbID}&limit=1`),
-      getByGenre: (genre: [], page: number, sort = 'seeds') =>
         axios.get(
-          `${url}list?sort=${sort}&short=1&cb=&quality=720p,1080p,3d&page=${page}&genre=${genre}`,
+          `${TORRENT_API_URL}list_movies.json?query_term=${imdbID}&limit=1`,
         ),
+      getByGenre: async (genre: [], page: number, sort = 'seeds') => {
+        return axios.get(
+          `${url}list?sort=${sort}&short=1&cb=&quality=720p,1080p,3d&page=${page}&genre=${genre}`,
+        )
+      },
       getMoreInfo: (imdbId: string) =>
-        axios.get(`${url2}${imdbId}?api_key=${API_KEY}`),
+        axios.get(`${API_URL}${imdbId}?api_key=${API_KEY}`),
       getImages: (imdbId: string) =>
         axios.get(`${url}${imdbId}/images?api_key=${API_KEY}`),
     }

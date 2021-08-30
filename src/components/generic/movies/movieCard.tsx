@@ -7,7 +7,7 @@ import * as Movies from './style'
 
 interface Props {
   handleOpen(imdb: string): void
-  posterMed?: string
+  posterURL?: string
   rating: number
   year: number
   genres: string[]
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const MovieCard: FC<Props> = ({
-  posterMed = '',
+  posterURL = '',
   handleOpen,
   rating,
   year,
@@ -25,7 +25,7 @@ const MovieCard: FC<Props> = ({
   imdb,
 }) => (
   <Movies.MovieWrapper onClick={() => handleOpen(imdb)}>
-    <Movies.Movie src={posterMed}>
+    <Movies.Movie src={`https://image.tmdb.org/t/p/w500/${posterURL}`}>
       <Movies.MovieDetailsWrapper>
         <Movies.Bottom>
           <Movies.BottomDetails color="rgba(255,255,255,.8)">
@@ -40,7 +40,7 @@ const MovieCard: FC<Props> = ({
       </Movies.MovieDetailsWrapper>
     </Movies.Movie>
     <Movies.Details>
-      <Movies.GenreYear>{genres.slice(0, 3).join(' | ')}</Movies.GenreYear>
+      <Movies.GenreYear>TEST GENRE</Movies.GenreYear>
       <Movies.Name>{title}</Movies.Name>
     </Movies.Details>
   </Movies.MovieWrapper>
