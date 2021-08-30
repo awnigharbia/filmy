@@ -1,9 +1,9 @@
 import * as React from 'react'
 import {FC} from 'react'
-import SliderModal from './sliderModal'
+import SliderModal from './SliderModal'
 import {Icon} from 'react-icons-kit'
 import {chevronLeft, chevronRight} from 'react-icons-kit/feather'
-import {Movie} from './sliderModal'
+import {Movie} from './SliderModal'
 
 import * as SliderParent from './style'
 

@@ -1,13 +1,13 @@
 import * as React from 'react'
 import {useRef, useEffect, FC} from 'react'
 import * as Movies from './style'
-import MovieCard from './movieCard'
+import MovieCard from './MovieCard'
 import ReactPlaceholder from 'react-placeholder'
 import 'react-placeholder/lib/reactPlaceholder.css'
 import {ModalProvider} from '../../App'
 import useBottom from '../../hooks/useBottom'
 import BounceLoader from 'react-spinners/BounceLoader'
-import {Movie} from '../../home/slider/sliderModal'
+import {Movie} from '../../home/slider/SliderModal'
 
 interface Props {
   movies: Movie[]

@@ -1,10 +1,10 @@
 import * as React from 'react'
 import {FC} from 'react'
-import Slider from './slider/slider'
-import Center from './center/center'
-import WelcomeSection from './welcomeSection/welcomeSection'
-import Footer from './footer/footer'
-import {Movie} from './slider/sliderModal'
+import Slider from './slider/Slider'
+import Center from './center/Center'
+import WelcomeSection from './welcomeSection/WelcomeSection'
+import Footer from './footer/Footer'
+import {Movie} from './slider/SliderModal'
 
 const Home: FC<{movies: Movie[]; loading: boolean; id: number}> = ({
   movies,

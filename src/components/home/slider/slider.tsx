@@ -1,8 +1,8 @@
 import * as React from 'react'
 import {useEffect, FC} from 'react'
-import SliderChildren from './sliderChildren'
+import SliderChildren from './SliderChildren'
 import {useSetState} from '../../hooks/useSetState'
-import {Movie} from './sliderModal'
+import {Movie} from './SliderModal'
 
 interface Props {
   loading: boolean
