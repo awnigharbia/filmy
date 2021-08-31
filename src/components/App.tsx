@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {useEffect, createContext} from 'react'
+import {useEffect} from 'react'
 import {useSetState} from './hooks/useSetState'
 import Navbar from './nav/Navbar'
 import {Route, Switch} from 'react-router-dom'
@@ -8,14 +8,7 @@ import MoviesList from './movies/MoviesList'
 import MovieModal from './generic/movieModal/MovieModal'
 import API from '../api/movie'
 import {url} from '../constants'
-
-type Modal = {
-  handleOpen(imdb: string): void
-}
-
-const ModalProvider = createContext<Modal>({
-  handleOpen: () => undefined,
-})
+import {ModalProvider} from '../context/modal-context'
 
 const App = () => {
   const [state, setState] = useSetState({
@@ -36,14 +29,14 @@ const App = () => {
   }
 
   const fetchMovies = (sort: string, page: number) =>
-    API.movies(url).getByPage(sort, page)
+    API.movies().getByPage(sort, page)
 
   const fetchMoviesByGenre = (genre: [], page: number, sort: string) =>
-    API.movies(url).getByGenre(genre, page, sort)
+    API.movies().getByGenre(genre, page, sort)
 
   useEffect(() => {
     if (state.imdb !== '')
-      API.movies(url)
+      API.movies()
         .getDetails(state.imdb)
         .then(data => {
           setState({

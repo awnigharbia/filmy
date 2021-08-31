@@ -29,12 +29,12 @@ const SliderChildren: FC<Props> = ({
       </SliderParent.Welcome>
       <SliderParent.SliderTop>
         <SliderParent.SliderWrapper transform={translateValue}>
-          {movies.map((item, key) => (
+          {movies.map(({id, poster_path}) => (
             <SliderParent.ActiveImg
-              src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+              src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
               child={activeIndex}
-              active={key === activeIndex}
-              key={key}
+              active={id === activeIndex}
+              key={id}
             />
           ))}
         </SliderParent.SliderWrapper>

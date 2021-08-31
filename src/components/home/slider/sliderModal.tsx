@@ -8,6 +8,7 @@ import {search} from 'react-icons-kit/feather/search'
 import {globe, video} from 'react-icons-kit/feather'
 
 export interface Movie {
+  id: number
   title: string
   poster_path: string
   release_date: number
