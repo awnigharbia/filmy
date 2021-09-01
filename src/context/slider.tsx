@@ -1,10 +1,11 @@
 import * as React from 'react'
-import {ReactElement, PropsWithChildren} from 'react'
+import {ReactElement} from 'react'
 import {useEffect, FC} from 'react'
 import {useSetState} from '../components/hooks/useSetState'
 
-const callAll = (...fns: any[]) => (...args: any[]) =>
-  fns.forEach(fn => fn && fn(...args))
+const callAll = (...fns: ((...args: unknown[]) => void)[]) => (
+  ...args: unknown[]
+) => fns.forEach(fn => typeof fn === 'function' && fn(...args))
 
 type SliderState = {
   currentSlide: number
