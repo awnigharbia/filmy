@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {FC} from 'react'
 
-import ModalContent from './modalContent'
+import ModalContent from './ModalContent'
 
 interface Data {
   actors: string

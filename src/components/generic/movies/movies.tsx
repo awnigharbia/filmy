@@ -1,13 +1,12 @@
 import * as React from 'react'
-import {useRef, useEffect, FC} from 'react'
+import {useRef, FC} from 'react'
 import * as Movies from './style'
-import MovieCard from './movieCard'
+import MovieCard from './MovieCard'
 import ReactPlaceholder from 'react-placeholder'
 import 'react-placeholder/lib/reactPlaceholder.css'
-import {ModalProvider} from '../../App'
-import useBottom from '../../hooks/useBottom'
 import BounceLoader from 'react-spinners/BounceLoader'
-import {Movie} from '../../home/slider/sliderModal'
+import {Movie} from '../../home/slider/SliderModal'
+import {useModal} from '../../../context/modal-context'
 
 interface Props {
   movies: Movie[]
@@ -31,6 +30,7 @@ const MoviesPanel: FC<Props> = ({movies, loader, loading}) => {
 }
 
 const RenderMovies = (movies: Movie[], loader: boolean) => {
+  const {handleOpen} = useModal()
   const panelRef = useRef<HTMLDivElement>(null)
 
   //Fix feature:
@@ -42,24 +42,29 @@ const RenderMovies = (movies: Movie[], loader: boolean) => {
 
   return (
     <>
-      {movies !== undefined &&
-        movies.map(({poster_med, rating, year, genres, title, imdb}, key) => (
-          <ModalProvider.Consumer key={key}>
-            {({handleOpen}) => {
-              return (
-                <MovieCard
-                  title={title}
-                  imdb={imdb}
-                  genres={genres}
-                  posterMed={poster_med}
-                  rating={rating}
-                  year={year}
-                  handleOpen={handleOpen}
-                />
-              )
-            }}
-          </ModalProvider.Consumer>
-        ))}
+      {movies?.map(
+        ({
+          id,
+          poster_path,
+          vote_average,
+          release_date,
+          genres,
+          title,
+          imdb,
+        }) => (
+          <MovieCard
+            key={id}
+            title={title}
+            imdb={imdb}
+            genres={genres}
+            posterURL={poster_path}
+            rating={vote_average}
+            year={release_date}
+            handleOpen={handleOpen}
+          />
+        ),
+      )}
+      ,
       {loader && (
         <Movies.Loader ref={panelRef} style={{width: '100%', height: '100px'}}>
           <BounceLoader color="#602f75" />

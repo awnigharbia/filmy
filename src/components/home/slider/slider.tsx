@@ -1,53 +1,64 @@
 import * as React from 'react'
-import {FC} from 'react'
-import SliderModal from './sliderModal'
-import {Icon} from 'react-icons-kit'
-import {chevronLeft, chevronRight} from 'react-icons-kit/feather'
-import {Movie} from './sliderModal'
-
-import * as SliderParent from './style'
+import {useEffect, FC} from 'react'
+import SliderChildren from './SliderChildren'
+import {useSetState} from '../../hooks/useSetState'
+import {Movie} from './SliderModal'
 
 interface Props {
-  translateValue: number
-  backImg(): void
+  loading: boolean
   movies: Movie[]
-  activeIndex: number
-  nextImg(): void
 }
 
-const SliderChildren: FC<Props> = ({
-  translateValue,
-  backImg,
-  movies,
-  activeIndex,
-  nextImg,
-}) => {
-  return (
-    <SliderParent.SliderParent>
-      <SliderParent.Welcome>
-        Your weekend buddy for this week
-      </SliderParent.Welcome>
-      <SliderParent.SliderTop>
-        <SliderParent.SliderWrapper transform={translateValue}>
-          {movies.map((item, key) => (
-            <SliderParent.ActiveImg
-              src={item.poster_big}
-              child={activeIndex}
-              active={key === activeIndex}
-              key={key}
-            />
-          ))}
-        </SliderParent.SliderWrapper>
-        <SliderModal movies={movies} activeIndex={activeIndex} />
-      </SliderParent.SliderTop>
-      <SliderParent.LeftArrow onClick={backImg}>
-        <Icon icon={chevronLeft} size={35} />
-      </SliderParent.LeftArrow>
-      <SliderParent.RightArrow onClick={nextImg}>
-        <Icon icon={chevronRight} size={35} />
-      </SliderParent.RightArrow>
-    </SliderParent.SliderParent>
+const Slider: FC<Props> = ({movies, loading}) => {
+  const [state, setState] = useSetState({
+    activeIndex: 2,
+    translateValue: 0,
+  })
+
+  const nextImg = () => {
+    setState(
+      state.activeIndex === movies.length - 1
+        ? {
+            activeIndex: 2,
+            translateValue: 0,
+          }
+        : {
+            activeIndex: state.activeIndex + 1,
+            translateValue: state.translateValue - 250,
+          },
+    )
+  }
+
+  const backImg = () => {
+    setState(
+      state.activeIndex === 0
+        ? null
+        : {
+            activeIndex: state.activeIndex - 1,
+            translateValue: state.translateValue + 250,
+          },
+    )
+  }
+
+  const handleArrow = (e: KeyboardEvent) => {
+    return e.keyCode === 39 ? nextImg() : e.keyCode === 37 ? backImg() : null
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleArrow, false)
+
+    return () => document.removeEventListener('keydown', handleArrow, false)
+  })
+
+  return loading ? null : (
+    <SliderChildren
+      {...state}
+      nextImg={nextImg}
+      backImg={backImg}
+      movies={movies}
+      loading={loading}
+    />
   )
 }
 
-export default SliderChildren
+export default Slider

@@ -2,7 +2,7 @@ import * as React from 'react'
 import {FC} from 'react'
 import * as Sidebar from './style'
 import {Icon} from 'react-icons-kit'
-import {SidebarItem, SidebarItemGroup} from './sidebarItem'
+import {SidebarItem, SidebarItemGroup} from './SidebarItem'
 import {menu, list, info, zap} from 'react-icons-kit/feather/'
 import {home} from 'react-icons-kit/entypo/home'
 

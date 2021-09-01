@@ -6,7 +6,7 @@ import API from '../../api/movie'
 import useOnClickOutside from '../hooks/outSideHook'
 
 // Componets
-import FilmSearchResult from './filmSearchResult'
+import MovieSearchResult from './MovieSearchResult'
 
 // constant
 const url = 'https://api.apiumando.info/'
@@ -74,7 +74,7 @@ const Search: FC<{openModal(imdb: string): void}> = ({openModal}) => {
         <div className="search-result">
           <div className="search-results">
             {results.map((item, key) => {
-              return <FilmSearchResult key={key} {...item} open={openModal} />
+              return <MovieSearchResult key={key} {...item} open={openModal} />
             })}
           </div>
         </div>

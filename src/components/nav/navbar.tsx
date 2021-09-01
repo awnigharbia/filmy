@@ -2,8 +2,8 @@ import * as React from 'react'
 import {FC} from 'react'
 
 // components
-import TopNav from './topNav'
-import Sidebar from './sideBar'
+import TopNav from './TopNavbar'
+import Sidebar from './Sidebar'
 import {useSetState} from '../hooks/useSetState'
 
 const Navbar: FC<{openModal(imdb: string): void}> = ({openModal}) => {

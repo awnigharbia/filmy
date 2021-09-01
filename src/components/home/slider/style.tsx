@@ -127,7 +127,7 @@ export const ModalImg = styled(Img)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  width: 500px;
   height: 95%;
   z-index: 1;
 `

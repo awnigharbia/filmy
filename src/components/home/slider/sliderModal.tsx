@@ -8,13 +8,13 @@ import {search} from 'react-icons-kit/feather/search'
 import {globe, video} from 'react-icons-kit/feather'
 
 export interface Movie {
+  id: number
   title: string
-  poster_big: string
-  poster_med: string
-  year: number
+  poster_path: string
+  release_date: number
   genres: []
-  description: string
-  rating: number
+  overview: string
+  vote_average: number
   imdb: string
 }
 
@@ -29,7 +29,9 @@ const SliderModal: FC<Props> = ({movies, activeIndex}) => {
       {({handleOpen}) => {
         return (
           <SliderParent.ActiveModal>
-            <SliderParent.ModalImg src={movies[activeIndex].poster_big} />
+            <SliderParent.ModalImg
+              src={`https://image.tmdb.org/t/p/w500/${movies[activeIndex].poster_path}`}
+            />
             <SliderParent.ModalInfo>
               <SliderParent.ModalTitle>
                 {movies[activeIndex].title}
@@ -37,22 +39,16 @@ const SliderModal: FC<Props> = ({movies, activeIndex}) => {
               <SliderParent.ModalLine />
               <Info
                 title="Release Date"
-                content={`${movies[activeIndex].year}`}
+                content={`${movies[activeIndex].release_date}`}
               />
-              <Info
-                title="Genre"
-                content={movies[activeIndex].genres.join('|')}
-              />
-              <Info
-                title="Synopsis"
-                content={movies[activeIndex].description}
-              />
+              <Info title="Genre" content="A" />
+              <Info title="Synopsis" content={movies[activeIndex].overview} />
               <SliderParent.ModalCenter />
               <SliderParent.ModalBottom>
                 <SliderParent.ModalBottomItem color="#fec72a">
                   <Icon icon={star} size={30} />
                   <SliderParent.ModalBottomContent>
-                    {movies[activeIndex].rating}/10
+                    {movies[activeIndex].vote_average}/10
                   </SliderParent.ModalBottomContent>
                 </SliderParent.ModalBottomItem>
 

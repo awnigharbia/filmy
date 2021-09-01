@@ -5,9 +5,9 @@ import {x} from 'react-icons-kit/feather'
 import {twitter} from 'react-icons-kit/icomoon/twitter'
 import {facebook} from 'react-icons-kit/fa'
 import {PoseGroup} from 'react-pose'
-import SelectQuality from './selectQuality'
+import SelectQuality from './SelectQuality'
 import useLockBodyScroll from '../../hooks/useLockBodyScroll'
-import {Props} from './index'
+import {Props} from './MovieModal'
 
 import * as Modal from './style'
 

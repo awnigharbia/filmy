@@ -1,9 +1,9 @@
 import * as React from 'react'
 import {FC} from 'react'
 import {Wrapper} from './style'
-import TopHeader from './topHeader'
-import MoviesPanel from '../../generic/movies/movies'
-import {Movie} from '../slider/sliderModal'
+import TopHeader from './TopHeader'
+import MoviesPanel from '../../generic/movies/Movies'
+import {Movie} from '../slider/SliderModal'
 
 const Center: FC<{loading: boolean; movies: Movie[]; id: number}> = ({
   loading,
