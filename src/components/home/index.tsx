@@ -1,10 +1,9 @@
 import * as React from 'react'
 import {FC} from 'react'
-import Slider from './slider/Slider'
 import Center from './center/Center'
 import WelcomeSection from './welcomeSection/WelcomeSection'
 import Footer from './footer/Footer'
-import {Movie} from './slider/SliderModal'
+import SliderComponent from './slider/Slider'
 
 const Home: FC<{movies: Movie[]; loading: boolean; id: number}> = ({
   movies,
@@ -13,7 +12,7 @@ const Home: FC<{movies: Movie[]; loading: boolean; id: number}> = ({
 }) => {
   return (
     <>
-      <Slider movies={movies} loading={loading} />
+      {loading ? null : <SliderComponent movies={movies} />}
       <Center movies={movies} loading={loading} id={id} />
       <WelcomeSection />
       <Footer />
