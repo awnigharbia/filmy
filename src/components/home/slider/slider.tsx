@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {FC} from 'react'
-import SliderModal from './SliderModal'
+import {SliderModal} from './SliderModal'
 import {Icon} from 'react-icons-kit'
 import {chevronLeft, chevronRight} from 'react-icons-kit/feather'
 
@@ -21,7 +21,7 @@ interface SliderContentProps {
   translate: number
 }
 
-const SliderComponent: FC<Props> = ({movies}) => {
+export const SliderComponent: FC<Props> = ({movies}) => {
   return (
     <Slider movies={movies}>
       <SliderParent.SliderParent>
@@ -61,5 +61,3 @@ const SliderComponent: FC<Props> = ({movies}) => {
     </Slider>
   )
 }
-
-export default SliderComponent

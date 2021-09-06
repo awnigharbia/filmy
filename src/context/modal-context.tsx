@@ -4,11 +4,11 @@ type Modal = {
   handleOpen(imdb: string): void
 }
 
-const ModalProvider = React.createContext<Modal>({
+export const ModalProvider = React.createContext<Modal>({
   handleOpen: () => undefined,
 })
 
-function useModal() {
+export function useModal() {
   const context = React.useContext(ModalProvider)
 
   if (!context) {
@@ -17,5 +17,3 @@ function useModal() {
 
   return context
 }
-
-export {ModalProvider, useModal}

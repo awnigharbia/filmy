@@ -1,5 +1,4 @@
 import axios from 'axios'
-import {Movie} from '../components/home/slider/SliderModal'
 
 const API_URL = 'https://api.themoviedb.org/3/'
 const API_KEY = '3c817edb2c2a10ea7095bc697864900d'
@@ -15,7 +14,7 @@ function fetch(url: string, params?: Record<string, string | number>) {
   })
 }
 
-const API = {
+export const API = {
   movies() {
     return {
       getByPage: (index: number): Promise<Movie[]> => {
@@ -49,5 +48,3 @@ const API = {
     }
   },
 }
-
-export default API

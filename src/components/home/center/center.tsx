@@ -1,11 +1,10 @@
 import * as React from 'react'
 import {FC} from 'react'
 import {Wrapper} from './style'
-import TopHeader from './TopHeader'
-import MoviesPanel from '../../generic/movies/Movies'
-import {Movie} from '../slider/SliderModal'
+import {TopHeader} from './TopHeader'
+import {MoviesPanel} from '../../generic/movies/Movies'
 
-const Center: FC<{loading: boolean; movies: Movie[]; id: number}> = ({
+export const Center: FC<{loading: boolean; movies: Movie[]; id: number}> = ({
   loading,
   movies,
   id,
@@ -17,5 +16,3 @@ const Center: FC<{loading: boolean; movies: Movie[]; id: number}> = ({
     </Wrapper>
   )
 }
-
-export default Center

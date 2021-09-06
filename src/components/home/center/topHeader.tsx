@@ -4,7 +4,7 @@ import * as Wrapper from './style'
 import {Icon} from 'react-icons-kit'
 import {chevronRight} from 'react-icons-kit/feather'
 
-const TopHeader: FC<{id: number}> = ({id}) => {
+export const TopHeader: FC<{id: number}> = ({id}) => {
   return (
     <Wrapper.Top>
       <Wrapper.H1>{id}</Wrapper.H1>
@@ -16,5 +16,3 @@ const TopHeader: FC<{id: number}> = ({id}) => {
     </Wrapper.Top>
   )
 }
-
-export default TopHeader

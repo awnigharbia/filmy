@@ -1,11 +1,10 @@
 import * as React from 'react'
 import {useRef, FC} from 'react'
 import * as Movies from './style'
-import MovieCard from './MovieCard'
+import {MovieCard} from './MovieCard'
 import ReactPlaceholder from 'react-placeholder'
 import 'react-placeholder/lib/reactPlaceholder.css'
 import BounceLoader from 'react-spinners/BounceLoader'
-import {Movie} from '../../home/slider/SliderModal'
 import {useModal} from '../../../context/modal-context'
 
 interface Props {
@@ -21,7 +20,7 @@ const placeholderStyle = {
   borderRadius: '5px',
 }
 
-const MoviesPanel: FC<Props> = ({movies, loader, loading}) => {
+export const MoviesPanel: FC<Props> = ({movies, loader, loading}) => {
   return (
     <Movies.Movies>
       {loading ? renderLoading(loading) : RenderMovies(movies, loader)}
@@ -87,5 +86,3 @@ const renderLoading = (loading: boolean) =>
       <></>
     </ReactPlaceholder>
   ))
-
-export default MoviesPanel

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {FC, useEffect} from 'react'
-import MoviesPanel from '../generic/movies/Movies'
+import {MoviesPanel} from '../generic/movies/Movies'
 import {useSetState} from '../hooks/useSetState'
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   fetchMoviesByGenre(genre: [], page: number, sort: string): Promise<any>
 }
 
-const MoviesList: FC<Props> = ({fetchMoviesByGenre, genre, loader}) => {
+export const MoviesList: FC<Props> = ({fetchMoviesByGenre, genre, loader}) => {
   const [state, setState] = useSetState({
     movies: [],
     loading: true,
@@ -43,5 +43,3 @@ const MoviesList: FC<Props> = ({fetchMoviesByGenre, genre, loader}) => {
     />
   )
 }
-
-export default MoviesList

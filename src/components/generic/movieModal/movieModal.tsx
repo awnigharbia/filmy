@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {FC} from 'react'
 
-import ModalContent from './ModalContent'
+import {ModalContent} from './ModalContent'
 
 interface Data {
   actors: string
@@ -25,8 +25,6 @@ export interface Props {
   data: Data
 }
 
-const MovieModal: FC<Props> = props => {
+export const MovieModal: FC<Props> = props => {
   return <ModalContent {...props} />
 }
-
-export default MovieModal

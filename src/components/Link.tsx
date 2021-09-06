@@ -2,7 +2,7 @@ import * as React from 'react'
 import {FC} from 'react'
 import {Link as ReactRouterLink} from 'react-router-dom'
 
-const Link: FC<{
+export const Link: FC<{
   children: React.ReactNode
   to: string
   replace?: boolean
@@ -12,5 +12,3 @@ const Link: FC<{
     {children}
   </ReactRouterLink>
 )
-
-export default Link

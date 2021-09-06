@@ -2,7 +2,7 @@ import * as React from 'react'
 import {FC} from 'react'
 import './style.css'
 
-const MovieSearchResult: FC<{
+export const MovieSearchResult: FC<{
   title: string
   poster_med: string
   year: number
@@ -20,5 +20,3 @@ const MovieSearchResult: FC<{
     </div>
   </div>
 )
-
-export default MovieSearchResult

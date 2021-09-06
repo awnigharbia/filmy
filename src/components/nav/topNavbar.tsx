@@ -3,9 +3,9 @@ import {FC} from 'react'
 import * as Nav from './style'
 import {Icon} from 'react-icons-kit'
 import {menu, search} from 'react-icons-kit/feather/'
-import Search from './Search'
+import {Search} from './Search'
 
-const TopNav: FC<{onClick(): void; openModal(imdb: string): void}> = ({
+export const TopNav: FC<{onClick(): void; openModal(imdb: string): void}> = ({
   onClick,
   openModal,
 }) => (
@@ -19,5 +19,3 @@ const TopNav: FC<{onClick(): void; openModal(imdb: string): void}> = ({
     <Nav.logo />
   </Nav.Nav>
 )
-
-export default TopNav

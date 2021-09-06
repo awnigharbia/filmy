@@ -15,7 +15,7 @@ interface Props {
   imdb: string
 }
 
-const MovieCard: FC<Props> = ({
+export const MovieCard: FC<Props> = ({
   posterURL = '',
   handleOpen,
   rating,
@@ -45,5 +45,3 @@ const MovieCard: FC<Props> = ({
     </Movies.Details>
   </Movies.MovieWrapper>
 )
-
-export default MovieCard

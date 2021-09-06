@@ -2,11 +2,11 @@ import React, {useRef, useState, ChangeEvent, FC} from 'react'
 import './style.css'
 import {Icon} from 'react-icons-kit'
 import {search} from 'react-icons-kit/feather'
-import API from '../../api/movie'
-import useOnClickOutside from '../hooks/outSideHook'
+import {API} from '../../api/movie'
+import {useOnClickOutside} from '../hooks/outSideHook'
 
 // Componets
-import MovieSearchResult from './MovieSearchResult'
+import {MovieSearchResult} from './MovieSearchResult'
 
 // constant
 const url = 'https://api.apiumando.info/'
@@ -44,7 +44,7 @@ function useSearch() {
 
   function fetchMovies(name: string) {
     if (name !== '')
-      API.movies(url)
+      API.movies()
         .getByName(name)
         .then(data => setResults(data.data.MovieList.slice(0, 5)))
   }
@@ -59,7 +59,7 @@ function useSearch() {
   }
 }
 
-const Search: FC<{openModal(imdb: string): void}> = ({openModal}) => {
+export const Search: FC<{openModal(imdb: string): void}> = ({openModal}) => {
   const {
     text,
     results,
@@ -110,5 +110,3 @@ const Search: FC<{openModal(imdb: string): void}> = ({openModal}) => {
     </div>
   )
 }
-
-export default Search

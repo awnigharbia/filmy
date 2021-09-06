@@ -5,8 +5,7 @@ import {x} from 'react-icons-kit/feather'
 import {twitter} from 'react-icons-kit/icomoon/twitter'
 import {facebook} from 'react-icons-kit/fa'
 import {PoseGroup} from 'react-pose'
-import SelectQuality from './SelectQuality'
-import useLockBodyScroll from '../../hooks/useLockBodyScroll'
+import {SelectQuality} from './SelectQuality'
 import {Props} from './MovieModal'
 
 import * as Modal from './style'
@@ -21,7 +20,7 @@ const Category: FC<{title: string; children: React.ReactChild}> = ({
   </Modal.Category>
 )
 
-const ModalContent: FC<Props> = ({
+export const ModalContent: FC<Props> = ({
   open,
 
   handleClose,
@@ -116,5 +115,3 @@ const ModalContent: FC<Props> = ({
     </PoseGroup>
   )
 }
-
-export default ModalContent

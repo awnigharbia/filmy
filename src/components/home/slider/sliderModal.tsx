@@ -13,7 +13,7 @@ interface Props {
   activeIndex: number
 }
 
-const SliderModal: FC<Props> = ({movies, activeIndex}) => {
+export const SliderModal: FC<Props> = ({movies, activeIndex}) => {
   const {handleOpen} = useModal()
   return (
     <SliderParent.ActiveModal>
@@ -75,5 +75,3 @@ const Info: FC<InfoProps> = ({title, content}) => (
     <SliderParent.InfoContent>{content}</SliderParent.InfoContent>
   </SliderParent.InfoWrapper>
 )
-
-export default SliderModal

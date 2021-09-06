@@ -1,12 +1,12 @@
 import * as React from 'react'
 import {useEffect} from 'react'
 import {useSetState} from './hooks/useSetState'
-import Navbar from './nav/Navbar'
+import {Navbar} from './nav/Navbar'
 import {Route, Switch} from 'react-router-dom'
-import Home from './home'
-import MoviesList from './movies/MoviesList'
-import MovieModal from './generic/movieModal/MovieModal'
-import API from '../api/movie'
+import {Home} from './home'
+import {MoviesList} from './movies/MoviesList'
+import {MovieModal} from './generic/movieModal/MovieModal'
+import {API} from '../api/movie'
 import {url} from '../constants'
 import {ModalProvider} from '../context/modal-context'
 
@@ -28,8 +28,7 @@ const App = () => {
     }
   }
 
-  const fetchMovies = (sort: string, page: number) =>
-    API.movies().getByPage(sort, page)
+  const fetchMovies = (index: number) => API.movies().getByPage(1)
 
   const fetchMoviesByGenre = (genre: [], page: number, sort: string) =>
     API.movies().getByGenre(genre, page, sort)
@@ -46,7 +45,7 @@ const App = () => {
         })
 
     if (state.movies.length === 0)
-      fetchMovies('seeds', 1).then(data =>
+      fetchMovies(1).then(data =>
         setState({
           movies: data,
           loading: !state.loading,
