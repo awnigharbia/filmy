@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {ReactElement} from 'react'
 import {useEffect, FC} from 'react'
-import {useSetState} from '../components/hooks/useSetState'
+import {useSetState} from 'src/components/hooks/useSetState'
 
 const callAll = (...fns: ((...args: unknown[]) => void)[]) => (
   ...args: unknown[]

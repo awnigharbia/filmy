@@ -2,16 +2,10 @@ import React, {useRef, useState, ChangeEvent, FC} from 'react'
 import './style.css'
 import {Icon} from 'react-icons-kit'
 import {search} from 'react-icons-kit/feather'
-import {API} from '../../api/movie'
-import {useOnClickOutside} from '../hooks/outSideHook'
-
-// Componets
+import {API} from 'src/api/movie'
+import {useOnClickOutside} from 'src/components/hooks/outSideHook'
 import {MovieSearchResult} from './MovieSearchResult'
 
-// constant
-const url = 'https://api.apiumando.info/'
-
-// Hook-based Component
 function useSearch() {
   const [focused, setFocused] = useState(0)
   const [text, setText] = useState('')

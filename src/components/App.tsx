@@ -6,9 +6,8 @@ import {Route, Switch} from 'react-router-dom'
 import {Home} from './home'
 import {MoviesList} from './movies/MoviesList'
 import {MovieModal} from './generic/movieModal/MovieModal'
-import {API} from '../api/movie'
-import {url} from '../constants'
-import {ModalProvider} from '../context/modal-context'
+import {API} from 'src/api/movie'
+import {ModalProvider} from 'src/context/modal-context'
 
 const App = () => {
   const [state, setState] = useSetState({

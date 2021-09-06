@@ -3,7 +3,7 @@ import {FC} from 'react'
 import * as Sidebar from './style'
 import {SidebarLink} from './SidebarLink'
 import {Icon} from 'react-icons-kit'
-import {genres} from '../../constants'
+import {genres} from 'src/constants'
 
 export const SidebarItemGroup: FC<{
   toggleCategories(): void

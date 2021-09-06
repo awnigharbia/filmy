@@ -2,11 +2,10 @@ import * as React from 'react'
 import {FC} from 'react'
 import * as SliderParent from './style'
 import {Icon} from 'react-icons-kit'
-import {ModalProvider} from '../../App'
 import {star} from 'react-icons-kit/fa/'
 import {search} from 'react-icons-kit/feather/search'
 import {globe, video} from 'react-icons-kit/feather'
-import {useModal} from '../../../context/modal-context'
+import {useModal} from 'src/context/modal-context'
 
 interface Props {
   movies: Movie[]

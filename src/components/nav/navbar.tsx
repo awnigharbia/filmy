@@ -4,7 +4,7 @@ import {FC} from 'react'
 // components
 import {TopNav} from './TopNavbar'
 import {SideBar} from './Sidebar'
-import {useSetState} from '../hooks/useSetState'
+import {useSetState} from 'src/components/hooks/useSetState'
 
 export const Navbar: FC<{openModal(imdb: string): void}> = ({openModal}) => {
   const [state, setState] = useSetState({
