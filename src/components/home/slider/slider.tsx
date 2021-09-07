@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {FC} from 'react'
-import {SliderModal} from './SliderModal'
 import {Icon} from 'react-icons-kit'
 import {chevronLeft, chevronRight} from 'react-icons-kit/feather'
 
@@ -10,15 +9,11 @@ import {
   SliderNextArrow,
   SliderPrevArrow,
   SliderContent,
-} from '../../../context/slider'
+} from 'src/context/slider'
+import {SliderContentChild} from './SliderContent'
 
 interface Props {
   movies: Movie[]
-}
-
-interface SliderContentProps {
-  currentSlide: number
-  translate: number
 }
 
 export const SliderComponent: FC<Props> = ({movies}) => {
@@ -29,23 +24,7 @@ export const SliderComponent: FC<Props> = ({movies}) => {
           Your weekend buddy for this week
         </SliderParent.Welcome>
         <SliderContent>
-          {({currentSlide, translate}: SliderContentProps) => {
-            return (
-              <SliderParent.SliderTop>
-                <SliderParent.SliderWrapper transform={translate}>
-                  {movies.map(({id, poster_path}) => (
-                    <SliderParent.ActiveImg
-                      src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                      child={currentSlide}
-                      active={id === currentSlide}
-                      key={id}
-                    />
-                  ))}
-                </SliderParent.SliderWrapper>
-                <SliderModal movies={movies} activeIndex={currentSlide} />
-              </SliderParent.SliderTop>
-            )
-          }}
+          <SliderContentChild />
         </SliderContent>
         <SliderPrevArrow>
           <SliderParent.LeftArrow>

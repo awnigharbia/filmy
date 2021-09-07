@@ -12,17 +12,9 @@ type SliderState = {
   translate: number
 }
 
-interface SliderContextInterface {
-  movies: Movie[]
-  currentSlide: number
-  translate: number
-  nextImg: () => void
-  prevImg: () => void
-}
-
 const SliderContext = React.createContext<any>(null)
 
-function useSlider() {
+export function useSlider() {
   const context = React.useContext(SliderContext)
 
   if (!context) {
@@ -43,10 +35,12 @@ const defaultState: SliderState = {
 
 const Slider: FC<Props> = ({movies, ...props}) => {
   const [{currentSlide, translate}, setState] = useSetState(defaultState)
-  const translateSlideValue = 250
+  const translateSlideValue = 245
   const step = 1
   const isLastSlide = currentSlide === movies.length - 1
   const isFirstSlide = currentSlide === 0
+  const nextKeyCode = 39
+  const prevKeyCode = 37
 
   const nextImg = () => {
     setState(
@@ -71,7 +65,11 @@ const Slider: FC<Props> = ({movies, ...props}) => {
   }
 
   const handleArrow = (e: KeyboardEvent) => {
-    return e.keyCode === 39 ? nextImg() : e.keyCode === 37 ? prevImg() : null
+    return e.keyCode === nextKeyCode
+      ? nextImg()
+      : e.keyCode === prevKeyCode
+      ? prevImg()
+      : null
   }
 
   useEffect(() => {
@@ -101,11 +99,6 @@ const SliderPrevArrow: FC = ({children}) => {
   return React.cloneElement(child, {
     onClick: callAll(() => prevImg(), child.props.onClick),
   })
-}
-
-interface SliderContentProps {
-  translate: number
-  currentSlide: number
 }
 
 const SliderContent: FC = ({children}) => {

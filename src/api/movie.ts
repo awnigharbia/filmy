@@ -18,9 +18,11 @@ export const API = {
   movies() {
     return {
       getByPage: (index: number): Promise<Movie[]> => {
-        return fetch('movie/popular', {
+        return fetch('discover/movie?sort_by=popularity.desc', {
           page: index,
         }).then(res => {
+          console.log(res.data.results.length)
+
           return res.data.results
         })
       },
