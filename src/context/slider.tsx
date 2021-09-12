@@ -14,7 +14,15 @@ type SliderState = {
 
 const SliderContext = React.createContext<any>(null)
 
-export function useSlider() {
+interface UseSliderReturn {
+  currentSlide: number
+  translate: number
+  movies: Movie[]
+  nextImg: () => void
+  prevImg: () => void
+}
+
+export function useSlider(): UseSliderReturn {
   const context = React.useContext(SliderContext)
 
   if (!context) {

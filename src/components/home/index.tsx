@@ -12,8 +12,8 @@ export const Home: FC<{movies: Movie[]; loading: boolean; id: number}> = ({
 }) => {
   return (
     <>
-      {loading ? null : <SliderComponent movies={movies} />}
-      <Center movies={movies} loading={loading} id={id} />
+      {!loading && <SliderComponent movies={movies} />}
+      <Center id={id} />
       <WelcomeSection />
       <Footer />
     </>

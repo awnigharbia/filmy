@@ -13,7 +13,7 @@ export const SliderContentChild: FC<SliderContentChildProps> = ({
   translate = 250,
   currentSlide = 0,
 }) => {
-  const {movies}: {movies: Movie[]} = useSlider()
+  const {movies} = useSlider()
 
   return (
     <SliderParent.SliderTop>

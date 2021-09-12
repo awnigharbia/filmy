@@ -10,7 +10,7 @@ import {
   SliderPrevArrow,
   SliderContent,
 } from 'src/context/slider'
-import {SliderContentChild} from './SliderContent'
+import {SliderContentChild} from './SliderContentChild'
 
 interface Props {
   movies: Movie[]

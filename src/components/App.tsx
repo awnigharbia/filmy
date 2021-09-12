@@ -6,7 +6,7 @@ import {Route, Switch} from 'react-router-dom'
 import {Home} from './home'
 import {MoviesList} from './movies/MoviesList'
 import {MovieModal} from './generic/movieModal/MovieModal'
-import {API} from 'src/api/movie'
+import {API} from '@/api/movie_api'
 import {ModalProvider} from 'src/context/modal-context'
 
 const App = () => {

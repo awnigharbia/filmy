@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {FC, useEffect} from 'react'
-import {MoviesPanel} from '../generic/movies/Movies'
+import {MoviesPanel} from '../generic/movies/MoviesPanel'
 import {useSetState} from '../hooks/useSetState'
 
 interface Props {

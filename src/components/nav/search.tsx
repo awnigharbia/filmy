@@ -2,7 +2,7 @@ import React, {useRef, useState, ChangeEvent, FC} from 'react'
 import './style.css'
 import {Icon} from 'react-icons-kit'
 import {search} from 'react-icons-kit/feather'
-import {API} from 'src/api/movie'
+import {API} from '@/api/movie_api'
 import {useOnClickOutside} from 'src/components/hooks/outSideHook'
 import {MovieSearchResult} from './MovieSearchResult'
 
