@@ -54,7 +54,7 @@ export const SliderModal: FC<Props> = ({movies, activeIndex}) => {
           </SliderParent.ModalBottomItem>
         </SliderParent.ModalBottom>
         <SliderParent.ModalDownload
-          onClick={() => handleOpen(movies[activeIndex].imdb)}
+          onClick={() => handleOpen(movies[activeIndex].id)}
         >
           <Icon icon={search} size={30} />
         </SliderParent.ModalDownload>

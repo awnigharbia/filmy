@@ -5,54 +5,59 @@ import {x} from 'react-icons-kit/feather'
 import {twitter} from 'react-icons-kit/icomoon/twitter'
 import {facebook} from 'react-icons-kit/fa'
 import {PoseGroup} from 'react-pose'
-import {SelectQuality} from './SelectQuality'
-import {Props} from './MovieModal'
 
 import * as Modal from './style'
+import {useModal} from '@/context/modal-context'
+import {useMovie} from '@/api/movie_api'
 
-const Category: FC<{title: string; children: React.ReactChild}> = ({
-  title,
-  children,
-}) => (
-  <Modal.Category>
-    <Modal.CatTitle>{title}</Modal.CatTitle>
-    {children}
-  </Modal.Category>
-)
+export interface Data {
+  overview: string
+  genres: genre[]
+  id: string
+  poster_path: string
+  vote_average: number
+  title: string
+  release_date: number
+}
 
-export const ModalContent: FC<Props> = ({
-  open,
-
-  handleClose,
-  data: {
-    title,
-    poster_big,
-    rating,
-    description,
-    year,
-    genres,
-    trailer,
-    items,
-    imdb,
-  },
-}) => {
+export const ModalContent: FC = () => {
   //Fix me:lockscroll
   // {
   //   open ? useLockBodyScroll('lock') : useLockBodyScroll('unlock')
   // }
-  return (
+
+  const {movieId} = useModal()
+  const {
+    movie,
+    isFetching,
+    isIdle,
+    isSuccess,
+  }: {
+    movie: Data
+    isFetching: boolean
+    isIdle: boolean
+    isSuccess: boolean
+  } = useMovie(movieId)
+  const {isOpen, setIsOpen} = useModal()
+
+  return isIdle ? null : isFetching ? (
+    <div>Loading..</div>
+  ) : (
     <PoseGroup>
-      {open && [
-        <Modal.Modal key="modal" pose={open}>
-          <Modal.Close onClick={handleClose}>
+      {isOpen && [
+        <Modal.Modal key="modal" pose={isSuccess}>
+          <Modal.Close onClick={() => setIsOpen(false)}>
             <Icon icon={x} size={30} />
           </Modal.Close>
 
           <Modal.ModalContent key="content">
             <Modal.LeftSection>
-              <Modal.Img src={poster_big} alt={poster_big} />
+              <Modal.Img
+                src={` https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                alt={movie.poster_path}
+              />
 
-              <Modal.Name>{title}</Modal.Name>
+              <Modal.Name>{movie.title}</Modal.Name>
               <Modal.bio>
                 <span role="img" aria-label="globe">
                   🌐
@@ -61,7 +66,7 @@ export const ModalContent: FC<Props> = ({
                 <span role="img" aria-label="star">
                   ⭐
                 </span>
-                {rating}/10
+                {movie.vote_average}/10
               </Modal.bio>
               <Modal.SocialShare>
                 <Icon icon={facebook} size={30} style={{color: '#4267B2'}} />
@@ -75,15 +80,15 @@ export const ModalContent: FC<Props> = ({
 
             <Modal.Center>
               <Category title="Year">
-                <Modal.CatBody>{year}</Modal.CatBody>
+                <Modal.CatBody>{movie.release_date}</Modal.CatBody>
               </Category>
               <Category title="Description">
-                <Modal.CatBody>{description}</Modal.CatBody>
+                <Modal.CatBody>{movie.overview}</Modal.CatBody>
               </Category>
               <Category title="Genres">
                 <Modal.CatGenres>
-                  {genres.map((item, key) => (
-                    <li key={key}>{item}</li>
+                  {movie.genres.map((item, key) => (
+                    <li key={key}>{item.name}</li>
                   ))}
                 </Modal.CatGenres>
               </Category>
@@ -96,8 +101,8 @@ export const ModalContent: FC<Props> = ({
               </Category>
             </Modal.Center>
             <Modal.Right>
-              <Category title="Trailer">
-                <iframe
+              {/* <Category title="Trailer"> */}
+              {/* <iframe
                   title="trailer"
                   width="100%"
                   height="250"
@@ -105,9 +110,9 @@ export const ModalContent: FC<Props> = ({
                   frameBorder="0"
                   allowFullScreen
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                />
-              </Category>
-              <SelectQuality links={items} imdb={imdb} />
+                /> */}
+              {/* </Category> */}
+              {/* <SelectQuality links={items} imdb={imdb} /> */}
             </Modal.Right>
           </Modal.ModalContent>
         </Modal.Modal>,
@@ -115,3 +120,13 @@ export const ModalContent: FC<Props> = ({
     </PoseGroup>
   )
 }
+
+const Category: FC<{title: string; children: React.ReactChild}> = ({
+  title,
+  children,
+}) => (
+  <Modal.Category>
+    <Modal.CatTitle>{title}</Modal.CatTitle>
+    {children}
+  </Modal.Category>
+)

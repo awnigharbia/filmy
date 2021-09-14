@@ -1,16 +1,14 @@
 import * as React from 'react'
-import {useRef, FC} from 'react'
+import {FC} from 'react'
 import * as Movies from './style'
 import {MovieCard} from './MovieCard'
 import ReactPlaceholder from 'react-placeholder'
 import 'react-placeholder/lib/reactPlaceholder.css'
-import BounceLoader from 'react-spinners/BounceLoader'
-import {useModal} from '../../../context/modal-context'
+import {InfiniteData} from 'react-query/types/core/types'
 
 interface Props {
-  movies: Movie[]
-  loader: boolean
-  loading: boolean
+  moviePages: InfiniteData<any> | undefined
+  isLoading: boolean
 }
 
 const placeholderStyle = {
@@ -20,18 +18,15 @@ const placeholderStyle = {
   borderRadius: '5px',
 }
 
-export const MoviesPanel: FC<Props> = ({movies, loader, loading}) => {
+export const MoviesPanel: FC<Props> = ({moviePages, isLoading}) => {
   return (
     <Movies.Movies>
-      {loading ? renderLoading(loading) : RenderMovies(movies, loader)}
+      {isLoading ? RenderLoading(isLoading) : RenderMovies(moviePages)}
     </Movies.Movies>
   )
 }
 
-const RenderMovies = (movies: Movie[], loader: boolean) => {
-  const {handleOpen} = useModal()
-  const panelRef = useRef<HTMLDivElement>(null)
-
+const RenderMovies = (moviePages: InfiniteData<any> | undefined) => {
   //Fix feature:
   // const {isBottom} = (loader && useBottom(panelRef)) || false
 
@@ -41,39 +36,20 @@ const RenderMovies = (movies: Movie[], loader: boolean) => {
 
   return (
     <>
-      {movies?.map(
-        ({
-          id,
-          poster_path,
-          vote_average,
-          release_date,
-          genres,
-          title,
-          imdb,
-        }) => (
-          <MovieCard
-            key={id}
-            title={title}
-            imdb={imdb}
-            genres={genres}
-            posterURL={poster_path}
-            rating={vote_average}
-            year={release_date}
-            handleOpen={handleOpen}
-          />
-        ),
-      )}
-      ,
-      {loader && (
-        <Movies.Loader ref={panelRef} style={{width: '100%', height: '100px'}}>
-          <BounceLoader color="#602f75" />
-        </Movies.Loader>
-      )}
+      {moviePages?.pages.map(page => {
+        return (
+          <React.Fragment key={page.page}>
+            {page?.results?.map((movie: Movie) => {
+              return <MovieCard key={movie.id} {...movie} />
+            })}
+          </React.Fragment>
+        )
+      })}
     </>
   )
 }
 
-const renderLoading = (loading: boolean) =>
+const RenderLoading = (loading: boolean) =>
   Array.from(new Array(20), (v, ii) => (
     <ReactPlaceholder
       key={ii}

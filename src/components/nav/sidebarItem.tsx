@@ -34,12 +34,12 @@ export const SidebarItemGroup: FC<{
     >
       {categoryState !== 'none' && (
         <>
-          {genres.map((item, key) => (
+          {genres.map(({id, name}) => (
             <SidebarGroupItem
               exact={false}
-              key={key}
-              label={item}
-              to={`/categories/${item}`}
+              key={id}
+              label={name}
+              to={`/categories/${name}`}
             />
           ))}
         </>

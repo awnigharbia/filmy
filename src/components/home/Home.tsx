@@ -5,15 +5,11 @@ import {WelcomeSection} from './welcomeSection/WelcomeSection'
 import {Footer} from './footer/Footer'
 import {SliderComponent} from './slider/slider'
 
-export const Home: FC<{movies: Movie[]; loading: boolean; id: number}> = ({
-  movies,
-  loading,
-  id,
-}) => {
+export const Home: FC = () => {
   return (
     <>
-      {!loading && <SliderComponent movies={movies} />}
-      <Center id={id} />
+      <SliderComponent />
+      <Center />
       <WelcomeSection />
       <Footer />
     </>

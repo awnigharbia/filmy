@@ -1,16 +1,11 @@
+import {client} from '@/api/movie_api'
+import {callAll} from '@/utils/callAll'
+import {Filters} from '@/utils/filters'
 import * as React from 'react'
 import {ReactElement} from 'react'
 import {useEffect, FC} from 'react'
+import {useQuery} from 'react-query'
 import {useSetState} from 'src/components/hooks/useSetState'
-
-const callAll = (...fns: ((...args: unknown[]) => void)[]) => (
-  ...args: unknown[]
-) => fns.forEach(fn => typeof fn === 'function' && fn(...args))
-
-type SliderState = {
-  currentSlide: number
-  translate: number
-}
 
 const SliderContext = React.createContext<any>(null)
 
@@ -32,13 +27,18 @@ export function useSlider(): UseSliderReturn {
   return context
 }
 
-interface Props {
-  movies: Movie[]
+type SliderState = {
+  currentSlide: number
+  translate: number
 }
 
 const defaultState: SliderState = {
   currentSlide: 2,
   translate: 0,
+}
+
+interface Props {
+  movies: Movie[]
 }
 
 const Slider: FC<Props> = ({movies, ...props}) => {

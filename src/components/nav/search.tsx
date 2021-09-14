@@ -1,15 +1,17 @@
-import React, {useRef, useState, ChangeEvent, FC} from 'react'
-import './style.css'
+import React, {ChangeEvent, FC, useRef, useState} from 'react'
 import {Icon} from 'react-icons-kit'
 import {search} from 'react-icons-kit/feather'
-import {API} from '@/api/movie_api'
 import {useOnClickOutside} from 'src/components/hooks/outSideHook'
+import {useMovieSearch} from './../../api/movie_api'
 import {MovieSearchResult} from './MovieSearchResult'
+import './style.css'
+import useDebounce from './../hooks/useDebounce'
 
 function useSearch() {
   const [focused, setFocused] = useState(0)
-  const [text, setText] = useState('')
-  const [results, setResults] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
+  const debouncedSearchQuery = useDebounce(searchQuery, 500)
+  const {movies}: {movies: Movie[]} = useMovieSearch(debouncedSearchQuery)
   const searchResultRef = useRef<HTMLDivElement>(null)
 
   const params = {
@@ -20,7 +22,7 @@ function useSearch() {
   useOnClickOutside(params)
 
   function handleFocus() {
-    if (text.trim() === '') {
+    if (searchQuery.trim() === '') {
       setFocused(1)
       return
     }
@@ -28,47 +30,40 @@ function useSearch() {
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setText(e.target.value)
+    setSearchQuery(e.target.value)
     setFocused(2)
-    if (text.trim() === '') {
+    if (searchQuery.trim() === '') {
       setFocused(2)
     }
-    fetchMovies(text)
-  }
-
-  function fetchMovies(name: string) {
-    if (name !== '')
-      API.movies()
-        .getByName(name)
-        .then(data => setResults(data.data.MovieList.slice(0, 5)))
   }
 
   return {
     focused,
-    text,
-    results,
+    text: searchQuery,
+    movies,
     searchResultRef,
     handleChange,
     handleFocus,
   }
 }
 
-export const Search: FC<{openModal(imdb: string): void}> = ({openModal}) => {
+export const Search: FC = () => {
   const {
     text,
-    results,
+    movies,
     focused,
     searchResultRef,
     handleChange,
     handleFocus,
   } = useSearch()
+
   return (
     <div ref={searchResultRef} className="search">
       {focused === 2 && (
         <div className="search-result">
           <div className="search-results">
-            {results.map((item, key) => {
-              return <MovieSearchResult key={key} {...item} open={openModal} />
+            {movies.map((item, key) => {
+              return <MovieSearchResult key={key} {...item} />
             })}
           </div>
         </div>

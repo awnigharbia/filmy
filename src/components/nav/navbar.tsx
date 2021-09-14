@@ -1,12 +1,11 @@
 import * as React from 'react'
 import {FC} from 'react'
 
-// components
 import {TopNav} from './TopNavbar'
 import {SideBar} from './Sidebar'
 import {useSetState} from 'src/components/hooks/useSetState'
 
-export const Navbar: FC<{openModal(imdb: string): void}> = ({openModal}) => {
+export const Navbar: FC = () => {
   const [state, setState] = useSetState({
     isSidebarOpen: false,
     categoryState: 'none',
@@ -30,7 +29,7 @@ export const Navbar: FC<{openModal(imdb: string): void}> = ({openModal}) => {
 
   return (
     <>
-      <TopNav onClick={toggleSidebar} openModal={openModal} />
+      <TopNav onClick={toggleSidebar} />
       <SideBar
         toggleCategories={toggleCategories}
         handleCategories={handleCategories}

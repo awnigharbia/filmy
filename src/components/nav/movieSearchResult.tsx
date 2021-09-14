@@ -1,22 +1,29 @@
+import {useModal} from '@/context/modal-context'
 import * as React from 'react'
 import {FC} from 'react'
 import './style.css'
 
 export const MovieSearchResult: FC<{
+  id: number
   title: string
-  poster_med: string
-  year: number
-  openModal(imdb: string): void
-  imdb: string
-}> = ({title, poster_med, year, openModal, imdb}) => (
-  <div className="search-result-item" onClick={() => openModal(imdb)}>
-    <div className="search-result-item-img">
-      <img src={poster_med} alt="films-boster" />
+  poster_path: string
+  release_date: number
+}> = ({id, title, poster_path, release_date}) => {
+  const {handleOpen} = useModal()
+
+  return (
+    <div className="search-result-item" onClick={() => handleOpen(id)}>
+      <div className="search-result-item-img">
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+          alt="films-boster"
+        />
+      </div>
+      <div className="search-result-item-info">
+        <h1>
+          {title} ({release_date})
+        </h1>
+      </div>
     </div>
-    <div className="search-result-item-info">
-      <h1>
-        {title} ({year})
-      </h1>
-    </div>
-  </div>
-)
+  )
+}

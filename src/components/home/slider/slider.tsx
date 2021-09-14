@@ -2,7 +2,6 @@ import * as React from 'react'
 import {FC} from 'react'
 import {Icon} from 'react-icons-kit'
 import {chevronLeft, chevronRight} from 'react-icons-kit/feather'
-
 import * as SliderParent from './style'
 import {
   Slider,
@@ -11,12 +10,13 @@ import {
   SliderContent,
 } from 'src/context/slider'
 import {SliderContentChild} from './SliderContentChild'
+import {usePopularMovies} from '@/api/movie_api'
 
-interface Props {
-  movies: Movie[]
-}
+export const SliderComponent: FC = () => {
+  const {movies, isFetching} = usePopularMovies()
 
-export const SliderComponent: FC<Props> = ({movies}) => {
+  if (isFetching) return <div>Loading...</div>
+
   return (
     <Slider movies={movies}>
       <SliderParent.SliderParent>
