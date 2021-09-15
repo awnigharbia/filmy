@@ -1,21 +1,17 @@
 import * as React from 'react'
 import {FC} from 'react'
 import {Wrapper} from './style'
-import TopHeader from './TopHeader'
-import MoviesPanel from '../../generic/movies/Movies'
-import {Movie} from '../slider/SliderModal'
+import {TopHeader} from './TopHeader'
+import {MoviesPanel} from '@/components/generic/movies/MoviesPanel'
+import {useLatestMovies} from '@/api/movieAPI'
 
-const Center: FC<{loading: boolean; movies: Movie[]; id: number}> = ({
-  loading,
-  movies,
-  id,
-}) => {
+export const Center: FC = () => {
+  const {movies, isFetching} = useLatestMovies()
+
   return (
     <Wrapper>
-      <TopHeader id={id} />
-      <MoviesPanel loading={loading} movies={movies} loader={false} />
+      <TopHeader />
+      <MoviesPanel isLoading={isFetching} moviePages={movies} />
     </Wrapper>
   )
 }
-
-export default Center

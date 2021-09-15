@@ -3,11 +3,12 @@ import {FC} from 'react'
 import * as Sidebar from './style'
 import {SidebarLink} from './SidebarLink'
 import {Icon} from 'react-icons-kit'
-import {genres} from '../../constants'
+import {genres} from 'src/constants'
 
 export const SidebarItemGroup: FC<{
   toggleCategories(): void
   size: number
+  // the library defines it as any as well.
   icon: any
   label: string
   categoryState: 'opened' | 'closed' | 'none'
@@ -34,12 +35,12 @@ export const SidebarItemGroup: FC<{
     >
       {categoryState !== 'none' && (
         <>
-          {genres.map((item, key) => (
+          {genres.map(({id, name}) => (
             <SidebarGroupItem
               exact={false}
-              key={key}
-              label={item}
-              to={`/categories/${item}`}
+              key={id}
+              label={name}
+              to={`/categories/${name}`}
             />
           ))}
         </>

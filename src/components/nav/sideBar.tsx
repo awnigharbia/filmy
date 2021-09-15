@@ -14,7 +14,7 @@ interface Props {
   categoryState: 'opened' | 'closed' | 'none'
 }
 
-const SideBar: FC<Props> = ({
+export const SideBar: FC<Props> = ({
   categoryState,
   isSidebarOpen,
   toggleSidebar,
@@ -55,5 +55,3 @@ const SideBar: FC<Props> = ({
     </Sidebar.SidebarCenter>
   </Sidebar.Sidebar>
 )
-
-export default SideBar

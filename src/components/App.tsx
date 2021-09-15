@@ -1,97 +1,29 @@
 import * as React from 'react'
-import {useEffect} from 'react'
-import {useSetState} from './hooks/useSetState'
-import Navbar from './nav/Navbar'
+import {Navbar} from './nav/Navbar'
 import {Route, Switch} from 'react-router-dom'
-import Home from './home'
-import MoviesList from './movies/MoviesList'
-import MovieModal from './generic/movieModal/MovieModal'
-import API from '../api/movie'
-import {url} from '../constants'
-import {ModalProvider} from '../context/modal-context'
+import {Home} from './home/Home'
+import {MoviesList} from './movies/MoviesList'
 
-const App = () => {
-  const [state, setState] = useSetState({
-    open: false,
-    loading: true,
-    movies: [],
-    page: 1,
-    data: {},
-    imdb: '',
-  })
+import {Modal} from 'src/context/modal-context'
+import {LatestMovies} from './latestMovies/LatestMovies'
+import {MovieModal} from './generic/movieModal/ModalContent'
 
-  const handleClose = () => setState({open: !state.open, imdb: ''})
-
-  const handleOpen = (imdb: string) => {
-    if (typeof imdb === 'string') {
-      setState({imdb: imdb})
-    }
-  }
-
-  const fetchMovies = (sort: string, page: number) =>
-    API.movies().getByPage(sort, page)
-
-  const fetchMoviesByGenre = (genre: [], page: number, sort: string) =>
-    API.movies().getByGenre(genre, page, sort)
-
-  useEffect(() => {
-    if (state.imdb !== '')
-      API.movies()
-        .getDetails(state.imdb)
-        .then(data => {
-          setState({
-            open: !state.open,
-            data: data.data,
-          })
-        })
-
-    if (state.movies.length === 0)
-      fetchMovies('seeds', 1).then(data =>
-        setState({
-          movies: data,
-          loading: !state.loading,
-        }),
-      )
-  }, [state.imdb, state.movies])
-
+export const App = () => {
   return (
     <>
-      <Navbar openModal={handleOpen} />
-      <ModalProvider.Provider value={{handleOpen}}>
-        <MovieModal
-          open={state.open}
-          handleOpen={handleOpen}
-          handleClose={handleClose}
-          data={state.data}
-        />
+      <Modal>
+        <Navbar />
+        <MovieModal />
         <Switch>
-          <Route exact path="/" render={() => <Home {...state} />} />
+          <Route exact path="/" render={() => <Home />} />
+          <Route path="/latest-movies" render={() => <LatestMovies />} />
           <Route
-            path="/latest-movies"
-            render={() => (
-              <MoviesList
-                {...state}
-                topic="seeds"
-                fetchMoviesByGenre={fetchMovies}
-                loader={true}
-              />
-            )}
-          />
-          <Route
-            path="/categories/:cat"
-            render={({match}) => (
-              <MoviesList
-                genre={match.params.cat}
-                fetchMoviesByGenre={fetchMoviesByGenre}
-                loader={true}
-              />
-            )}
+            path="/categories/:id"
+            render={({match}) => <MoviesList genre={match.params.id} />}
           />
           <Route path="/about" component={() => <h1>About</h1>} />
         </Switch>
-      </ModalProvider.Provider>
+      </Modal>
     </>
   )
 }
-
-export {ModalProvider, App}

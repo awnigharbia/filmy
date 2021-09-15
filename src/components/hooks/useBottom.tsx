@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-function useBottom(ref: React.RefObject<HTMLDivElement>) {
+export function useBottom(ref: React.RefObject<HTMLDivElement>) {
   const [isBottom, setBottom] = useState(false)
 
   let numSteps = 20.0
@@ -67,5 +67,3 @@ function useBottom(ref: React.RefObject<HTMLDivElement>) {
     isBottom,
   }
 }
-
-export default useBottom

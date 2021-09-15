@@ -1,21 +1,19 @@
 import React, {FC} from 'react'
-import * as WelcomeSection from './style'
+import * as WelcomeSectionStyle from './style'
 import Video from '../../../imgs/poster_video.mp4'
 
-const WlcSection: FC = () => (
-  <WelcomeSection.WlcSection>
-    <WelcomeSection.LeftVideo autoPlay loop>
+export const WelcomeSection: FC = () => (
+  <WelcomeSectionStyle.WlcSection>
+    <WelcomeSectionStyle.LeftVideo autoPlay loop>
       <source src={Video} type="video/mp4" />
-    </WelcomeSection.LeftVideo>
-    <WelcomeSection.RightSide>
-      <WelcomeSection.RightText>
+    </WelcomeSectionStyle.LeftVideo>
+    <WelcomeSectionStyle.RightSide>
+      <WelcomeSectionStyle.RightText>
         We beleive that movies deserve more
         <span role="img" aria-label="heart">
           💜
         </span>
-      </WelcomeSection.RightText>
-    </WelcomeSection.RightSide>
-  </WelcomeSection.WlcSection>
+      </WelcomeSectionStyle.RightText>
+    </WelcomeSectionStyle.RightSide>
+  </WelcomeSectionStyle.WlcSection>
 )
-
-export default WlcSection

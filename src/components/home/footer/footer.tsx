@@ -1,18 +1,18 @@
 import * as React from 'react'
-import * as Footer from './style'
-import Popcorn from '../../../imgs/popcorn.svg'
+import * as FooterStyle from './style'
+import Popcorn from 'src/imgs/popcorn.svg'
 
-export default () => (
-  <Footer.Footer>
-    <Footer.text>
+export const Footer = () => (
+  <FooterStyle.Footer>
+    <FooterStyle.text>
       Handcrafted by{' '}
-      <Footer.author>
+      <FooterStyle.author>
         Awni Gharbia
         <span role="img" aria-label="hand">
           💪
         </span>
-      </Footer.author>
-    </Footer.text>
-    <Footer.img src={Popcorn} alt="poster" />
-  </Footer.Footer>
+      </FooterStyle.author>
+    </FooterStyle.text>
+    <FooterStyle.img src={Popcorn} alt="poster" />
+  </FooterStyle.Footer>
 )

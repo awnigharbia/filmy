@@ -45,8 +45,6 @@ export const Img = styled.div<{src: string}>`
 
 export const ActiveImg = styled(Img)<{
   active: boolean
-  child: number
-  key: number
 }>`
   position: relative;
   display: flex;
@@ -55,8 +53,7 @@ export const ActiveImg = styled(Img)<{
   justify-content: center;
   width: 230px;
   height: 345px;
-  margin: ${props =>
-    props.active ? '0px 100px 0px 100px' : '0px 15px 0px 0px'};
+  margin: ${props => (props.active ? '0px 40vw 0px 0px' : '0px 15px 0px 0px')};
   opacity: 0.5;
   z-index: 4;
 `
@@ -87,6 +84,24 @@ export const ModalInfo = styled.div`
   box-shadow: 0 0px 12px rgba(0, 0, 0, 0.11), 0 10px 40px rgba(0, 0, 0, 0.19);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+`
+
+export const ModalImg = styled(Img)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  height: 95%;
+  z-index: 1;
+`
+
+export const ModalTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 15px 0px;
+  width: 100%;
+  color: #475069;
 `
 
 export const Arrow = styled.div`
@@ -120,23 +135,6 @@ export const LeftArrow = styled(Arrow)`
 `
 export const RightArrow = styled(Arrow)`
   right: 20px;
-`
-
-export const ModalImg = styled(Img)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 500px;
-  height: 95%;
-  z-index: 1;
-`
-
-export const ModalTitle = styled.h3`
-  font-size: 22px;
-  font-weight: 500;
-  margin: 15px 0px;
-  color: #475069;
 `
 
 export const ModalLine = styled.div`

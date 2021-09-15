@@ -1,15 +1,37 @@
 import * as React from 'react'
 
-type Modal = {
-  handleOpen(imdb: string): void
+interface ModalContextType {
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
+  handleOpen: (movieId: number) => void
+  movieId: number | null
 }
 
-const ModalProvider = React.createContext<Modal>({
-  handleOpen: () => undefined,
+export const ModalContext = React.createContext<ModalContextType>({
+  isOpen: false,
+  setIsOpen: () => {},
+  handleOpen: () => {},
+  movieId: null,
 })
 
-function useModal() {
-  const context = React.useContext(ModalProvider)
+export const Modal = ({children}: {children: React.ReactNode}) => {
+  const [movieId, setMovieId] = React.useState<number | null>(null)
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  function handleOpen(movieId: number) {
+    setMovieId(movieId)
+    setIsOpen(true)
+  }
+
+  const value = {isOpen, handleOpen, setIsOpen, movieId}
+
+  return (
+    <ModalContext.Provider value={value}>{children} </ModalContext.Provider>
+  )
+}
+
+export function useModal() {
+  const context = React.useContext(ModalContext)
 
   if (!context) {
     throw new Error('useModal must be used within a ModalProvider')
@@ -17,5 +39,3 @@ function useModal() {
 
   return context
 }
-
-export {ModalProvider, useModal}

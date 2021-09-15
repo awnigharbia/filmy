@@ -1,47 +1,34 @@
+import {useMoviesWithGenre} from '@/api/movieAPI'
 import * as React from 'react'
-import {FC, useEffect} from 'react'
-import MoviesPanel from '../generic/movies/Movies'
-import {useSetState} from '../hooks/useSetState'
+import {FC} from 'react'
+import {MoviesPanel} from '../generic/movies/MoviesPanel'
+import useIntersectionObserver from '../hooks/useIntersectionObserver'
+import * as Movies from '@/components/generic/movies/style'
+import {BounceLoader} from 'react-spinners'
 
 interface Props {
-  genre: []
-  loader: boolean
-  fetchMoviesByGenre(genre: [], page: number, sort: string): Promise<any>
+  genre: string
 }
 
-const MoviesList: FC<Props> = ({fetchMoviesByGenre, genre, loader}) => {
-  const [state, setState] = useSetState({
-    movies: [],
-    loading: true,
-    page: 1,
+export const MoviesList: FC<Props> = ({genre}) => {
+  const {movies, fetchNextPage, hasNextPage, isFirstLoad} = useMoviesWithGenre(
+    genre,
+  )
+
+  const panelRef = React.useRef<HTMLDivElement>(null)
+
+  useIntersectionObserver({
+    target: panelRef,
+    onIntersect: fetchNextPage,
+    enabled: hasNextPage,
   })
-  const fetchMore = () =>
-    fetchMoviesByGenre(genre, state.page + 1, 'seeds').then(res =>
-      setState({
-        movies: [...state.movies, ...res.data.MovieList],
-        page: state.page + 1,
-      }),
-    )
-
-  const fetchMoviesLocal = (genre: [], page: number, sort = 'seeds') =>
-    fetchMoviesByGenre(genre, page, sort).then(data =>
-      setState({
-        movies: data.data.MovieList,
-        loading: false,
-      }),
-    )
-
-  useEffect(() => {
-    fetchMoviesLocal(genre, 1, 'seeds')
-  }, [genre])
 
   return (
-    <MoviesPanel
-      loading={state.loading}
-      movies={state.movies}
-      loader={loader}
-    />
+    <>
+      <MoviesPanel moviePages={movies} isLoading={isFirstLoad} />
+      <Movies.Loader ref={panelRef} style={{width: '100%', height: '100px'}}>
+        <BounceLoader color="#602f75" />
+      </Movies.Loader>
+    </>
   )
 }
-
-export default MoviesList

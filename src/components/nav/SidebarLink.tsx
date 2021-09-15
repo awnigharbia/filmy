@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {FC} from 'react'
 import {Route} from 'react-router-dom'
-import Link from '../Link'
+import {Link} from 'src/components/Link'
 
 interface EnrichedChildren {
   onChange(): void

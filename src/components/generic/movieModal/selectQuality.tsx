@@ -13,7 +13,10 @@ interface Link {
   torrent_magnet: string
 }
 
-const SelectQuality: FC<{imdb: string; links: Link[]}> = ({links, imdb}) => {
+export const SelectQuality: FC<{imdb: string; links: Link[]}> = ({
+  links,
+  imdb,
+}) => {
   const [activeItem, setActiveItem] = useState(0)
 
   const toggleLink = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -75,5 +78,3 @@ const SelectQuality: FC<{imdb: string; links: Link[]}> = ({links, imdb}) => {
     </>
   )
 }
-
-export default SelectQuality

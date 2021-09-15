@@ -1,10 +1,8 @@
 import styled from 'styled-components'
 import posed from 'react-pose'
 
-//imgs
-import Logo from '../../imgs/logo.svg'
+import Logo from 'src/imgs/logo.svg'
 
-// configure animation `react-pose`
 export const SidebarState = posed.div({
   open: {
     x: '0%',
@@ -192,21 +190,3 @@ export const SearchInput = styled.input`
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
   }
 `
-
-//Assinging childs to `Nav`
-// Nav.left = navLeft
-// Nav.right = navRight
-// Nav.right.search = searchInput
-// Nav.logo = logo
-
-// // Sidebar
-// Sidebar.item = sidebarItem
-// Sidebar.item.span = sidebarSpan
-// Sidebar.groupItem = sidebarGroupItem
-// Sidebar.top = sidebarTop
-// Sidebar.center = sidebarCenter
-// Sidebar.top.icon = sidebarIcon
-// Sidebar.top.title = sidebarTitle
-// Sidebar.nestedGroupWrapper = sidebarNestedItemsWrapper
-
-// export {Nav, Sidebar}

@@ -6,7 +6,7 @@ interface Props {
   ref: React.RefObject<HTMLDivElement>
 }
 
-const useOnClickOutside = ({ref, handler}: Props) => {
+export const useOnClickOutside = ({ref, handler}: Props) => {
   useEffect(() => {
     const listener = (event: MouseEvent) => {
       // Do nothing if clicking ref's element or descendent elements
@@ -24,5 +24,3 @@ const useOnClickOutside = ({ref, handler}: Props) => {
     }
   }, []) // Empty array ensures that effect is only run on mount and unmount
 }
-
-export default useOnClickOutside
