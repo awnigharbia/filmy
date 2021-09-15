@@ -1,4 +1,4 @@
-import {filters} from 'src/utils/filters'
+import {Filters} from 'src/utils/filters'
 import axios from 'axios'
 import {
   GetNextPageParamFunction,
@@ -14,7 +14,7 @@ const apiKEY = import.meta.env.VITE_API_KEY
 const TORRENT_API_URL = 'https://yts.lt/api/v2/'
 
 const defaultConfig = {
-  sort_by: filters.RELEASE_DATE,
+  sort_by: Filters.RELEASE_DATE,
   primary_release_year: 2021,
   include_adult: false,
 }
@@ -141,7 +141,7 @@ export function useMoviesWithGenre(genre: string): UseMovieInfiniteQueryResult {
 const getPopularMovies = async (): Promise<Movie[]> => {
   try {
     const data = await client<MoviesResult>('discover/movie', {
-      sort_by: filters.POPULARITY,
+      sort_by: Filters.POPULARITY,
     })
 
     return data.results
