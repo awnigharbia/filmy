@@ -1,6 +1,4 @@
-import {client} from '@/api/movieAPI'
 import {callAll} from '@/utils/callAll'
-import {filters} from '@/utils/filters'
 import * as React from 'react'
 import {ReactElement} from 'react'
 import {useEffect, FC} from 'react'
@@ -97,21 +95,19 @@ const Slider: FC<Props> = ({movies, ...props}) => {
   return <SliderContext.Provider value={value} {...props} />
 }
 
-const SliderNextArrow: FC = ({children}) => {
-  const child = children as ReactElement
+const SliderNextArrow = ({children}: {children: ReactElement}) => {
   const {nextImg} = useSlider()
 
-  return React.cloneElement(child, {
-    onClick: callAll(() => nextImg(), child.props.onClick),
+  return React.cloneElement(children, {
+    onClick: callAll(() => nextImg(), children.props.onClick),
   })
 }
 
-const SliderPrevArrow: FC = ({children}) => {
-  const child = children as ReactElement
+const SliderPrevArrow = ({children}: {children: ReactElement}) => {
   const {prevImg} = useSlider()
 
-  return React.cloneElement(child, {
-    onClick: callAll(() => prevImg(), child.props.onClick),
+  return React.cloneElement(children, {
+    onClick: callAll(() => prevImg(), children.props.onClick),
   })
 }
 
