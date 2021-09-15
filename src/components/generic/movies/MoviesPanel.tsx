@@ -5,9 +5,10 @@ import {MovieCard} from './MovieCard'
 import ReactPlaceholder from 'react-placeholder'
 import 'react-placeholder/lib/reactPlaceholder.css'
 import {InfiniteData} from 'react-query/types/core/types'
+import {MoviesResult} from '@/api/movieAPI'
 
 interface Props {
-  moviePages: InfiniteData<any> | undefined
+  moviePages: InfiniteData<MoviesResult> | undefined
   isLoading: boolean
 }
 
@@ -21,12 +22,20 @@ const placeholderStyle = {
 export const MoviesPanel: FC<Props> = ({moviePages, isLoading}) => {
   return (
     <Movies.Movies>
-      {isLoading ? RenderLoading(isLoading) : RenderMovies(moviePages)}
+      {isLoading ? (
+        <RenderLoading isLoading={isLoading} />
+      ) : (
+        <MoviesPagesList moviePages={moviePages} />
+      )}
     </Movies.Movies>
   )
 }
 
-const RenderMovies = (moviePages: InfiniteData<any> | undefined) => {
+const MoviesPagesList = ({
+  moviePages,
+}: {
+  moviePages: InfiniteData<MoviesResult> | undefined
+}) => {
   //Fix feature:
   // const {isBottom} = (loader && useBottom(panelRef)) || false
 
@@ -49,16 +58,18 @@ const RenderMovies = (moviePages: InfiniteData<any> | undefined) => {
   )
 }
 
-const RenderLoading = (loading: boolean) =>
-  Array.from(new Array(20), (v, ii) => (
-    <ReactPlaceholder
-      key={ii}
-      type="rect"
-      ready={!loading}
-      color="#E0E0E0"
-      showLoadingAnimation
-      style={placeholderStyle}
-    >
-      <></>
-    </ReactPlaceholder>
-  ))
+const RenderLoading = ({isLoading}: {isLoading: boolean}) => (
+  <>
+    {Array.from(new Array(20), (v, ii) => (
+      <ReactPlaceholder
+        key={ii}
+        type="rect"
+        ready={!isLoading}
+        color="#E0E0E0"
+        showLoadingAnimation
+        style={placeholderStyle}
+        children={null}
+      />
+    ))}
+  </>
+)

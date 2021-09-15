@@ -2,7 +2,7 @@ import React, {ChangeEvent, FC, useRef, useState} from 'react'
 import {Icon} from 'react-icons-kit'
 import {search} from 'react-icons-kit/feather'
 import {useOnClickOutside} from 'src/components/hooks/outSideHook'
-import {useMovieSearch} from './../../api/movie_api'
+import {useMovieSearch} from '../../api/movieAPI'
 import {MovieSearchResult} from './MovieSearchResult'
 import './style.css'
 import useDebounce from './../hooks/useDebounce'
@@ -11,7 +11,7 @@ function useSearch() {
   const [focused, setFocused] = useState(0)
   const [searchQuery, setSearchQuery] = useState('')
   const debouncedSearchQuery = useDebounce(searchQuery, 500)
-  const {movies}: {movies: Movie[]} = useMovieSearch(debouncedSearchQuery)
+  const {movies} = useMovieSearch(debouncedSearchQuery)
   const searchResultRef = useRef<HTMLDivElement>(null)
 
   const params = {

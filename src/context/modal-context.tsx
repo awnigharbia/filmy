@@ -1,9 +1,21 @@
 import * as React from 'react'
 
-export const ModalContext = React.createContext<any>({})
+interface ModalContextType {
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
+  handleOpen: (movieId: number) => void
+  movieId: number | null
+}
 
-export function Modal(props: any) {
-  const [movieId, setMovieId] = React.useState<number | null>()
+export const ModalContext = React.createContext<ModalContextType>({
+  isOpen: false,
+  setIsOpen: () => {},
+  handleOpen: () => {},
+  movieId: null,
+})
+
+export const Modal = ({children}: {children: React.ReactNode}) => {
+  const [movieId, setMovieId] = React.useState<number | null>(null)
   const [isOpen, setIsOpen] = React.useState(false)
 
   function handleOpen(movieId: number) {
@@ -13,7 +25,9 @@ export function Modal(props: any) {
 
   const value = {isOpen, handleOpen, setIsOpen, movieId}
 
-  return <ModalContext.Provider value={value} {...props} />
+  return (
+    <ModalContext.Provider value={value}>{children} </ModalContext.Provider>
+  )
 }
 
 export function useModal() {

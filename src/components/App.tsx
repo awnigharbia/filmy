@@ -3,11 +3,12 @@ import {Navbar} from './nav/Navbar'
 import {Route, Switch} from 'react-router-dom'
 import {Home} from './home/Home'
 import {MoviesList} from './movies/MoviesList'
-import {MovieModal} from './generic/movieModal/MovieModal'
-import {Modal, ModalContext} from 'src/context/modal-context'
-import {LatestMovies} from './latestMovies/LatestMovies'
 
-const App = () => {
+import {Modal} from 'src/context/modal-context'
+import {LatestMovies} from './latestMovies/LatestMovies'
+import {MovieModal} from './generic/movieModal/ModalContent'
+
+export const App = () => {
   return (
     <>
       <Modal>
@@ -26,5 +27,3 @@ const App = () => {
     </>
   )
 }
-
-export {ModalContext as ModalProvider, App}

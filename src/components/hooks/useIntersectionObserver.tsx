@@ -1,14 +1,12 @@
-import React from 'react'
+import React, {RefObject} from 'react'
 
 interface Args extends IntersectionObserverInit {
-  root?: any
   enabled?: boolean
-  target?: any
+  target?: RefObject<HTMLDivElement>
   onIntersect: () => void
 }
 
 export default function useIntersectionObserver({
-  root,
   target,
   onIntersect,
   threshold = 1.0,
@@ -24,7 +22,6 @@ export default function useIntersectionObserver({
       entries =>
         entries.forEach(entry => entry.isIntersecting && onIntersect()),
       {
-        root: root && root.current,
         rootMargin,
         threshold,
       },
@@ -41,5 +38,5 @@ export default function useIntersectionObserver({
     return () => {
       observer.unobserve(el)
     }
-  }, [target.current, enabled])
+  }, [target?.current, enabled])
 }

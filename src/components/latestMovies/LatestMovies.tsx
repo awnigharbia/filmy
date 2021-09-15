@@ -3,14 +3,14 @@ import {useRef, FC} from 'react'
 import * as Movies from '@/components/generic/movies/style'
 import BounceLoader from 'react-spinners/BounceLoader'
 import {MoviesPanel} from '../generic/movies/MoviesPanel'
-import {useLatestMovies} from '@/api/movie_api'
+import {useLatestMovies} from '@/api/movieAPI'
 import useIntersectionObserver from './../hooks/useIntersectionObserver'
 
 export const LatestMovies = () => {
-  const {movies, fetchNextPage, hasNextPage, isLoading} = useLatestMovies(
+  const {movies, fetchNextPage, hasNextPage, isFirstLoad} = useLatestMovies(
     'infiniteScroll',
   )
-  const panelRef = useRef<any>()
+  const panelRef = useRef<HTMLDivElement>(null)
 
   useIntersectionObserver({
     target: panelRef,
@@ -20,7 +20,7 @@ export const LatestMovies = () => {
 
   return (
     <>
-      <MoviesPanel moviePages={movies} isLoading={isLoading} />
+      <MoviesPanel moviePages={movies} isLoading={isFirstLoad} />
       <Movies.Loader ref={panelRef} style={{width: '100%', height: '100px'}}>
         <BounceLoader color="#602f75" />
       </Movies.Loader>

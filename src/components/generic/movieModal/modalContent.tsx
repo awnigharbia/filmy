@@ -8,11 +8,11 @@ import {PoseGroup} from 'react-pose'
 
 import * as Modal from './style'
 import {useModal} from '@/context/modal-context'
-import {useMovie} from '@/api/movie_api'
+import {useMovie} from '@/api/movieAPI'
 
 export interface Data {
   overview: string
-  genres: genre[]
+  genres: Genre[]
   id: string
   poster_path: string
   vote_average: number
@@ -20,29 +20,28 @@ export interface Data {
   release_date: number
 }
 
-export const ModalContent: FC = () => {
-  //Fix me:lockscroll
+export const MovieModal: FC = () => {
+  //TODO:lockscroll
   // {
   //   open ? useLockBodyScroll('lock') : useLockBodyScroll('unlock')
   // }
-
   const {movieId} = useModal()
-  const {
-    movie,
-    isFetching,
-    isIdle,
-    isSuccess,
-  }: {
-    movie: Data
-    isFetching: boolean
-    isIdle: boolean
-    isSuccess: boolean
-  } = useMovie(movieId)
+  const {movie, isFetching, isIdle, isSuccess} = useMovie(movieId)
   const {isOpen, setIsOpen} = useModal()
 
-  return isIdle ? null : isFetching ? (
-    <div>Loading..</div>
-  ) : (
+  if (isIdle) {
+    return null
+  }
+
+  if (isFetching) {
+    return <div>Loading...</div>
+  }
+
+  if (!movie) {
+    return <div>Error fetching movie</div>
+  }
+
+  return (
     <PoseGroup>
       {isOpen && [
         <Modal.Modal key="modal" pose={isSuccess}>
@@ -101,6 +100,7 @@ export const ModalContent: FC = () => {
               </Category>
             </Modal.Center>
             <Modal.Right>
+              {/* // TODO: exchange the new API for download movie torrent */}
               {/* <Category title="Trailer"> */}
               {/* <iframe
                   title="trailer"
@@ -121,9 +121,12 @@ export const ModalContent: FC = () => {
   )
 }
 
-const Category: FC<{title: string; children: React.ReactChild}> = ({
+const Category = ({
   title,
   children,
+}: {
+  title: string
+  children: React.ReactChild
 }) => (
   <Modal.Category>
     <Modal.CatTitle>{title}</Modal.CatTitle>

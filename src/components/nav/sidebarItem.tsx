@@ -8,6 +8,7 @@ import {genres} from 'src/constants'
 export const SidebarItemGroup: FC<{
   toggleCategories(): void
   size: number
+  // the library defines it as any as well.
   icon: any
   label: string
   categoryState: 'opened' | 'closed' | 'none'

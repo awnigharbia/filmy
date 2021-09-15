@@ -1,6 +1,6 @@
 export const url = 'https://api.apiumando.info/'
 
-export const genres = [
+export const genres: Genre[] = [
   {
     id: 28,
     name: 'Action',

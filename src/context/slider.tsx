@@ -1,15 +1,13 @@
-import {client} from '@/api/movie_api'
+import {client} from '@/api/movieAPI'
 import {callAll} from '@/utils/callAll'
-import {Filters} from '@/utils/filters'
+import {filters} from '@/utils/filters'
 import * as React from 'react'
 import {ReactElement} from 'react'
 import {useEffect, FC} from 'react'
 import {useQuery} from 'react-query'
 import {useSetState} from 'src/components/hooks/useSetState'
 
-const SliderContext = React.createContext<any>(null)
-
-interface UseSliderReturn {
+interface SliderContextType {
   currentSlide: number
   translate: number
   movies: Movie[]
@@ -17,7 +15,15 @@ interface UseSliderReturn {
   prevImg: () => void
 }
 
-export function useSlider(): UseSliderReturn {
+const SliderContext = React.createContext<SliderContextType>({
+  currentSlide: 3,
+  translate: 0,
+  movies: [],
+  nextImg: () => {},
+  prevImg: () => {},
+})
+
+export function useSlider(): SliderContextType {
   const context = React.useContext(SliderContext)
 
   if (!context) {

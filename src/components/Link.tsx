@@ -6,7 +6,7 @@ export const Link: FC<{
   children: React.ReactNode
   to: string
   replace?: boolean
-  style?: any
+  style?: React.CSSProperties
 }> = ({children, ...props}) => (
   <ReactRouterLink {...props} replace={window.location.pathname === props.to}>
     {children}

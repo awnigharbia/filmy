@@ -10,7 +10,7 @@ import {
   SliderContent,
 } from 'src/context/slider'
 import {SliderContentChild} from './SliderContentChild'
-import {usePopularMovies} from '@/api/movie_api'
+import {usePopularMovies} from '@/api/movieAPI'
 
 export const SliderComponent: FC = () => {
   const {movies, isFetching} = usePopularMovies()
