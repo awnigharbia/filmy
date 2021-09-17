@@ -5,7 +5,7 @@ import {useOnClickOutside} from 'src/components/hooks/outSideHook'
 import {useMovieSearch} from '../../api/movieAPI'
 import {MovieSearchResult} from './MovieSearchResult'
 import './style.css'
-import useDebounce from './../hooks/useDebounce'
+import useDebounce from '../hooks/useDebounce'
 
 function useSearch() {
   const [focused, setFocused] = useState(0)

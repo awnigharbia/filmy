@@ -15,14 +15,15 @@ export const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px 40px;
-  background-color: white;
+  background-color: var(--colors-secondary);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0px 0px rgba(0, 0, 0, 0);
 `
 
 export const H1 = styled.h1`
   font-size: 20px;
-  color: rgba(0, 0, 0, 0.8);
   font-weight: 500;
+  color: var(--colors-text);
+  transition: color 0.2s ease;
 `
 
 export const TopCenter = styled.div`
@@ -32,7 +33,8 @@ export const TopCenter = styled.div`
   font-size: 22px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--colors-text);
+  transition: color 0.2s ease;
 `
 
 export const DiscoverBtn = styled(Link)`
