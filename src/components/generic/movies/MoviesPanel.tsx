@@ -10,6 +10,7 @@ import {MoviesResult} from '@/api/movieAPI'
 interface Props {
   moviePages: InfiniteData<MoviesResult> | undefined
   isLoading: boolean
+  isError?: boolean
 }
 
 const placeholderStyle = {
@@ -19,7 +20,15 @@ const placeholderStyle = {
   borderRadius: '5px',
 }
 
-export const MoviesPanel: FC<Props> = ({moviePages, isLoading}) => {
+export const MoviesPanel: FC<Props> = ({
+  moviePages,
+  isLoading,
+  isError = false,
+}) => {
+  if (isError) {
+    return <div>Oops. Something went wrong</div>
+  }
+
   return (
     <Movies.Movies>
       {isLoading ? (

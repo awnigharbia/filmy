@@ -190,3 +190,11 @@ export const SearchInput = styled.input`
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
   }
 `
+
+export const ErrorFallback = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: red;
+`

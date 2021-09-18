@@ -11,9 +11,13 @@ interface Props {
 }
 
 export const MoviesList: FC<Props> = ({genre}) => {
-  const {movies, fetchNextPage, hasNextPage, isFirstLoad} = useMoviesWithGenre(
-    genre,
-  )
+  const {
+    movies,
+    fetchNextPage,
+    hasNextPage,
+    isFirstLoad,
+    isError,
+  } = useMoviesWithGenre(genre)
 
   const panelRef = React.useRef<HTMLDivElement>(null)
 
@@ -25,7 +29,11 @@ export const MoviesList: FC<Props> = ({genre}) => {
 
   return (
     <>
-      <MoviesPanel moviePages={movies} isLoading={isFirstLoad} />
+      <MoviesPanel
+        moviePages={movies}
+        isLoading={isFirstLoad}
+        isError={isError}
+      />
       <Movies.Loader ref={panelRef} style={{width: '100%', height: '100px'}}>
         <BounceLoader color="#602f75" />
       </Movies.Loader>

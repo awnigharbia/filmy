@@ -26,7 +26,7 @@ export const MovieModal: FC = () => {
   //   open ? useLockBodyScroll('lock') : useLockBodyScroll('unlock')
   // }
   const {movieId} = useModal()
-  const {movie, isFetching, isIdle, isSuccess} = useMovie(movieId)
+  const {movie, isFetching, isIdle, isSuccess, isError} = useMovie(movieId)
   const {isOpen, setIsOpen} = useModal()
 
   if (isIdle) {
@@ -34,10 +34,10 @@ export const MovieModal: FC = () => {
   }
 
   if (isFetching) {
-    return <div>Loading...</div>
+    return null
   }
 
-  if (!movie) {
+  if (!movie || isError) {
     return <div>Error fetching movie</div>
   }
 

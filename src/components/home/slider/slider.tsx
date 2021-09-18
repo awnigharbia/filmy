@@ -13,7 +13,11 @@ import {SliderContentChild} from './SliderContentChild'
 import {usePopularMovies} from '@/api/movieAPI'
 
 export const SliderComponent: FC = () => {
-  const {movies, isFetching} = usePopularMovies()
+  const {movies, isFetching, isError} = usePopularMovies()
+
+  if (isError) {
+    return <div>Oops. Something went wrong</div>
+  }
 
   if (isFetching) return <div>Loading...</div>
 
