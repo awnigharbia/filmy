@@ -37,7 +37,7 @@ export const MovieCard: FC<Movie> = ({
         <Movies.GenreYear>
           {genre_ids
             ?.map(id => genres.find(genre => genre.id === id)?.name)
-            .join(' | ')}
+            ?.join(' | ')}
         </Movies.GenreYear>
         <Movies.Name>{title}</Movies.Name>
       </Movies.Details>

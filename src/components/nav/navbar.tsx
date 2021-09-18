@@ -2,7 +2,7 @@ import * as React from 'react'
 import {FC} from 'react'
 
 import {TopNav} from './TopNavbar'
-import {SideBar} from './Sidebar'
+import {SideBar} from './SideBar'
 import {useSetState} from 'src/components/hooks/useSetState'
 
 export const Navbar: FC = () => {
