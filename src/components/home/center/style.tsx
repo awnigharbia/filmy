@@ -17,13 +17,14 @@ export const Top = styled.div`
   padding: 10px 40px;
   background-color: var(--colors-secondary);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0px 0px rgba(0, 0, 0, 0);
+  transition: background-color 0.2s ease-in-out;
 `
 
 export const H1 = styled.h1`
   font-size: 20px;
   font-weight: 500;
   color: var(--colors-text);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease-in-out;
 `
 
 export const TopCenter = styled.div`
@@ -34,7 +35,7 @@ export const TopCenter = styled.div`
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: var(--colors-text);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease-in-out;
 `
 
 export const DiscoverBtn = styled(Link)`
@@ -53,7 +54,7 @@ export const DiscoverBtn = styled(Link)`
   font-family: 'Open Sans', sans-serif;
   border: none;
   box-shadow: 0 1px 10px rgba(146, 109, 222, 0.5);
-  transition: 0.2s ease;
+  transition: 0.2s ease-in-out;
 
   &:hover {
     color: #926dde;

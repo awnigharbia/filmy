@@ -7,7 +7,7 @@ import {Modal} from 'src/context/modal-context'
 import {LatestMovies} from './latestMovies/LatestMovies'
 import {MovieModal} from './generic/movieModal/modalContent'
 import {Navbar} from './nav/Navbar'
-import {GlobalStyle} from './GlobalStyle'
+import {GlobalStyle} from './globalStyle'
 
 export const App = () => {
   return (
@@ -32,7 +32,8 @@ export const App = () => {
                   height: '100vh',
                   margin: '0px',
                   color: 'var(--colors-text)',
-                  transition: 'color 0.3s ease, background 0.3s ease',
+                  transition:
+                    'color 0.2s ease-in-out, background 0.2s ease-in-out',
                 }}
               >
                 About

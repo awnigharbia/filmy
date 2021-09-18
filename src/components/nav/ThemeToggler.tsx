@@ -2,7 +2,7 @@ import {DarkModeSwitch} from '@/utils/DarkModeSwitch'
 import React from 'react'
 import {useLocalStorage} from './../hooks/useLocalStorage'
 
-export function ThemeToggler(): React.ReactElement {
+export function ThemeToggler() {
   const [theme, setTheme] = useLocalStorage('theme', 'dark')
   const nextTheme = theme === 'light' ? 'dark' : 'light'
   const isDarkMode = theme === 'dark'

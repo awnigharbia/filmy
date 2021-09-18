@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSpring, animated} from '@react-spring/web'
 
-export const defaultProperties = {
+const defaultProperties = {
   dark: {
     circle: {
       r: 9,
