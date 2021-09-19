@@ -88,6 +88,7 @@ export const DarkModeSwitch: React.FC<Props> = ({
     ...mask,
     config: animationProperties.springConfig,
   })
+
   const linesProps = useSpring({
     ...lines,
     config: animationProperties.springConfig,
@@ -119,21 +120,15 @@ export const DarkModeSwitch: React.FC<Props> = ({
     >
       <mask id={uniqueMaskId}>
         <rect x="0" y="0" width="100%" height="100%" fill="white" />
-        <animated.circle
-          // @ts-ignore
-          style={maskedCircleProps}
-          r="9"
-          fill="black"
-        />
+        <animated.circle r="9" fill="black" {...maskedCircleProps} />
       </mask>
 
       <animated.circle
         cx="12"
         cy="12"
         fill={checked ? moonColor : sunColor}
-        // @ts-ignore
-        style={centerCircleProps}
         mask={`url(#${uniqueMaskId})`}
+        {...centerCircleProps}
       />
       <animated.g stroke="currentColor" style={linesProps}>
         <line x1="12" y1="1" x2="12" y2="3" />

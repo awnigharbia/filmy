@@ -56,7 +56,7 @@ export function useLocalStorage<T>(
 
   useEffect(() => {
     setStoredValue(readValue())
-  }, [])
+  }, [setStoredValue])
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -73,7 +73,7 @@ export function useLocalStorage<T>(
       window.removeEventListener('storage', handleStorageChange)
       window.removeEventListener('local-storage', handleStorageChange)
     }
-  }, [])
+  }, [setStoredValue])
 
   return [storedValue, setValue]
 }
