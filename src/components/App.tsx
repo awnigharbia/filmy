@@ -3,19 +3,19 @@ import {Route, Switch} from 'react-router-dom'
 import {Home} from './home/Home'
 import {MoviesList} from './movies/MoviesList'
 
-import {Modal} from 'src/context/modal-context'
+import {MovieModal} from '@/context/MovieModalContext'
 import {LatestMovies} from './latestMovies/LatestMovies'
-import {MovieModal} from './generic/movieModal/modalContent'
 import {Navbar} from './nav/Navbar'
 import {GlobalStyle} from './globalStyle'
+import {MovieModalView} from './generic/movieModal/MovieModalView'
 
 export const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Modal>
+      <MovieModal>
         <Navbar />
-        <MovieModal />
+        <MovieModalView />
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route path="/latest-movies" render={() => <LatestMovies />} />
@@ -41,7 +41,7 @@ export const App = () => {
             )}
           />
         </Switch>
-      </Modal>
+      </MovieModal>
     </>
   )
 }

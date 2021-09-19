@@ -1,4 +1,4 @@
-import {useModal} from '@/context/modal-context'
+import {useMovieModal} from '@/context/MovieModalContext'
 import * as React from 'react'
 import {FC} from 'react'
 import './style.css'
@@ -9,7 +9,7 @@ export const MovieSearchResult: FC<{
   poster_path: string
   release_date: number
 }> = ({id, title, poster_path: posterPath, release_date: releaseDate}) => {
-  const {handleOpen} = useModal()
+  const {handleOpen} = useMovieModal()
 
   return (
     <div className="search-result-item" onClick={() => handleOpen(id)}>

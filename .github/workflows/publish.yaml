@@ -1,0 +1,29 @@
+name: github-pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Mode
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Installing dependencies
+        run: npm install
+
+      - name: Building App
+        run: npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build

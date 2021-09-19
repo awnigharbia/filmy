@@ -7,7 +7,7 @@ import {facebook} from 'react-icons-kit/fa'
 import {PoseGroup} from 'react-pose'
 
 import * as Modal from './style'
-import {useModal} from '@/context/modal-context'
+import {useMovieModal} from '@/context/MovieModalContext'
 import {useMovie} from '@/api/movieAPI'
 
 export interface Data {
@@ -20,24 +20,19 @@ export interface Data {
   release_date: number
 }
 
-export const MovieModal: FC = () => {
+export const MovieModalView: FC = () => {
   //TODO:lockscroll
   // {
   //   open ? useLockBodyScroll('lock') : useLockBodyScroll('unlock')
   // }
-  const {movieId} = useModal()
-  const {movie, isFetching, isIdle, isSuccess} = useMovie(movieId)
-  const {isOpen, setIsOpen} = useModal()
+  const {movieId, isOpen, setIsOpen} = useMovieModal()
+  const {movie, isFetching, isIdle, isSuccess, isError} = useMovie(movieId)
 
-  if (isIdle) {
+  if (isIdle || isFetching) {
     return null
   }
 
-  if (isFetching) {
-    return <div>Loading...</div>
-  }
-
-  if (!movie) {
+  if (!movie || isError) {
     return <div>Error fetching movie</div>
   }
 

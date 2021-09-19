@@ -6,12 +6,13 @@ import {useMovieSearch} from '../../api/movieAPI'
 import {MovieSearchResult} from './MovieSearchResult'
 import './style.css'
 import useDebounce from '../hooks/useDebounce'
+import {ErrorFallback} from './style'
 
 function useSearch() {
   const [focused, setFocused] = useState(0)
   const [searchQuery, setSearchQuery] = useState('')
   const debouncedSearchQuery = useDebounce(searchQuery, 500)
-  const {movies} = useMovieSearch(debouncedSearchQuery)
+  const {movies, isError} = useMovieSearch(debouncedSearchQuery)
   const searchResultRef = useRef<HTMLDivElement>(null)
 
   const params = {
@@ -44,6 +45,7 @@ function useSearch() {
     searchResultRef,
     handleChange,
     handleFocus,
+    isError,
   }
 }
 
@@ -55,6 +57,7 @@ export const Search: FC = () => {
     searchResultRef,
     handleChange,
     handleFocus,
+    isError,
   } = useSearch()
 
   return (
@@ -62,6 +65,9 @@ export const Search: FC = () => {
       {focused === 2 && (
         <div className="search-result">
           <div className="search-results">
+            {isError && (
+              <ErrorFallback>Oops, something went wrong!</ErrorFallback>
+            )}
             {movies.map((item, key) => {
               return <MovieSearchResult key={key} {...item} />
             })}

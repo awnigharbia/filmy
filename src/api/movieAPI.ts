@@ -62,16 +62,11 @@ export const getLatestMovies = async (pageParam = 1): Promise<MoviesResult> => {
       ...defaultConfig,
       page: pageParam,
     })
-    console.log(data)
 
     return data
   } catch (error) {
     console.error(`Unable to fetch latest movies`, error)
-    return {
-      page: 1,
-      results: [],
-      total_pages: 1,
-    }
+    return Promise.reject(error)
   }
 }
 
@@ -116,11 +111,7 @@ export const getMoviesWithGenre = async (
     return data
   } catch (error) {
     console.error(`Unable to fetch movies with genre`, error)
-    return {
-      page: 1,
-      results: [],
-      total_pages: 1,
-    }
+    return Promise.reject(error)
   }
 }
 
@@ -147,7 +138,7 @@ const getPopularMovies = async (): Promise<Movie[]> => {
     return data.results
   } catch (error) {
     console.error(`Unable to fetch popular movies`, error)
-    return []
+    return Promise.reject(error)
   }
 }
 
@@ -161,7 +152,7 @@ export function usePopularMovies(): UseMoviesQueryResult {
   return {...result, movies: result.data || []}
 }
 
-async function getMovieByName(movieTitle: string): Promise<Movie[]> {
+async function getMovieSearch(movieTitle: string): Promise<Movie[]> {
   try {
     const data = await client<MoviesResult>('search/movie', {
       query: movieTitle,
@@ -170,14 +161,14 @@ async function getMovieByName(movieTitle: string): Promise<Movie[]> {
     return data.results
   } catch (error) {
     console.error(`Unable to fetch movie by name`, error)
-    return []
+    return Promise.reject(error)
   }
 }
 
 export function useMovieSearch(movieTitle: string): UseMoviesQueryResult {
   const result = useQuery(
     ['movieSearch', movieTitle],
-    () => getMovieByName(movieTitle),
+    () => getMovieSearch(movieTitle),
     {
       enabled: !!movieTitle,
     },
@@ -193,7 +184,7 @@ async function getMovieDetails(movieId: number): Promise<Movie | undefined> {
     return data
   } catch (error) {
     console.error(`Unable to fetch movie details`, error)
-    return undefined
+    return Promise.reject(error)
   }
 }
 

@@ -2,7 +2,6 @@ import {callAll} from '@/utils/callAll'
 import * as React from 'react'
 import {ReactElement} from 'react'
 import {useEffect, FC} from 'react'
-import {useQuery} from 'react-query'
 import {useSetState} from 'src/components/hooks/useSetState'
 
 interface SliderContextType {
