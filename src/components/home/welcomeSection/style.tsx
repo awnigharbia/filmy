@@ -8,6 +8,7 @@ export const WlcSection = styled.div`
   width: 100%;
   z-index: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0px 0px rgba(0, 0, 0, 0);
+  background-color: var(--colors-secondary);
 `
 
 export const LeftVideo = styled.video`
@@ -27,4 +28,5 @@ export const RightText = styled.p`
   font-size: 1.8em;
   font-weight: 500;
   width: 70%;
+  color: var(--colors-text);
 `

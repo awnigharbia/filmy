@@ -1,5 +1,5 @@
 import React from 'react'
-import {useRef, FC} from 'react'
+import {useRef} from 'react'
 import * as Movies from '@/components/generic/movies/style'
 import BounceLoader from 'react-spinners/BounceLoader'
 import {MoviesPanel} from '../generic/movies/MoviesPanel'

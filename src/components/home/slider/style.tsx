@@ -7,6 +7,8 @@ export const SliderParent = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  background-color: var(--colors-secondary);
+  transition: background-color 0.2s ease-in-out;
 `
 
 export const SliderTop = styled.div`
@@ -29,6 +31,7 @@ export const Welcome = styled.h3`
   font-size: 22px;
   margin-top: 50px;
   font-weight: 500;
+  color: var(--colors-text);
 `
 
 export const Img = styled.div<{src: string}>`
@@ -80,7 +83,8 @@ export const ModalInfo = styled.div`
   padding: 0px 20px;
   height: 90%;
   flex-shrink: 0;
-  background-color: white;
+  background-color: var(--colors-primary);
+  transition: background-color 0.2s ease-in-out;
   box-shadow: 0 0px 12px rgba(0, 0, 0, 0.11), 0 10px 40px rgba(0, 0, 0, 0.19);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -101,7 +105,8 @@ export const ModalTitle = styled.h3`
   font-weight: 500;
   margin: 15px 0px;
   width: 100%;
-  color: #475069;
+  color: var(--colors-modal-title);
+  transition: color 0.2s ease-in-out;
 `
 
 export const Arrow = styled.div`
@@ -162,7 +167,8 @@ export const InfoTitle = styled(P)`
 export const InfoContent = styled(P)`
   font-size: 15px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--colors-text-secondary);
+  transition: color 0.2s ease-in-out;
 `
 
 export const ModalCenter = styled.div`
@@ -191,7 +197,8 @@ export const ModalBottomContent = styled.span`
   font-weight: 500;
   margin-top: 10px;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--colors-text-secondary);
+  transition: color 0.2s ease-in-out;
 `
 
 export const TopOf = styled.div`

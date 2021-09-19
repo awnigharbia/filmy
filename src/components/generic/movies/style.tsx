@@ -9,6 +9,7 @@ export const Movies = styled.div`
   align-items: center;
   box-sizing: border-box;
   justify-content: space-evenly;
+  background-color: var(--colors-primary);
 `
 
 export const ImageStyle = styled.div<{src: string}>`
@@ -140,4 +141,5 @@ export const Loader = styled.div`
   justify-content: center;
   width: 100%;
   height: 100px;
+  background-color: var(--colors-primary);
 `

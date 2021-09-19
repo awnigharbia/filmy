@@ -44,11 +44,12 @@ export const Nav = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: white;
+  background-color: var(--colors-primary) !important;
   padding: 10px 25px;
   box-sizing: border-box;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11), 0 -1px 1px rgba(0, 0, 0, 0.05);
   z-index: 4;
+  transition: background-color 0.2s;
 `
 
 export const logo = styled.img.attrs({
