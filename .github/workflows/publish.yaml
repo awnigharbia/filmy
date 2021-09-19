@@ -17,7 +17,7 @@ jobs:
           node-version: 14
 
       - name: Installing dependencies
-        run: npm install --no-optional
+        run: npm install -f
 
       - name: Building App
         run: npm run build
