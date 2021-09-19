@@ -19,7 +19,7 @@
   z-index: 0;
   overflow: hidden;
   padding-top: 55px;
-  background-color: white;
+  background-color: var(--colors-primary);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.08), 0 1px 5px 0 rgba(0, 0, 0, 0.3),
     0 1px 5px -2px rgba(0, 0, 0, 0.31);
 }
@@ -72,6 +72,7 @@
   margin-right: auto;
   padding: 0px;
   font-weight: 500;
+  color: var(--colors-text);
 }
 
 .search-result-item-info p {
@@ -107,7 +108,7 @@
   flex-direction: row;
   position: relative;
   width: 100%;
-  background-color: #eae7e7;
+  background-color: var(--colors-search);
   border-radius: 25px;
   border: 1.5px solid #eae7e7;
   align-items: center;

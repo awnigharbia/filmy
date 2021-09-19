@@ -61,7 +61,7 @@ export const ModalContent = styled(Content)`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  background-color: white;
+  background-color: var(--colors-primary);
   max-width: 100%;
   margin-top: auto;
   flex-shrink: 0;
@@ -114,7 +114,7 @@ export const Name = styled.h2`
   font-weight: 500;
   font-size: 22px;
   margin: 0;
-  color: rgba(0, 0, 0, 0.85);
+  color: var(--colors-text);
 `
 
 export const SocialShare = styled.div`
@@ -149,14 +149,14 @@ export const CatTitle = styled.p`
   font-weight: 500;
   margin: 0;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--colors-text);
 `
 
 export const CatBody = styled.p`
   font-size: 13px;
   margin: 0;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--colors-text-secondary);
 `
 
 export const CatGenres = styled.ul`
@@ -164,12 +164,12 @@ export const CatGenres = styled.ul`
   line-height: 1.5;
   font-size: 14px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--colors-text-secondary);
 `
 
 export const bio = styled.div`
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--colors-text-secondary);
   font-weight: 500;
 `
 
