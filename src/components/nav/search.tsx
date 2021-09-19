@@ -59,7 +59,6 @@ export const Search: FC = () => {
     handleFocus,
     isError,
   } = useSearch()
-  console.log(isError)
 
   return (
     <div ref={searchResultRef} className="search">

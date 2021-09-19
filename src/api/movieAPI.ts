@@ -177,14 +177,8 @@ export function useMovieSearch(movieTitle: string): UseMoviesQueryResult {
   return {...result, movies: result.data || []}
 }
 
-async function getMovieDetails(
-  movieId: number | null,
-): Promise<Movie | undefined> {
+async function getMovieDetails(movieId: number): Promise<Movie | undefined> {
   try {
-    if (movieId === null) {
-      console.error('No movie id was supplied to getMovieDetails')
-      return undefined
-    }
     const data = await client<Movie>(`movie/${movieId}`)
 
     return data
@@ -198,7 +192,7 @@ type UseMovieQueryResult = UseQueryResult<Movie | undefined> & {
   movie: Movie | undefined
 }
 
-export function useMovie(movieId: number | null): UseMovieQueryResult {
+export function useMovie(movieId: number): UseMovieQueryResult {
   const result = useQuery(['movie', movieId], () => getMovieDetails(movieId), {
     enabled: !!movieId,
   })

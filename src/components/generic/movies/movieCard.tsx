@@ -1,4 +1,4 @@
-import {useModal} from '@/context/modal-context'
+import {useMovieModal} from '@/context/MovieModalContext'
 import * as React from 'react'
 import {FC} from 'react'
 import {Icon} from 'react-icons-kit'
@@ -15,7 +15,7 @@ export const MovieCard: FC<Movie> = ({
   genre_ids,
   title,
 }) => {
-  const {handleOpen} = useModal()
+  const {handleOpen} = useMovieModal()
 
   return (
     <Movies.MovieWrapper onClick={() => handleOpen(id)}>

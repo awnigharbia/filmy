@@ -5,7 +5,7 @@ import {Icon} from 'react-icons-kit'
 import {star} from 'react-icons-kit/fa/'
 import {search} from 'react-icons-kit/feather/search'
 import {globe, video} from 'react-icons-kit/feather'
-import {useModal} from 'src/context/modal-context'
+import {useMovieModal} from 'src/context/MovieModalContext'
 
 interface Props {
   movies: Movie[]
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const SliderModal: FC<Props> = ({movies, activeIndex}) => {
-  const {handleOpen} = useModal()
+  const {handleOpen} = useMovieModal()
   return (
     <SliderParent.ActiveModal>
       <SliderParent.ModalImg
