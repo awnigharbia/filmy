@@ -1,1 +1,1 @@
-Filmy is a small website for movies
+Filmy is a small website for movies.
