@@ -8,19 +8,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
-
       - name: Setup Node
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: ${{ matrix.node-version }}
 
-      - name: Installing dependencies
-        run: npm install
-
-      - name: Building App
-        run: npm run build
+      - name: npm ci, build and test
+        run: |
+          npm ci
+          npm run build --if-present
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
