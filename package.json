@@ -1,9 +1,12 @@
 {
   "name": "filmy-ts",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "main": "src/index.tsx",
   "homepage": "https://awnigharbia.github.io/filmy/",
+  "engines": {
+    "node": ">12"
+  },
   "dependencies": {
     "@react-spring/web": "^9.2.4",
     "axios": "^0.21.4",
@@ -17,12 +20,25 @@
     "react-spinners": "^0.6.1",
     "styled-components": "^4.4.1"
   },
+  "author": {
+    "email": "anongharbia@gmail.com",
+    "name": "Awni Zaher Gharbia",
+    "url": "https://awnigharbia.netlify.app/"
+  },
+  "keywords": [
+    "vite",
+    "react",
+    "typescript"
+  ],
   "scripts": {
     "start": "vite --open",
     "build": "tsc && vite build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "prepare": "husky install",
+    "lint": "eslint ./src/ --ext .js,.ts,.tsx --max-warnings 0 --report-unused-disable-directives",
+    "test:t": "tsc -p ./tsconfig.json --noEmit"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,17 +56,22 @@
     ]
   },
   "devDependencies": {
+    "@types/babel__core": "^7.1.16",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.3",
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
     "@types/react-router-dom": "^4.3.5",
     "@types/styled-components": "^5.1.14",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
     "@vitejs/plugin-react-refresh": "^1.3.6",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.2",
     "prettier": "^1.18.2",
     "typescript": "^4.4.3",
     "vite": "^2.5.1",
-    "vite-tsconfig-paths": "^3.3.13",
-    "@types/babel__core": "^7.1.16"
+    "vite-tsconfig-paths": "^3.3.13"
   }
 }

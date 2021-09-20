@@ -1,8 +1,8 @@
 import {callAll} from '@/utils/callAll'
+import {noop} from '@/utils/noop'
 import * as React from 'react'
 import {ReactElement} from 'react'
 import {useEffect, FC} from 'react'
-import {useSetState} from 'src/components/hooks/useSetState'
 
 interface SliderContextType {
   currentSlide: number
@@ -16,8 +16,8 @@ const SliderContext = React.createContext<SliderContextType>({
   currentSlide: 3,
   translate: 0,
   movies: [],
-  nextImg: () => {},
-  prevImg: () => {},
+  nextImg: noop(),
+  prevImg: noop(),
 })
 
 export function useSlider(): SliderContextType {
@@ -45,7 +45,10 @@ interface Props {
 }
 
 const Slider: FC<Props> = ({movies, ...props}) => {
-  const [{currentSlide, translate}, setState] = useSetState(defaultState)
+  const [currentSlide, setCurrentSlide] = React.useState(
+    defaultState.currentSlide,
+  )
+  const [translate, setTranslate] = React.useState(defaultState.translate)
   const translateSlideValue = 245
   const step = 1
   const isLastSlide = currentSlide === movies.length - 1
@@ -54,25 +57,20 @@ const Slider: FC<Props> = ({movies, ...props}) => {
   const prevKeyCode = 37
 
   const nextImg = () => {
-    setState(
-      isLastSlide
-        ? defaultState
-        : {
-            currentSlide: currentSlide + step,
-            translate: translate - translateSlideValue,
-          },
-    )
+    if (isLastSlide) {
+      setCurrentSlide(2)
+      setTranslate(0)
+    } else {
+      setCurrentSlide(currentSlide + step)
+      setTranslate(translate + translateSlideValue)
+    }
   }
 
   const prevImg = () => {
-    setState(
-      isFirstSlide
-        ? null
-        : {
-            currentSlide: currentSlide - step,
-            translate: translate + translateSlideValue,
-          },
-    )
+    if (!isFirstSlide) {
+      setCurrentSlide(currentSlide - step)
+      setTranslate(translate - translateSlideValue)
+    }
   }
 
   const handleArrow = (e: KeyboardEvent) => {
@@ -94,7 +92,11 @@ const Slider: FC<Props> = ({movies, ...props}) => {
   return <SliderContext.Provider value={value} {...props} />
 }
 
-const SliderNextArrow = ({children}: {children: ReactElement}) => {
+const SliderNextArrow = ({
+  children,
+}: {
+  children: ReactElement
+}): React.ReactElement => {
   const {nextImg} = useSlider()
 
   return React.cloneElement(children, {
@@ -102,7 +104,11 @@ const SliderNextArrow = ({children}: {children: ReactElement}) => {
   })
 }
 
-const SliderPrevArrow = ({children}: {children: ReactElement}) => {
+const SliderPrevArrow = ({
+  children,
+}: {
+  children: ReactElement
+}): React.ReactElement => {
   const {prevImg} = useSlider()
 
   return React.cloneElement(children, {

@@ -6,7 +6,7 @@ import {MoviesPanel} from '../generic/movies/MoviesPanel'
 import {useLatestMovies} from '@/api/movieAPI'
 import useIntersectionObserver from './../hooks/useIntersectionObserver'
 
-export const LatestMovies = () => {
+export const LatestMovies = (): JSX.Element => {
   const {
     movies,
     fetchNextPage,

@@ -11,7 +11,6 @@ import {
 
 const apiURL = import.meta.env.VITE_API_URL
 const apiKEY = import.meta.env.VITE_API_KEY
-const TORRENT_API_URL = 'https://yts.lt/api/v2/'
 
 const defaultConfig = {
   sort_by: Filters.RELEASE_DATE,

@@ -9,7 +9,7 @@ import {Navbar} from './nav/Navbar'
 import {GlobalStyle} from './globalStyle'
 import {MovieModalView} from './generic/movieModal/MovieModalView'
 
-export const App = () => {
+export const App = (): JSX.Element => {
   return (
     <>
       <GlobalStyle />

@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as FooterStyle from './style'
 import Popcorn from 'src/imgs/popcorn.svg'
 
-export const Footer = () => (
+export const Footer = (): JSX.Element => (
   <FooterStyle.Footer>
     <FooterStyle.text>
       Handcrafted by{' '}
