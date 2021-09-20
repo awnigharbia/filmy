@@ -6,5 +6,6 @@ export default defineConfig({
   build: {
     outDir: 'build',
   },
+  base:'/filmy/',
   plugins: [reactRefresh(), tsconfigPaths()],
 })
