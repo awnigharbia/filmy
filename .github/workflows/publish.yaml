@@ -18,7 +18,7 @@ jobs:
 
       - name: Installing dependencies
         run: npm install -f
-      
+
       - name: Creating .env file
         run: |
           cat << EOF >> .env
@@ -26,9 +26,15 @@ jobs:
           VITE_API_URL=${{secrets.VITE_API_URL}}
           EOF
 
+      - name: linting
+        run: npm run lint
+
+      - name: TypeChecking
+        run: npm run test:t
+
       - name: Building App
         run: npm run build
-        
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
