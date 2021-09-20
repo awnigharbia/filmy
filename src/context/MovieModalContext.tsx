@@ -10,8 +10,8 @@ interface MovieModalContextType {
 
 export const MovieModalContext = React.createContext<MovieModalContextType>({
   isOpen: false,
-  setIsOpen: noop,
-  handleOpen: noop,
+  setIsOpen: noop(),
+  handleOpen: noop(),
   movieId: 0,
 })
 

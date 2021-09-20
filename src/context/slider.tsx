@@ -16,8 +16,8 @@ const SliderContext = React.createContext<SliderContextType>({
   currentSlide: 3,
   translate: 0,
   movies: [],
-  nextImg: noop,
-  prevImg: noop,
+  nextImg: noop(),
+  prevImg: noop(),
 })
 
 export function useSlider(): SliderContextType {
