@@ -191,7 +191,7 @@ var e=Object.defineProperty,t=Object.defineProperties,r=Object.getOwnPropertyDes
   font-weight: 500;
   width: 70%;
   color: var(--colors-text);
-`;const Ue=()=>y.createElement(Me,null,y.createElement(Te,{autoPlay:!0,loop:!0},y.createElement("source",{src:"/assets/poster_video.cbd283e7.mp4",type:"video/mp4"})),y.createElement(De,null,y.createElement(Be,null,"We beleive that movies deserve more",y.createElement("span",{role:"img","aria-label":"heart"},"💜")))),We=x.div`
+`;const Ue=()=>y.createElement(Me,null,y.createElement(Te,{autoPlay:!0,loop:!0},y.createElement("source",{src:"/filmy/assets/poster_video.cbd283e7.mp4",type:"video/mp4"})),y.createElement(De,null,y.createElement(Be,null,"We beleive that movies deserve more",y.createElement("span",{role:"img","aria-label":"heart"},"💜")))),We=x.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -212,7 +212,7 @@ var e=Object.defineProperty,t=Object.defineProperties,r=Object.getOwnPropertyDes
   border-radius: 25px;
 `,Ke=x.img`
   width: 100px;
-`;const Ve=()=>p.exports.createElement(We,null,p.exports.createElement(He,null,"Handcrafted by"," ",p.exports.createElement(Ye,null,"Awni Gharbia",p.exports.createElement("span",{role:"img","aria-label":"hand"},"💪"))),p.exports.createElement(Ke,{src:"/assets/popcorn.31e8a22a.svg",alt:"poster"})),qe=x.div`
+`;const Ve=()=>p.exports.createElement(We,null,p.exports.createElement(He,null,"Handcrafted by"," ",p.exports.createElement(Ye,null,"Awni Gharbia",p.exports.createElement("span",{role:"img","aria-label":"hand"},"💪"))),p.exports.createElement(Ke,{src:"/filmy/assets/popcorn.31e8a22a.svg",alt:"poster"})),qe=x.div`
   position: relative;
   display: flex;
   height: 91vh;
@@ -410,7 +410,7 @@ var e=Object.defineProperty,t=Object.defineProperties,r=Object.getOwnPropertyDes
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11), 0 -1px 1px rgba(0, 0, 0, 0.05);
   z-index: 4;
   transition: background-color 0.2s;
-`;x.img.attrs({src:"/assets/logo.cd7d5f22.svg"})`
+`;x.img.attrs({src:"/filmy/assets/logo.cd7d5f22.svg"})`
   width: 40px;
 `;const Tt=x.div`
   display: flex;
