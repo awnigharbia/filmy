@@ -24,7 +24,8 @@
     "eject": "react-scripts eject",
     "serve": "vite preview",
     "prepare": "husky install",
-    "lint": "eslint \"**/*.{ts,tsx}\""
+    "lint": "eslint ./src/ --ext .js,.ts,.tsx --max-warnings 0 --report-unused-disable-directives",
+    "test:t": "tsc -p ./tsconfig.json --noEmit"
   },
   "eslintConfig": {
     "extends": "react-app"
