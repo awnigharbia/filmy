@@ -18,16 +18,19 @@ jobs:
 
       - name: Installing dependencies
         run: npm install -f
+      
+      - name: Creating .env file
+        run: |
+          cat << EOF >> .env
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY}}
+          VITE_API_URL: ${{secrets.VITE_API_URL}}
+          EOF
 
       - name: Building App
         run: npm run build
         
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        env:
-          VITE_API_KEY: ${{ secrets.VITE_API_KEY}}
-          VITE_API_URL: ${{secrets.VITE_API_URL}}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build

@@ -9,8 +9,8 @@ import {
   UseQueryResult,
 } from 'react-query'
 
-const apiURL = process.env.VITE_API_URL
-const apiKEY = process.env.VITE_API_KEY
+const apiURL = import.meta.env.VITE_API_URL
+const apiKEY = import.meta.VITE_API_KEY
 const TORRENT_API_URL = 'https://yts.lt/api/v2/'
 
 const defaultConfig = {
