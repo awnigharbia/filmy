@@ -9,7 +9,7 @@ export const SidebarItemGroup: FC<{
   toggleCategories(): void
   size: number
   // the library defines it as any as well.
-  icon: any
+  icon: unknown
   label: string
   categoryState: 'opened' | 'closed' | 'none'
   handleCategories(state: string): void
@@ -73,7 +73,7 @@ export const SidebarItem: FC<SidebarItemProps> = ({
 )
 
 interface SidebarGroupItemProps {
-  label: String
+  label: string
   exact: boolean
   to: string
 }

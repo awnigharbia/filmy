@@ -9,12 +9,20 @@ interface MovieModalContextType {
 
 export const MovieModalContext = React.createContext<MovieModalContextType>({
   isOpen: false,
-  setIsOpen: () => {},
-  handleOpen: () => {},
+  setIsOpen: () => {
+    // do nothing
+  },
+  handleOpen: () => {
+    // do nothing
+  },
   movieId: 0,
 })
 
-export const MovieModal = ({children}: {children: React.ReactNode}) => {
+export const MovieModal = ({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element => {
   const [movieId, setMovieId] = React.useState<number>(0)
   const [isOpen, setIsOpen] = React.useState(false)
 
@@ -32,7 +40,7 @@ export const MovieModal = ({children}: {children: React.ReactNode}) => {
   )
 }
 
-export function useMovieModal() {
+export function useMovieModal(): MovieModalContextType {
   const context = React.useContext(MovieModalContext)
 
   if (!context) {

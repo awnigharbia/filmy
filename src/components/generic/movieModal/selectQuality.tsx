@@ -20,7 +20,7 @@ export const SelectQuality: FC<{imdb: string; links: Link[]}> = ({
   const [activeItem, setActiveItem] = useState(0)
 
   const toggleLink = (e: ChangeEvent<HTMLSelectElement>) => {
-    let selectValue = parseInt(e.target.value, 10)
+    const selectValue = parseInt(e.target.value, 10)
     setActiveItem(selectValue)
   }
 

@@ -1,6 +1,6 @@
-import React, {useLayoutEffect} from 'react'
+import {useLayoutEffect} from 'react'
 
-export function useLockBodyScroll(action: 'lock' | 'unlock') {
+export function useLockBodyScroll(action: 'lock' | 'unlock'): void {
   useLayoutEffect(() => {
     if (action === 'lock') {
       // Get original body overflow

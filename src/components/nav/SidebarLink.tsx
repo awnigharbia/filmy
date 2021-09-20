@@ -19,13 +19,13 @@ export const SidebarLink: FC<{
   <Route
     path={to}
     exact={activeOnlyWhenExact}
-    children={({match, location}) => {
+    children={({match}) => {
       const child = React.Children.map(children, mappedChild => {
         // Check if it's a valid element
         if (!React.isValidElement<EnrichedChildren>(children)) return children
 
         // cloning the interface for ReactElement
-        let elementChild: React.ReactElement<EnrichedChildren> = children
+        const elementChild: React.ReactElement<EnrichedChildren> = children
 
         // Check if it's null or undefined then clone it
         return mappedChild !== null && mappedChild !== undefined

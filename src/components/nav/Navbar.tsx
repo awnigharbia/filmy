@@ -3,29 +3,29 @@ import {FC} from 'react'
 
 import {TopNav} from './TopNavbar'
 import {SideBar} from './SideBar'
-import {useSetState} from 'src/components/hooks/useSetState'
+import {isStyledComponent} from 'styled-components'
 
 export const Navbar: FC = () => {
-  const [state, setState] = useSetState({
-    isSidebarOpen: false,
-    categoryState: 'none',
-  })
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false)
 
-  const toggleSidebar = () =>
-    setState({
-      isSidebarOpen: !state.isSidebarOpen,
-      categoryState: !state.isSidebarOpen && 'none',
-    })
+  const [categoryState, setCategoryState] = React.useState<
+    'none' | 'opened' | 'closed'
+  >('none')
 
-  const handleCategories = (state: string) => setState({categoryState: state})
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen)
+    if (!isStyledComponent) setCategoryState('none')
+  }
+
+  const handleCategories = (state: 'none' | 'opened' | 'closed') =>
+    setCategoryState(state)
 
   const toggleCategories = () =>
-    setState({
-      categoryState:
-        state.categoryState === 'closed' || state.categoryState === 'none'
-          ? 'opened'
-          : 'closed',
-    })
+    setCategoryState(
+      categoryState === 'closed' || categoryState === 'none'
+        ? 'opened'
+        : 'closed',
+    )
 
   return (
     <>
@@ -34,7 +34,8 @@ export const Navbar: FC = () => {
         toggleCategories={toggleCategories}
         handleCategories={handleCategories}
         toggleSidebar={toggleSidebar}
-        {...state}
+        isSidebarOpen={isSidebarOpen}
+        categoryState={categoryState}
       />
     </>
   )

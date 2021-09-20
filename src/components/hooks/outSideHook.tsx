@@ -6,7 +6,7 @@ interface Props {
   ref: React.RefObject<HTMLDivElement>
 }
 
-export const useOnClickOutside = ({ref, handler}: Props) => {
+export const useOnClickOutside = ({ref, handler}: Props): void => {
   useEffect(() => {
     const listener = (event: MouseEvent) => {
       // Do nothing if clicking ref's element or descendent elements

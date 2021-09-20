@@ -12,7 +12,7 @@ export default function useIntersectionObserver({
   threshold = 1.0,
   rootMargin = '0px',
   enabled = true,
-}: Args) {
+}: Args): void {
   React.useEffect(() => {
     if (!enabled) {
       return

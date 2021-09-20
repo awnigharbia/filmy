@@ -1,11 +1,16 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2018
+    "ecmaVersion": 6
   },
-  "extends": ["eslint:recommended", "eslint-config-prettier"],
+  "extends": [
+    "eslint:recommended",
+    "eslint-config-prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "rules": {
     "no-unused-vars": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "no-empty-function": "off"
   },
   "env": {
     "browser": true
