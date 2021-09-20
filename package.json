@@ -1,9 +1,12 @@
 {
   "name": "filmy-ts",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "main": "src/index.tsx",
   "homepage": "https://awnigharbia.github.io/filmy/",
+  "engines": {
+    "node": ">0.12"
+  },
   "dependencies": {
     "@react-spring/web": "^9.2.4",
     "axios": "^0.21.4",
@@ -17,6 +20,16 @@
     "react-spinners": "^0.6.1",
     "styled-components": "^4.4.1"
   },
+  "author": {
+    "email": "anongharbia@gmail.com",
+    "name": "Awni Zaher Gharbia",
+    "url": "https://awnigharbia.github.io/filmy/#/"
+  },
+  "keywords": [
+    "vite",
+    "react",
+    "typescript"
+  ],
   "scripts": {
     "start": "vite --open",
     "build": "tsc && vite build",
