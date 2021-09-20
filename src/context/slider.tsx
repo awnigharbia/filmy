@@ -1,4 +1,5 @@
 import {callAll} from '@/utils/callAll'
+import {noop} from '@/utils/noop'
 import * as React from 'react'
 import {ReactElement} from 'react'
 import {useEffect, FC} from 'react'
@@ -15,12 +16,8 @@ const SliderContext = React.createContext<SliderContextType>({
   currentSlide: 3,
   translate: 0,
   movies: [],
-  nextImg: () => {
-    // do nothing
-  },
-  prevImg: () => {
-    // do nothing
-  },
+  nextImg: noop,
+  prevImg: noop,
 })
 
 export function useSlider(): SliderContextType {

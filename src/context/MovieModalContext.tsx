@@ -1,3 +1,4 @@
+import {noop} from '@/utils/noop'
 import * as React from 'react'
 
 interface MovieModalContextType {
@@ -9,12 +10,8 @@ interface MovieModalContextType {
 
 export const MovieModalContext = React.createContext<MovieModalContextType>({
   isOpen: false,
-  setIsOpen: () => {
-    // do nothing
-  },
-  handleOpen: () => {
-    // do nothing
-  },
+  setIsOpen: noop,
+  handleOpen: noop,
   movieId: 0,
 })
 

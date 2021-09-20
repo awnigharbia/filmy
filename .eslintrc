@@ -7,11 +7,6 @@
     "eslint-config-prettier",
     "plugin:@typescript-eslint/recommended"
   ],
-  "rules": {
-    "no-unused-vars": "off",
-    "no-console": "off",
-    "no-empty-function": "off"
-  },
   "env": {
     "browser": true
   }
