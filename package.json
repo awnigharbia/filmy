@@ -7,6 +7,7 @@
   "engines": {
     "node": ">12"
   },
+  "license": "MIT",
   "dependencies": {
     "@react-spring/web": "^9.2.4",
     "axios": "^0.21.4",
@@ -35,7 +36,7 @@
     "build": "tsc && vite build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "vite preview",
+    "serve": "npm run build && vite preview",
     "prepare": "husky install",
     "lint": "eslint ./src/ --ext .js,.ts,.tsx --max-warnings 0 --report-unused-disable-directives",
     "test:t": "tsc -p ./tsconfig.json --noEmit"
