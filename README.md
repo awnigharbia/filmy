@@ -1,6 +1,5 @@
 ![LICENSE](https://img.shields.io/github/license/awnigharbia/filmy)
-![CI](https://github.com/awnigharbia/filmy/actions/workflows/publish.yaml/badge.svg)
-
+[![build](https://github.com/awnigharbia/filmy/actions/workflows/publish.yaml/badge.svg)](https://github.com/awnigharbia/filmy/actions/workflows/publish.yaml)
 # Filmy
 
 Small movie site to browse movies:
