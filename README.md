@@ -3,11 +3,11 @@
 
 # Filmy
 
-Small movie site to browser movies:
+Small movie site to browse movies:
 
 - Browse popular movies
 - Browse movies by categories
-- Search for movie
+- Search for a movie
 - Display full movie details
 
 Try the demo at
@@ -17,23 +17,23 @@ Try the demo at
 
 Install all the application's dependencies:
 
-`npm install` or `yarn install`
+`npm install`
 
 Next, you can start the application in a local environment with:
 
-`npm start` or `yarn start`
+`npm start`
 
 The browser should automatically open to `http://localhost:3000/filmy/` which
 will display the application running.
 
 Otherwise, you can build application into the `<rootDir>/build` directory with:
 
-`npm run build` or `yarn build`
+`npm run build`
 
 After that you can serve the optimized web application build at
 `http://localhost:5000/filmy/` by default locally with:
 
-`npm run serve` or `yarn serve`
+`npm run serve`
 
 ## Contributing
 
