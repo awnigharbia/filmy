@@ -9,7 +9,7 @@ export const WelcomeSection: FC = () => (
     </WelcomeSectionStyle.LeftVideo>
     <WelcomeSectionStyle.RightSide>
       <WelcomeSectionStyle.RightText>
-        We beleive that movies deserve more
+        We beleive that movies deserve mor
         <span role="img" aria-label="heart">
           💜
         </span>
