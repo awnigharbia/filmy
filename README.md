@@ -1,5 +1,5 @@
 ![LICENSE](https://img.shields.io/github/license/awnigharbia/filmy)
-[![build](https://github.com/awnigharbia/filmy/actions/workflows/publish.yaml/badge.svg)](https://github.com/awnigharbia/filmy/actions/workflows/publish.yaml)
+[![build](https://github.com/awnigharbia/filmy/actions/workflows/build.yaml/badge.svg)](https://github.com/awnigharbia/filmy/actions/workflows/build.yaml)
 
 # Filmy
 
