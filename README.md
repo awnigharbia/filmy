@@ -24,10 +24,13 @@ After registration you can find your api key at
 Next, create an `.env` file in the root directory of your project and add the
 following lines:
 
-```js
-VITE_API_KEY=<your_api_key>
-VITE_API_URL=<your_api_url> (default: https://api.themoviedb.org/3)
 ```
+VITE_API_KEY=<your_api_key>
+VITE_API_URL=<your_api_url>
+```
+
+The default value of VITE_API_URL is
+[https://api.themoviedb.org/3](https://api.themoviedb.org/3)
 
 ## Quick Setup
 
