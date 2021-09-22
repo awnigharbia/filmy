@@ -1,5 +1,6 @@
 ![LICENSE](https://img.shields.io/github/license/awnigharbia/filmy)
 [![build](https://github.com/awnigharbia/filmy/actions/workflows/publish.yaml/badge.svg)](https://github.com/awnigharbia/filmy/actions/workflows/publish.yaml)
+
 # Filmy
 
 Small movie site to browse movies:
@@ -11,6 +12,22 @@ Small movie site to browse movies:
 
 Try the demo at
 [https://awnigharbia.github.io/filmy/#/](https://awnigharbia.github.io/filmy/#/)
+
+## Setup API KEY
+
+First you need to register an account on
+[themoviedb.org](https://www.themoviedb.org/).
+
+After registration you can find your api key at
+[https://www.themoviedb.org/settings/api](https://www.themoviedb.org/settings/api).
+
+Next, create an `.env` file in the root directory of your project and add the
+following lines:
+
+```js
+VITE_API_KEY=<your_api_key>
+VITE_API_URL=<your_api_url> (default: https://api.themoviedb.org/3)
+```
 
 ## Quick Setup
 
