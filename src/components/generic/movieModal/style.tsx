@@ -75,10 +75,6 @@ export const ModalContent = styled(Content)`
     flex-direction: row;
     justify-content: flex-start;
   }
-  @media only screen and (min-width: 1200px) {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
 `
 
 export const Close = styled.div`

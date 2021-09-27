@@ -20,12 +20,6 @@
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  .search {
-    width: 100%;
-  }
-}
-
 .search-result {
   position: absolute;
   display: flex;

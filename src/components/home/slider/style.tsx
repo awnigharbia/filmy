@@ -95,9 +95,6 @@ export const ModalInfo = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
   }
-  @media only screen and (min-width: 1200px) {
-    display: flex;
-  }
 `
 
 export const ModalImg = styled(Img)`
@@ -113,9 +110,6 @@ export const ModalImg = styled(Img)`
     width: 70vw;
   }
   @media only screen and (min-width: 768px) {
-    width: 30vw;
-  }
-  @media only screen and (min-width: 1200px) {
     width: 30vw;
   }
 `
