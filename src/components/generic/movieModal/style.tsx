@@ -58,9 +58,7 @@ export const ModalContent = styled(Content)`
   position: relative;
   z-index: 10;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
   background-color: var(--colors-primary);
   max-width: 100%;
   margin-top: auto;
@@ -69,6 +67,14 @@ export const ModalContent = styled(Content)`
   padding: 10px 40px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+
+  @media only screen and (min-width: 320px) {
+    flex-direction: column;
+  }
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 `
 
 export const Close = styled.div`
@@ -79,6 +85,7 @@ export const Close = styled.div`
   color: rgba(255, 255, 255, 1);
   transition: 0.2s ease-in-out;
   margin-left: auto;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.15);
