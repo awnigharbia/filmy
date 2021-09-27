@@ -3,7 +3,7 @@ import {FC} from 'react'
 import * as SliderParent from './style'
 import {Icon} from 'react-icons-kit'
 import {star} from 'react-icons-kit/fa/'
-import {search} from 'react-icons-kit/feather/search'
+import {info} from 'react-icons-kit/feather/info'
 import {globe, video} from 'react-icons-kit/feather'
 import {useMovieModal} from 'src/context/MovieModalContext'
 
@@ -56,7 +56,7 @@ export const SliderModal: FC<Props> = ({movies, activeIndex}) => {
         <SliderParent.ModalDownload
           onClick={() => handleOpen(movies[activeIndex].id)}
         >
-          <Icon icon={search} size={30} />
+          <Icon icon={info} size={30} />
         </SliderParent.ModalDownload>
       </SliderParent.ModalInfo>
     </SliderParent.ActiveModal>

@@ -88,6 +88,16 @@ export const ModalInfo = styled.div`
   box-shadow: 0 0px 12px rgba(0, 0, 0, 0.11), 0 10px 40px rgba(0, 0, 0, 0.19);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+
+  @media only screen and (min-width: 320px) {
+    display: none;
+  }
+  @media only screen and (min-width: 768px) {
+    display: flex;
+  }
+  @media only screen and (min-width: 1200px) {
+    display: flex;
+  }
 `
 
 export const ModalImg = styled(Img)`
@@ -98,6 +108,16 @@ export const ModalImg = styled(Img)`
   width: 30vw;
   height: 95%;
   z-index: 1;
+
+  @media only screen and (min-width: 320px) {
+    width: 70vw;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 30vw;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 30vw;
+  }
 `
 
 export const ModalTitle = styled.h3`
