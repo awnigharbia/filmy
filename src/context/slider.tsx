@@ -62,14 +62,14 @@ const Slider: FC<Props> = ({movies, ...props}) => {
       setTranslate(0)
     } else {
       setCurrentSlide(currentSlide + step)
-      setTranslate(translate + translateSlideValue)
+      setTranslate(translate - translateSlideValue)
     }
   }
 
   const prevImg = () => {
     if (!isFirstSlide) {
       setCurrentSlide(currentSlide - step)
-      setTranslate(translate - translateSlideValue)
+      setTranslate(translate + translateSlideValue)
     }
   }
 
