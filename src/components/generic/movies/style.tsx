@@ -1,14 +1,10 @@
 import styled from 'styled-components'
 
 export const Movies = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 10px 40px;
-  align-items: center;
-  box-sizing: border-box;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
   background-color: var(--colors-primary);
 `
 
